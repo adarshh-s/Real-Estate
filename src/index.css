@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --color-ink: #000000;
+  --color-ink-soft: #171717;
+  --color-cream: #ffffff;
+  --color-cream-soft: #f2f2f2;
+  --color-surface: #ffffff;
+  --color-sand: #e6dcc8;
+  --color-gold: #000000;
+  --color-gold-soft: #a3a3a3;
+  --color-gold-pale: #e5e5e5;
+  --color-line: #e5e5e5;
+
+  --animate-marquee: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-gold-pale);
+  color: var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+/* thin gold scrollbar for horizontal rails */
+.rail::-webkit-scrollbar {
+  height: 4px;
+}
+.rail::-webkit-scrollbar-thumb {
+  background: var(--color-gold-soft);
+  border-radius: 4px;
+}
+.rail::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
