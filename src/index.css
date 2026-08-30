@@ -18,11 +18,17 @@
   --color-line: #e5e5e5;
 
   --animate-marquee: marquee 32s linear infinite;
+  --animate-marquee-vertical: marquee-vertical 26s linear infinite;
 }
 
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-vertical {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
 }
 
 @keyframes drift1 {

@@ -13,6 +13,7 @@ import { Reveal } from '../components/Reveal';
 import { ScrollRail } from '../components/ScrollRail';
 import { GradientMesh } from '../components/GradientMesh';
 import { Marquee } from '../components/Marquee';
+import { VerticalTicker } from '../components/VerticalTicker';
 import { StaggerText } from '../components/StaggerText';
 import { properties, getPropertyBySlug } from '../data/properties';
 import { projects } from '../data/projects';
@@ -25,6 +26,7 @@ import { formatPrice, formatNumber } from '../lib/format';
 import type { Tag } from '../types';
 
 const featured = properties.filter((p) => p.featured).slice(0, 6);
+const tickerProperties = properties.slice(0, 8);
 const spotlightProjects = projects.slice(0, 3);
 const spotlightCommunities = communities.slice(0, 6);
 const heroFeaturedProperty = getPropertyBySlug('park-heights-villa-dubai-hills')!;
@@ -204,6 +206,30 @@ export function Home() {
           <Button to="/listings" variant="outline">
             View All Listings
           </Button>
+        </div>
+      </section>
+
+      {/* Live activity */}
+      <section className="border-t border-ink/10 py-28 md:py-36">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-10">
+          <Reveal>
+            <p className="mb-4 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-gold">
+              <span className="h-px w-8 bg-gold" /> Always In Motion
+            </p>
+            <h2 className="font-display text-3xl leading-tight text-ink sm:text-4xl">
+              Live portfolio activity
+            </h2>
+            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-ink/60">
+              New listings, price updates and offers move quickly across our portfolio. This is a
+              live edit of what our consultants are working on right now.
+            </p>
+            <Button to="/listings" variant="outline" className="mt-8">
+              View All Listings
+            </Button>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <VerticalTicker properties={tickerProperties} />
+          </Reveal>
         </div>
       </section>
 
