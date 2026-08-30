@@ -1,8 +1,9 @@
-import { communities } from '../data/communities';
+import { useCommunities } from '../hooks/useSanityContent';
 import { CommunityCard } from '../components/CommunityCard';
 import { Breadcrumb } from '../components/Breadcrumb';
 
 export function Communities() {
+  const communities = useCommunities();
   return (
     <div className="pt-28">
       <div className="mx-auto max-w-7xl px-6 pt-8 lg:px-10">

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Search } from 'lucide-react';
 import clsx from 'clsx';
-import { communities } from '../data/communities';
+import { useCommunities } from '../hooks/useSanityContent';
 
 type Mode = 'buy' | 'rent' | 'off-plan';
 
@@ -16,6 +16,7 @@ const MODES: { key: Mode; label: string }[] = [
 const PROPERTY_TYPES = ['Apartment', 'Villa', 'Penthouse', 'Townhouse', 'Mansion'];
 
 export function SearchBar({ light = true }: { light?: boolean }) {
+  const communities = useCommunities();
   const navigate = useNavigate();
   const [mode, setMode] = useState<Mode>('buy');
   const [community, setCommunity] = useState('');

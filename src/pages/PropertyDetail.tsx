@@ -1,7 +1,6 @@
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { BedDouble, Bath, Maximize, LandPlot, Heart, Phone, Mail, MessageCircle, Check } from 'lucide-react';
-import { getPropertyBySlug, properties } from '../data/properties';
-import { agents } from '../data/agents';
+import { usePropertyBySlug, useProperties, useAgents } from '../hooks/useSanityContent';
 import { useCurrency } from '../context/CurrencyContext';
 import { useShortlist } from '../context/ShortlistContext';
 import { formatPrice, formatNumber } from '../lib/format';
@@ -14,13 +13,15 @@ import { Button } from '../components/Button';
 
 export function PropertyDetail() {
   const { slug = '' } = useParams();
-  const property = getPropertyBySlug(slug);
+  const property = usePropertyBySlug(slug);
+  const properties = useProperties();
+  const agents = useAgents();
   const { currency } = useCurrency();
   const { isShortlisted, toggle } = useShortlist();
 
   if (!property) return <Navigate to="/listings" replace />;
 
-  const agent = agents.find((a) => a.id === property.agentId);
+  const agent = agents.find((a) => a.id === property.agentId || a.slug === property.agentId);
   const similar = properties
     .filter((p) => p.id !== property.id && p.community === property.community)
     .slice(0, 3);

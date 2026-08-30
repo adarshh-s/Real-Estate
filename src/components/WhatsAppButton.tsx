@@ -1,9 +1,11 @@
 import { MessageCircle } from 'lucide-react';
+import { useSiteSettings } from '../hooks/useSanityContent';
 
 export function WhatsAppButton() {
+  const settings = useSiteSettings();
   return (
     <a
-      href="https://wa.me/971505550100?text=Hello%20Providence%20Estates%2C%20I%27d%20like%20to%20speak%20to%20a%20consultant."
+      href={`https://wa.me/${settings.whatsappNumber}?text=Hello%20Providence%20Estates%2C%20I%27d%20like%20to%20speak%20to%20a%20consultant.`}
       target="_blank"
       rel="noreferrer"
       aria-label="Chat with us on WhatsApp"

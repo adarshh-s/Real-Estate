@@ -1,12 +1,13 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { communities } from '../data/communities';
-import { properties } from '../data/properties';
+import { useCommunities, useProperties } from '../hooks/useSanityContent';
 import { PropertyCard } from '../components/PropertyCard';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { formatNumber } from '../lib/format';
 
 export function CommunityDetail() {
   const { slug = '' } = useParams();
+  const communities = useCommunities();
+  const properties = useProperties();
   const community = communities.find((c) => c.slug === slug);
 
   if (!community) return <Navigate to="/communities" replace />;

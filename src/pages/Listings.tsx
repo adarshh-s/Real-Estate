@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { SlidersHorizontal, X, TrendingUp, Percent, BadgeCheck, PiggyBank, CalendarClock, Sofa } from 'lucide-react';
-import { properties } from '../data/properties';
+import { useProperties } from '../hooks/useSanityContent';
 import type { Tag } from '../types';
 import { PropertyCard } from '../components/PropertyCard';
 import { Filters, DEFAULT_FILTERS, type FilterState } from '../components/Filters';
@@ -46,6 +46,7 @@ const MODE_CONTENT = {
 } as const;
 
 export function Listings() {
+  const properties = useProperties();
   const [searchParams] = useSearchParams();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [sort, setSort] = useState<'featured' | 'price-asc' | 'price-desc'>('featured');
@@ -89,7 +90,7 @@ export function Listings() {
     if (sort === 'price-asc') list = [...list].sort((a, b) => a.priceAED - b.priceAED);
     if (sort === 'price-desc') list = [...list].sort((a, b) => b.priceAED - a.priceAED);
     return list;
-  }, [filters, sort]);
+  }, [properties, filters, sort]);
 
   return (
     <div className="pt-28">

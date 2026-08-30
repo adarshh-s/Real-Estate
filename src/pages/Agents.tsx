@@ -1,8 +1,9 @@
-import { agents } from '../data/agents';
+import { useAgents } from '../hooks/useSanityContent';
 import { AgentCard } from '../components/AgentCard';
 import { Breadcrumb } from '../components/Breadcrumb';
 
 export function Agents() {
+  const agents = useAgents();
   return (
     <div className="pt-28">
       <div className="mx-auto max-w-7xl px-6 pt-8 lg:px-10">

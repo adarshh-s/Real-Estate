@@ -1,18 +1,19 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { Phone, Mail, MessageCircle } from 'lucide-react';
-import { agents } from '../data/agents';
-import { properties } from '../data/properties';
+import { useAgents, useProperties } from '../hooks/useSanityContent';
 import { PropertyCard } from '../components/PropertyCard';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Button } from '../components/Button';
 
 export function AgentDetail() {
   const { slug = '' } = useParams();
+  const agents = useAgents();
+  const properties = useProperties();
   const agent = agents.find((a) => a.slug === slug);
 
   if (!agent) return <Navigate to="/agents" replace />;
 
-  const listings = properties.filter((p) => p.agentId === agent.id);
+  const listings = properties.filter((p) => p.agentId === agent.id || p.agentId === agent.slug);
   const whatsappMessage = encodeURIComponent(`Hello ${agent.name}, I'd like to speak with you about a property.`);
 
   return (

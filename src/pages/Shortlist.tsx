@@ -1,12 +1,13 @@
 import { Heart } from 'lucide-react';
 import { useShortlist } from '../context/ShortlistContext';
-import { properties } from '../data/properties';
+import { useProperties } from '../hooks/useSanityContent';
 import { PropertyCard } from '../components/PropertyCard';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Button } from '../components/Button';
 
 export function Shortlist() {
   const { ids } = useShortlist();
+  const properties = useProperties();
   const saved = properties.filter((p) => ids.includes(p.id));
 
   return (

@@ -8,8 +8,7 @@ import { StaggerText } from '../components/StaggerText';
 import { GradientMesh } from '../components/GradientMesh';
 import { AgentCard } from '../components/AgentCard';
 import { Button } from '../components/Button';
-import { agents } from '../data/agents';
-import { communities } from '../data/communities';
+import { useAgents, useCommunities } from '../hooks/useSanityContent';
 import { exteriors, interiors } from '../lib/images';
 
 const PRINCIPLES = [
@@ -26,9 +25,10 @@ const MILESTONES = [
   { year: '2026', label: 'Grew to a team of six senior consultants across Dubai’s key communities.' },
 ];
 
-const COVERAGE = communities.slice(0, 6).map((c) => c.name);
-
 export function About() {
+  const agents = useAgents();
+  const communities = useCommunities();
+  const coverage = communities.slice(0, 6).map((c) => c.name);
   return (
     <div>
       <section className="relative flex min-h-[70vh] items-end overflow-hidden pt-16">
@@ -144,7 +144,7 @@ export function About() {
               Palm to Dubai Hills — so nothing is generic and nothing is guessed.
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
-              {COVERAGE.map((city) => (
+              {coverage.map((city) => (
                 <span
                   key={city}
                   className="rounded-full border border-ink/15 px-4 py-1.5 text-xs uppercase tracking-[0.1em] text-ink/60"

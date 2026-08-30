@@ -4,6 +4,7 @@ import { Heart, Menu, X, Phone, Mail } from 'lucide-react';
 import clsx from 'clsx';
 import { CurrencySwitcher } from './CurrencySwitcher';
 import { useShortlist } from '../context/ShortlistContext';
+import { useSiteSettings } from '../hooks/useSanityContent';
 
 const LINKS = [
   { label: 'Buy', to: '/listings?status=For Sale' },
@@ -15,6 +16,7 @@ const LINKS = [
 ];
 
 export function Navbar() {
+  const settings = useSiteSettings();
   const { pathname } = useLocation();
   const isHome = pathname === '/';
   const [scrolled, setScrolled] = useState(false);
@@ -59,16 +61,16 @@ export function Navbar() {
         >
           <div className="flex items-center gap-6">
             <a
-              href="tel:+97145550100"
+              href={`tel:${settings.contactPhone?.replace(/\s/g, '')}`}
               className={clsx('flex items-center gap-1.5', transparent ? 'hover:text-cream' : 'hover:text-ink')}
             >
-              <Phone size={12} /> +971 4 555 0100
+              <Phone size={12} /> {settings.contactPhone}
             </a>
             <a
-              href="mailto:hello@providence.ae"
+              href={`mailto:${settings.contactEmail}`}
               className={clsx('flex items-center gap-1.5', transparent ? 'hover:text-cream' : 'hover:text-ink')}
             >
-              <Mail size={12} /> hello@providence.ae
+              <Mail size={12} /> {settings.contactEmail}
             </a>
           </div>
           <div className="flex items-center gap-5">

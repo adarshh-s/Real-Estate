@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { SectionHeading } from '../components/SectionHeading';
 import { Reveal } from '../components/Reveal';
-import { communities } from '../data/communities';
+import { useCommunities } from '../hooks/useSanityContent';
 import { exteriors } from '../lib/images';
 
 const STEPS = [
@@ -13,6 +13,7 @@ const STEPS = [
 ];
 
 export function Sell() {
+  const communities = useCommunities();
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: FormEvent) {

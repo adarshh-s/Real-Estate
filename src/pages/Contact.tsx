@@ -1,10 +1,10 @@
 import { useState, type FormEvent } from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { Breadcrumb } from '../components/Breadcrumb';
-
-const OFFICE = { city: 'Dubai HQ', address: 'Gate Village 7, DIFC, Dubai, UAE', phone: '+971 4 555 0100' };
+import { useSiteSettings } from '../hooks/useSanityContent';
 
 export function Contact() {
+  const settings = useSiteSettings();
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: FormEvent) {
@@ -71,18 +71,18 @@ export function Contact() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div className="rounded-2xl border border-ink/10 p-6">
-            <h3 className="font-display text-lg text-ink">{OFFICE.city}</h3>
+            <h3 className="font-display text-lg text-ink">Dubai HQ</h3>
             <p className="mt-3 flex items-start gap-2 text-sm text-ink/60">
-              <MapPin size={15} className="mt-0.5 shrink-0 text-gold" /> {OFFICE.address}
+              <MapPin size={15} className="mt-0.5 shrink-0 text-gold" /> {settings.officeAddress}
             </p>
             <p className="mt-2 flex items-center gap-2 text-sm text-ink/60">
-              <Phone size={15} className="shrink-0 text-gold" /> {OFFICE.phone}
+              <Phone size={15} className="shrink-0 text-gold" /> {settings.contactPhone}
             </p>
           </div>
           <div className="rounded-2xl border border-ink/10 p-6">
             <h3 className="font-display text-lg text-ink">General Enquiries</h3>
             <p className="mt-3 flex items-center gap-2 text-sm text-ink/60">
-              <Mail size={15} className="shrink-0 text-gold" /> hello@providence.ae
+              <Mail size={15} className="shrink-0 text-gold" /> {settings.contactEmail}
             </p>
           </div>
         </div>

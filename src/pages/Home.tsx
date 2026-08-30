@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck, Handshake, Award, ChevronDown, BedDouble, Bath, Maximize, Star, Building2, Users } from 'lucide-react';
@@ -15,21 +16,18 @@ import { GradientMesh } from '../components/GradientMesh';
 import { Marquee } from '../components/Marquee';
 import { VerticalTicker } from '../components/VerticalTicker';
 import { StaggerText } from '../components/StaggerText';
-import { properties, getPropertyBySlug } from '../data/properties';
-import { projects } from '../data/projects';
-import { communities } from '../data/communities';
-import { agents } from '../data/agents';
-import { testimonials } from '../data/testimonials';
+import {
+  useProperties,
+  useProjects,
+  useCommunities,
+  useAgents,
+  useTestimonials,
+  useSiteSettings,
+} from '../hooks/useSanityContent';
 import { exteriors, interiors } from '../lib/images';
 import { useCurrency } from '../context/CurrencyContext';
 import { formatPrice, formatNumber } from '../lib/format';
 import type { Tag } from '../types';
-
-const featured = properties.filter((p) => p.featured).slice(0, 6);
-const tickerProperties = properties.slice(0, 8);
-const spotlightProjects = projects.slice(0, 3);
-const spotlightCommunities = communities.slice(0, 6);
-const heroFeaturedProperty = getPropertyBySlug('park-heights-villa-dubai-hills')!;
 
 const COLLECTION_BASE: { tag: Tag; title: string; description: string; image: string }[] = [
   { tag: 'Waterfront', title: 'Waterfront Living', description: 'Beachfront villas and marina-facing towers', image: exteriors[1] },
@@ -37,10 +35,6 @@ const COLLECTION_BASE: { tag: Tag; title: string; description: string; image: st
   { tag: 'Branded Residence', title: 'Branded Residences', description: 'Hotel-branded addresses, five-star service', image: interiors[14] },
   { tag: 'Exclusive', title: 'Exclusive Collection', description: 'Off-market and limited-release listings', image: exteriors[6] },
 ];
-const COLLECTIONS = COLLECTION_BASE.map((c) => ({
-  ...c,
-  count: properties.filter((p) => p.tags?.includes(c.tag)).length,
-}));
 
 const TRUST_ITEMS = [
   { icon: ShieldCheck, label: 'RERA Licensed Brokerage' },
@@ -51,21 +45,42 @@ const TRUST_ITEMS = [
 
 export function Home() {
   const { currency } = useCurrency();
+  const settings = useSiteSettings();
+  const properties = useProperties();
+  const projects = useProjects();
+  const communities = useCommunities();
+  const agents = useAgents();
+  const testimonials = useTestimonials();
+
+  const featured = useMemo(() => properties.filter((p) => p.featured).slice(0, 6), [properties]);
+  const tickerProperties = useMemo(() => properties.slice(0, 8), [properties]);
+  const spotlightProjects = useMemo(() => projects.slice(0, 3), [projects]);
+  const spotlightCommunities = useMemo(() => communities.slice(0, 6), [communities]);
+  const heroFeaturedProperty = featured[0] ?? properties[0];
+  const COLLECTIONS = useMemo(
+    () =>
+      COLLECTION_BASE.map((c) => ({
+        ...c,
+        count: properties.filter((p) => p.tags?.includes(c.tag)).length,
+      })),
+    [properties],
+  );
 
   return (
     <div>
       {/* Hero */}
       <section className="relative flex min-h-[100vh] flex-col justify-end overflow-hidden bg-ink">
         <video
+          key={settings.heroVideoUrl}
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          poster="/hero-poster.jpg"
+          poster={settings.heroPosterUrl}
           className="absolute inset-0 h-full w-full scale-[1.02] object-cover"
         >
-          <source src="/videos/hero-luxury-home.mp4" type="video/mp4" />
+          <source src={settings.heroVideoUrl} type="video/mp4" />
         </video>
         {/* corner vignette so a bright, top-down shot still reads as premium/cinematic */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(14,20,32,0.55)_100%)]" />
@@ -80,17 +95,14 @@ export function Home() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="mb-5 flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-gold-soft">
-              <span className="h-px w-8 bg-gold-soft" /> Dubai · International Realty
+              <span className="h-px w-8 bg-gold-soft" /> {settings.heroKicker}
             </p>
             <h1 className="max-w-3xl font-display text-4xl leading-[1.05] text-cream sm:text-5xl md:text-6xl lg:text-7xl">
-              <StaggerText text="Extraordinary addresses," delay={0.15} />
+              <StaggerText text={settings.heroHeadlineLine1 ?? ''} delay={0.15} />
               <br />
-              <StaggerText text="for an extraordinary city." delay={0.4} />
+              <StaggerText text={settings.heroHeadlineLine2 ?? ''} delay={0.4} />
             </h1>
-            <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-cream/70">
-              Providence Estates curates Dubai’s finest waterfront villas, sky residences and
-              private estates for a global clientele — with the discretion of a private office.
-            </p>
+            <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-cream/70">{settings.heroSubtitle}</p>
           </motion.div>
 
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -306,6 +318,7 @@ export function Home() {
       {/* Cinematic interstitial */}
       <section className="relative flex h-[70vh] items-center justify-center overflow-hidden bg-ink">
         <video
+          key={settings.interstitialVideoUrl}
           autoPlay
           muted
           loop
@@ -314,7 +327,7 @@ export function Home() {
           poster="/twilight-poster.jpg"
           className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src="/videos/twilight-villa.mp4" type="video/mp4" />
+          <source src={settings.interstitialVideoUrl} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-ink/55" />
         <div className="grain-overlay" />
@@ -323,12 +336,9 @@ export function Home() {
             <span className="h-px w-8 bg-gold-soft" /> The Providence Standard
           </p>
           <h2 className="font-display text-3xl leading-tight text-cream sm:text-4xl md:text-5xl">
-            Where every address is extraordinary
+            {settings.interstitialHeadline}
           </h2>
-          <p className="mt-5 text-[15px] leading-relaxed text-cream/70">
-            From private beach clubs to sky-high infinity pools, discover what sets a Providence
-            residence apart.
-          </p>
+          <p className="mt-5 text-[15px] leading-relaxed text-cream/70">{settings.interstitialBody}</p>
           <Link
             to="/listings"
             className="group mt-8 inline-flex items-center gap-2 rounded-full border border-cream/50 px-6 py-3 text-xs uppercase tracking-[0.18em] text-cream transition-all duration-300 hover:scale-[1.03] hover:bg-cream hover:text-ink active:scale-[0.97]"

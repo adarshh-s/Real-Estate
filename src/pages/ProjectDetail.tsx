@@ -1,6 +1,6 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { MessageCircle, Check } from 'lucide-react';
-import { getProjectBySlug } from '../data/projects';
+import { useProjectBySlug } from '../hooks/useSanityContent';
 import { useCurrency } from '../context/CurrencyContext';
 import { formatPrice } from '../lib/format';
 import { Gallery } from '../components/Gallery';
@@ -10,7 +10,7 @@ import { Button } from '../components/Button';
 
 export function ProjectDetail() {
   const { slug = '' } = useParams();
-  const project = getProjectBySlug(slug);
+  const project = useProjectBySlug(slug);
   const { currency } = useCurrency();
 
   if (!project) return <Navigate to="/off-plan" replace />;

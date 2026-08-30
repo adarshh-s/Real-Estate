@@ -1,4 +1,4 @@
-import { communities } from '../data/communities';
+import { useCommunities } from '../hooks/useSanityContent';
 import clsx from 'clsx';
 
 export interface FilterState {
@@ -45,6 +45,7 @@ export function Filters({
   value: FilterState;
   onChange: (next: FilterState) => void;
 }) {
+  const communities = useCommunities();
   const set = <K extends keyof FilterState>(key: K, v: FilterState[K]) =>
     onChange({ ...value, [key]: v });
 

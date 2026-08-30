@@ -1,13 +1,14 @@
 import { useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { projects } from '../data/projects';
-import { communities } from '../data/communities';
+import { useProjects, useCommunities } from '../hooks/useSanityContent';
 import { ProjectCard } from '../components/ProjectCard';
 import { Breadcrumb } from '../components/Breadcrumb';
 
 type StatusFilter = 'All' | 'Launching Soon' | 'Presale' | 'Under Construction' | 'Ready';
 
 export function OffPlan() {
+  const projects = useProjects();
+  const communities = useCommunities();
   const [searchParams] = useSearchParams();
   const [community, setCommunity] = useState(searchParams.get('community') || '');
   const [status, setStatus] = useState<StatusFilter>('All');
@@ -19,7 +20,7 @@ export function OffPlan() {
         if (status !== 'All' && p.status !== status) return false;
         return true;
       }),
-    [community, status],
+    [projects, community, status],
   );
 
   return (

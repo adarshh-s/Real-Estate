@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
 import { InstagramIcon, LinkedinIcon, FacebookIcon, YoutubeIcon } from './SocialIcons';
 import { Newsletter } from './Newsletter';
-import { communities } from '../data/communities';
-
-const COVERAGE = communities.slice(0, 5).map((c) => c.name);
+import { useCommunities } from '../hooks/useSanityContent';
 
 const EXPLORE = [
   { label: 'Buy', to: '/listings?status=For Sale' },
@@ -20,6 +18,8 @@ const COMPANY = [
 ];
 
 export function Footer() {
+  const communities = useCommunities();
+  const coverage = communities.slice(0, 5).map((c) => c.name);
   return (
     <footer className="bg-ink text-cream">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
@@ -69,7 +69,7 @@ export function Footer() {
           <div>
             <p className="mb-4 text-xs uppercase tracking-[0.2em] text-gold-soft">Coverage</p>
             <ul className="flex flex-col gap-3 text-sm text-cream/70">
-              {COVERAGE.map((c) => (
+              {coverage.map((c) => (
                 <li key={c}>{c}</li>
               ))}
             </ul>
