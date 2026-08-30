@@ -285,10 +285,10 @@ export function Home() {
           loop
           playsInline
           preload="none"
-          poster="/hero-poster.jpg"
+          poster="/twilight-poster.jpg"
           className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src="/videos/hero-luxury-home.mp4" type="video/mp4" />
+          <source src="/videos/twilight-villa.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-ink/55" />
         <div className="grain-overlay" />
