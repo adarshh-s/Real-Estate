@@ -72,7 +72,7 @@ export function Navbar() {
             </a>
           </div>
           <div className="flex items-center gap-5">
-            <span>25 Offices Worldwide</span>
+            <span>RERA Licensed Brokerage</span>
             <div className={clsx('h-3 w-px', transparent ? 'bg-cream/25' : 'bg-ink/15')} />
             <CurrencySwitcher light={transparent} />
           </div>

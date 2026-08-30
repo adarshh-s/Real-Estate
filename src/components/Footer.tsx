@@ -1,14 +1,9 @@
 import { Link } from 'react-router-dom';
 import { InstagramIcon, LinkedinIcon, FacebookIcon, YoutubeIcon } from './SocialIcons';
 import { Newsletter } from './Newsletter';
+import { communities } from '../data/communities';
 
-const OFFICES = [
-  'Dubai — DIFC Gate Village',
-  'Abu Dhabi — Al Maryah Island',
-  'London — Mayfair',
-  'Geneva — Rue du Rhône',
-  'Singapore — Marina Bay',
-];
+const COVERAGE = communities.slice(0, 5).map((c) => c.name);
 
 const EXPLORE = [
   { label: 'Buy', to: '/listings?status=For Sale' },
@@ -35,7 +30,7 @@ export function Footer() {
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/60">
               A private-client real estate house representing Dubai’s most distinguished
-              addresses, connected to a global network of discerning buyers.
+              addresses, built by a senior team with decades of combined experience.
             </p>
             <div className="mt-6 flex gap-4 text-cream/70">
               <InstagramIcon size={18} className="hover:text-gold-soft" />
@@ -72,10 +67,10 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-gold-soft">Offices</p>
+            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-gold-soft">Coverage</p>
             <ul className="flex flex-col gap-3 text-sm text-cream/70">
-              {OFFICES.map((o) => (
-                <li key={o}>{o}</li>
+              {COVERAGE.map((c) => (
+                <li key={c}>{c}</li>
               ))}
             </ul>
           </div>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Globe2, Award, Handshake, ArrowRight } from 'lucide-react';
+import { ShieldCheck, TrendingUp, Award, Handshake, ArrowRight } from 'lucide-react';
 import { StatStrip } from '../components/StatStrip';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { SectionHeading } from '../components/SectionHeading';
@@ -9,23 +9,24 @@ import { GradientMesh } from '../components/GradientMesh';
 import { AgentCard } from '../components/AgentCard';
 import { Button } from '../components/Button';
 import { agents } from '../data/agents';
+import { communities } from '../data/communities';
 import { exteriors, interiors } from '../lib/images';
 
 const PRINCIPLES = [
   { icon: ShieldCheck, title: 'Discretion', body: 'Confidential handling of every transaction, from first enquiry to closing.' },
-  { icon: Globe2, title: 'Global Network', body: 'Direct relationships with private banks, family offices and referral partners abroad.' },
-  { icon: Award, title: 'Market Depth', body: 'Two decades of transaction data informing every valuation we provide.' },
+  { icon: Award, title: 'Senior Expertise', body: 'Our founding consultants bring a combined six decades of experience from Dubai’s leading agencies.' },
+  { icon: TrendingUp, title: 'Data-Led', body: 'Every valuation is benchmarked against verified, real-time Dubai transaction data — not guesswork.' },
   { icon: Handshake, title: 'Partnership', body: 'One dedicated consultant sees your transaction through from start to finish.' },
 ];
 
 const MILESTONES = [
-  { year: '2013', label: 'Providence founded by a partnership of Dubai’s senior luxury consultants.' },
-  { year: '2016', label: 'Opened our private client office on Palm Jumeirah.' },
-  { year: '2019', label: 'Expanded the referral network to London and Geneva.' },
-  { year: '2024', label: 'Surpassed AED 45B in prime Dubai property transacted.' },
+  { year: '2023', label: 'Providence Estates founded in Dubai by a partnership of senior luxury consultants.' },
+  { year: '2024', label: 'Closed our first AED 100M+ portfolio sale on Palm Jumeirah.' },
+  { year: '2025', label: 'Surpassed AED 1B in prime Dubai property transacted.' },
+  { year: '2026', label: 'Grew to a team of six senior consultants across Dubai’s key communities.' },
 ];
 
-const OFFICES = ['Dubai', 'London', 'Geneva', 'Singapore', 'Hong Kong', 'New York'];
+const COVERAGE = communities.slice(0, 6).map((c) => c.name);
 
 export function About() {
   return (
@@ -38,7 +39,7 @@ export function About() {
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-14 lg:px-10">
           <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: 'About' }]} />
           <p className="mt-6 flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-gold-soft">
-            <span className="h-px w-8 bg-gold-soft" /> Est. 2013 · Dubai
+            <span className="h-px w-8 bg-gold-soft" /> Est. 2023 · Dubai
           </p>
           <h1 className="mt-5 max-w-2xl font-display text-4xl leading-[1.05] text-cream sm:text-5xl md:text-6xl">
             <StaggerText text="A private office for" delay={0.1} />
@@ -46,8 +47,8 @@ export function About() {
             <StaggerText text="Dubai’s finest addresses" delay={0.35} />
           </h1>
           <p className="mt-6 max-w-md text-[15px] leading-relaxed text-cream/70">
-            Two decades of ultra-prime transactions, a referral network spanning four continents,
-            and a single point of contact for every client we serve.
+            A senior team with decades of combined experience, a fast-growing portfolio of
+            Dubai’s finest addresses, and a single point of contact for every client we serve.
           </p>
         </div>
       </section>
@@ -62,15 +63,15 @@ export function About() {
               <span className="h-px w-8 bg-gold" /> Our Story
             </p>
             <p className="relative font-display text-2xl leading-relaxed text-ink sm:text-3xl">
-              Founded by a partnership of Dubai’s most experienced luxury consultants, Providence
-              Estates was built to bring the discretion of a private office to a market that had
-              outgrown the traditional listings portal.
+              Founded in 2023 by a partnership of Dubai’s most experienced luxury consultants,
+              Providence Estates was built to bring the discretion of a private office to a
+              market that had outgrown the traditional listings portal.
             </p>
             <p className="relative mt-8 max-w-xl text-[15px] leading-relaxed text-ink/60">
               We represent a portfolio of the city’s most significant properties — from Palm
               Jumeirah beachfront villas to Emirates Hills estates — connecting owners with a
-              curated, verified network of qualified buyers across four continents. Every
-              engagement is handled by a dedicated partner, not a call centre.
+              curated, verified network of qualified buyers. Every engagement is handled by a
+              dedicated partner, not a call centre.
             </p>
           </Reveal>
 
@@ -126,24 +127,24 @@ export function About() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/45 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 flex items-center gap-4 rounded-2xl border border-white/20 bg-white/85 p-4 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.35)] backdrop-blur-md">
-              <p className="font-display text-2xl text-ink">25</p>
+              <p className="font-display text-2xl text-ink">100%</p>
               <p className="text-[11px] uppercase leading-tight tracking-[0.1em] text-ink/55">
-                Offices across four continents
+                Dedicated to Dubai real estate
               </p>
             </div>
           </Reveal>
           <Reveal className="px-6 py-16 lg:px-16">
-            <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold">Global Presence</p>
+            <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold">Dubai-First, By Design</p>
             <h2 className="font-display text-3xl leading-tight text-ink sm:text-4xl">
-              25 offices. One standard of service.
+              One city. Total focus.
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-ink/60">
-              Our Dubai headquarters is connected to a referral network spanning London, Geneva
-              and Singapore — ensuring every listing reaches the right buyer, wherever they are
-              in the world.
+              We made a deliberate choice to specialise in one market rather than spread thin
+              across many. Every consultant lives and breathes Dubai real estate — from the
+              Palm to Dubai Hills — so nothing is generic and nothing is guessed.
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
-              {OFFICES.map((city) => (
+              {COVERAGE.map((city) => (
                 <span
                   key={city}
                   className="rounded-full border border-ink/15 px-4 py-1.5 text-xs uppercase tracking-[0.1em] text-ink/60"

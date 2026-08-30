@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck, Globe2, Award, ChevronDown, BedDouble, Bath, Maximize } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Handshake, Award, ChevronDown, BedDouble, Bath, Maximize, Star, Building2, Users } from 'lucide-react';
 import { SearchBar } from '../components/SearchBar';
 import { SectionHeading } from '../components/SectionHeading';
 import { PropertyCard } from '../components/PropertyCard';
@@ -39,6 +39,13 @@ const COLLECTIONS = COLLECTION_BASE.map((c) => ({
   ...c,
   count: properties.filter((p) => p.tags?.includes(c.tag)).length,
 }));
+
+const TRUST_ITEMS = [
+  { icon: ShieldCheck, label: 'RERA Licensed Brokerage' },
+  { icon: Star, label: '98% Client Satisfaction' },
+  { icon: Building2, label: '140+ Residences Sold' },
+  { icon: Users, label: '6 Senior Consultants' },
+];
 
 export function Home() {
   const { currency } = useCurrency();
@@ -143,6 +150,23 @@ export function Home() {
           <ChevronDown size={20} className="animate-bounce text-cream/50" />
         </div>
       </section>
+
+      {/* Trust strip — floats over the seam between hero and stats */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="relative z-20 mx-auto hidden -mt-9 w-full max-w-5xl px-6 lg:block"
+      >
+        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 rounded-full border border-cream/15 bg-ink/70 px-8 py-4 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] backdrop-blur-xl lg:flex-nowrap lg:justify-between">
+          {TRUST_ITEMS.map((t) => (
+            <div key={t.label} className="flex items-center gap-2.5 text-cream/85">
+              <t.icon size={15} className="shrink-0 text-gold-soft" strokeWidth={1.6} />
+              <span className="text-[11px] uppercase tracking-[0.14em] whitespace-nowrap">{t.label}</span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="-mt-px">
@@ -334,7 +358,7 @@ export function Home() {
               Market Insight
             </span>
             <div className="absolute bottom-6 left-6 right-6 flex items-center gap-4 rounded-2xl border border-white/20 bg-white/85 p-4 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.35)] backdrop-blur-md sm:right-auto sm:w-72">
-              <p className="font-display text-2xl text-ink">AED 45B+</p>
+              <p className="font-display text-2xl text-ink">AED 1.2B+</p>
               <p className="text-[11px] uppercase leading-tight tracking-[0.1em] text-ink/55">
                 In prime Dubai property transacted through Providence
               </p>
@@ -358,16 +382,16 @@ export function Home() {
 
             <div className="relative mt-9 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-ink/10 pt-6">
               <div>
-                <p className="font-display text-xl text-ink">2,400+</p>
+                <p className="font-display text-xl text-ink">140+</p>
                 <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">Transactions Closed</p>
               </div>
               <div>
-                <p className="font-display text-xl text-ink">25</p>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">Global Offices</p>
+                <p className="font-display text-xl text-ink">6</p>
+                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">Senior Consultants</p>
               </div>
               <div>
-                <p className="font-display text-xl text-ink">20+ Yrs</p>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">Market Authority</p>
+                <p className="font-display text-xl text-ink">60+ Yrs</p>
+                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">Combined Experience</p>
               </div>
             </div>
 
@@ -400,16 +424,16 @@ export function Home() {
                 body: 'Off-market listings and confidential negotiations for clients who value their privacy above all.',
               },
               {
-                icon: Globe2,
-                stat: '25 Offices',
-                title: 'Global Reach',
-                body: 'A referral network spanning 25 offices, placing your property in front of qualified buyers worldwide.',
+                icon: Handshake,
+                stat: '1:1',
+                title: 'Boutique By Design',
+                body: 'Every client works directly with a senior partner — never a rotating desk of coordinators.',
               },
               {
                 icon: Award,
-                stat: '20+ Years',
-                title: 'Market Authority',
-                body: 'Two decades advising on Dubai’s most significant transactions, from island villas to sky penthouses.',
+                stat: '60+ Yrs',
+                title: 'Senior Team',
+                body: 'Our founding consultants bring a combined six decades of experience from Dubai’s leading agencies — now under one roof.',
               },
             ].map((f, i) => (
               <Reveal key={f.title} delay={i * 0.08} className="h-full">

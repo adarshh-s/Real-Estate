@@ -7,7 +7,7 @@ import { exteriors } from '../lib/images';
 
 const STEPS = [
   { title: 'Private Consultation', body: 'A partner-level consultant visits your property to understand its story and your objectives.' },
-  { title: 'Data-Led Valuation', body: 'We benchmark against two decades of comparable transactions to price with precision.' },
+  { title: 'Data-Led Valuation', body: 'We benchmark against verified, real-time comparable transactions to price with precision.' },
   { title: 'Discreet Marketing', body: 'Your listing is placed in front of our verified buyer network before it ever appears publicly.' },
   { title: 'Negotiation & Close', body: 'Your consultant manages every offer, negotiation and closing detail on your behalf.' },
 ];

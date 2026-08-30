@@ -2,12 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { Breadcrumb } from '../components/Breadcrumb';
 
-const OFFICES = [
-  { city: 'Dubai (HQ)', address: 'Gate Village 7, DIFC, Dubai, UAE', phone: '+971 4 555 0100' },
-  { city: 'Abu Dhabi', address: 'Al Maryah Island, Abu Dhabi, UAE', phone: '+971 2 555 0100' },
-  { city: 'London', address: '25 Berkeley Square, Mayfair, London', phone: '+44 20 7946 0100' },
-  { city: 'Geneva', address: 'Rue du Rhône 45, 1204 Geneva', phone: '+41 22 555 0100' },
-];
+const OFFICE = { city: 'Dubai HQ', address: 'Gate Village 7, DIFC, Dubai, UAE', phone: '+971 4 555 0100' };
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -75,18 +70,16 @@ export function Contact() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {OFFICES.map((o) => (
-            <div key={o.city} className="rounded-2xl border border-ink/10 p-6">
-              <h3 className="font-display text-lg text-ink">{o.city}</h3>
-              <p className="mt-3 flex items-start gap-2 text-sm text-ink/60">
-                <MapPin size={15} className="mt-0.5 shrink-0 text-gold" /> {o.address}
-              </p>
-              <p className="mt-2 flex items-center gap-2 text-sm text-ink/60">
-                <Phone size={15} className="shrink-0 text-gold" /> {o.phone}
-              </p>
-            </div>
-          ))}
-          <div className="rounded-2xl border border-ink/10 p-6 sm:col-span-2">
+          <div className="rounded-2xl border border-ink/10 p-6">
+            <h3 className="font-display text-lg text-ink">{OFFICE.city}</h3>
+            <p className="mt-3 flex items-start gap-2 text-sm text-ink/60">
+              <MapPin size={15} className="mt-0.5 shrink-0 text-gold" /> {OFFICE.address}
+            </p>
+            <p className="mt-2 flex items-center gap-2 text-sm text-ink/60">
+              <Phone size={15} className="shrink-0 text-gold" /> {OFFICE.phone}
+            </p>
+          </div>
+          <div className="rounded-2xl border border-ink/10 p-6">
             <h3 className="font-display text-lg text-ink">General Enquiries</h3>
             <p className="mt-3 flex items-center gap-2 text-sm text-ink/60">
               <Mail size={15} className="shrink-0 text-gold" /> hello@providence.ae
