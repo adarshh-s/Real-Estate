@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import type { MouseEvent } from 'react';
 import { BedDouble, Bath, Maximize, Heart } from 'lucide-react';
 import type { Property } from '../types';
 import { useCurrency } from '../context/CurrencyContext';
@@ -7,16 +9,40 @@ import { formatPrice, formatNumber } from '../lib/format';
 import { Badge } from './Badge';
 import clsx from 'clsx';
 
+const MotionLink = motion.create(Link);
+
 export function PropertyCard({ property, className }: { property: Property; className?: string }) {
   const { currency } = useCurrency();
   const { isShortlisted, toggle } = useShortlist();
   const saved = isShortlisted(property.id);
 
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springConfig = { stiffness: 300, damping: 28, mass: 0.5 };
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [5, -5]), springConfig);
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-5, 5]), springConfig);
+
+  function handleMouseMove(e: MouseEvent<HTMLAnchorElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+  }
+
+  function handleMouseLeave() {
+    mouseX.set(0);
+    mouseY.set(0);
+  }
+
   return (
-    <Link
+    <MotionLink
       to={`/property/${property.slug}`}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY, transformPerspective: 1000 }}
+      whileHover={{ y: -6 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 25 }}
       className={clsx(
-        'group flex flex-col overflow-hidden rounded-xl bg-surface shadow-[0_1px_2px_rgba(0,0,0,0.05)] ring-1 ring-ink/10 transition-all duration-400 ease-out hover:-translate-y-1.5 hover:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.2)] hover:ring-ink/15',
+        'group flex flex-col overflow-hidden rounded-xl bg-surface shadow-[0_1px_2px_rgba(0,0,0,0.05)] ring-1 ring-ink/10 hover:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.2)] hover:ring-ink/15',
         className,
       )}
     >
@@ -82,6 +108,6 @@ export function PropertyCard({ property, className }: { property: Property; clas
           </span>
         </div>
       </div>
-    </Link>
+    </MotionLink>
   );
 }

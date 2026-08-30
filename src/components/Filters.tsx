@@ -8,6 +8,7 @@ export interface FilterState {
   minBeds: number;
   maxPriceAED: number;
   completion: 'All' | 'Ready' | 'Off-Plan';
+  tag: string;
 }
 
 export const DEFAULT_FILTERS: FilterState = {
@@ -17,9 +18,11 @@ export const DEFAULT_FILTERS: FilterState = {
   minBeds: 0,
   maxPriceAED: 0,
   completion: 'All',
+  tag: '',
 };
 
 const PROPERTY_TYPES = ['Apartment', 'Penthouse', 'Villa', 'Townhouse', 'Mansion'];
+const COLLECTION_TAGS = ['Waterfront', 'Sky Villa', 'Branded Residence', 'Exclusive', 'New'];
 const PRICE_CAPS = [
   { label: 'Any Price', value: 0 },
   { label: 'Up to AED 2M', value: 2_000_000 },
@@ -122,6 +125,35 @@ export function Filters({
             </option>
           ))}
         </select>
+      </div>
+
+      <div>
+        <FieldLabel>Collection</FieldLabel>
+        <div className="flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={() => set('tag', '')}
+            className={clsx(
+              'rounded-full border px-3 py-2 text-xs uppercase tracking-[0.1em] transition-colors',
+              value.tag === '' ? 'border-ink bg-ink text-cream' : 'border-ink/15 text-ink/60 hover:border-ink/40',
+            )}
+          >
+            Any
+          </button>
+          {COLLECTION_TAGS.map((t) => (
+            <button
+              key={t}
+              type="button"
+              onClick={() => set('tag', t)}
+              className={clsx(
+                'rounded-full border px-3 py-2 text-xs uppercase tracking-[0.1em] transition-colors',
+                value.tag === t ? 'border-ink bg-ink text-cream' : 'border-ink/15 text-ink/60 hover:border-ink/40',
+              )}
+            >
+              {t}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div>

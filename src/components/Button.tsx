@@ -12,7 +12,7 @@ const variantClasses: Record<Variant, string> = {
 };
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-xs uppercase tracking-[0.18em] font-medium transition-all duration-300 whitespace-nowrap active:scale-[0.97]';
+  'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-xs uppercase tracking-[0.18em] font-medium transition-all duration-300 ease-out whitespace-nowrap hover:scale-[1.03] active:scale-[0.97]';
 
 export function Button({
   children,

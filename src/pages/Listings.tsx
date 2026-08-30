@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { SlidersHorizontal, X, TrendingUp, Percent, BadgeCheck, PiggyBank, CalendarClock, Sofa } from 'lucide-react';
 import { properties } from '../data/properties';
+import type { Tag } from '../types';
 import { PropertyCard } from '../components/PropertyCard';
 import { Filters, DEFAULT_FILTERS, type FilterState } from '../components/Filters';
 import { Breadcrumb } from '../components/Breadcrumb';
@@ -54,7 +55,19 @@ export function Listings() {
     status: (searchParams.get('status') as FilterState['status']) || 'All',
     community: searchParams.get('community') || '',
     type: searchParams.get('type') || '',
+    tag: searchParams.get('tag') || '',
   }));
+
+  useEffect(() => {
+    setFilters((prev) => ({
+      ...prev,
+      status: (searchParams.get('status') as FilterState['status']) || 'All',
+      community: searchParams.get('community') || '',
+      type: searchParams.get('type') || '',
+      tag: searchParams.get('tag') || '',
+    }));
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+  }, [searchParams]);
 
   const mode = filters.status === 'For Sale' || filters.status === 'For Rent' ? MODE_CONTENT[filters.status] : null;
 
@@ -70,6 +83,7 @@ export function Listings() {
       if (filters.minBeds && p.beds < filters.minBeds) return false;
       if (filters.maxPriceAED && p.priceAED > filters.maxPriceAED) return false;
       if (filters.completion !== 'All' && p.completion !== filters.completion) return false;
+      if (filters.tag && !p.tags?.includes(filters.tag as Tag)) return false;
       return true;
     });
     if (sort === 'price-asc') list = [...list].sort((a, b) => a.priceAED - b.priceAED);

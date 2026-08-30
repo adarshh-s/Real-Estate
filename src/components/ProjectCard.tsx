@@ -49,7 +49,7 @@ export function ProjectCard({ project, dark = false }: { project: Project; dark?
             dark ? 'border-cream/10' : 'border-ink/[0.06]',
           )}
         >
-          <p className="font-display text-xl text-gold">
+          <p className={clsx('font-display text-xl', dark ? 'text-cream' : 'text-gold')}>
             From {formatPrice(project.priceFromAED, currency)}
           </p>
           <p className={`text-xs ${dark ? 'text-cream/50' : 'text-ink/50'}`}>
