@@ -14,7 +14,7 @@ export function Newsletter() {
   if (submitted) {
     return (
       <p className="font-display text-lg text-cream">
-        Thank you — you’re on the list for Sialuxe market insights.
+        Thank you — you’re on the list for S I A Luxe market insights.
       </p>
     );
   }

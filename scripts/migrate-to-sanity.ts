@@ -23,6 +23,7 @@ import { projects } from '../src/data/projects.ts';
 import { communities } from '../src/data/communities.ts';
 import { agents } from '../src/data/agents.ts';
 import { testimonials } from '../src/data/testimonials.ts';
+import { articles } from '../src/data/articles.ts';
 
 const projectId = process.env.VITE_SANITY_PROJECT_ID;
 const dataset = process.env.VITE_SANITY_DATASET || 'production';
@@ -171,6 +172,28 @@ async function run() {
     console.log(`  + ${t.name}`);
   }
 
+  console.log('\nJournal articles:');
+  for (const a of articles) {
+    const coverAssetId = await uploadAsset('image', a.coverImage);
+    const imageAssetIds = a.images ? await Promise.all(a.images.map((url) => uploadAsset('image', url))) : [];
+    const authorSlug = agentSlugById[a.authorId ?? ''];
+    await client.create({
+      _type: 'article',
+      title: a.title,
+      slug: { _type: 'slug', current: a.slug },
+      category: a.category,
+      coverImage: image(coverAssetId),
+      images: imageAssetIds.length > 0 ? imageAssetIds.map(image) : undefined,
+      excerpt: a.excerpt,
+      body: a.body,
+      author: authorSlug ? { _type: 'reference', _ref: agentIdBySlug[authorSlug] } : undefined,
+      publishedAt: a.publishedAt,
+      readMinutes: a.readMinutes,
+      featured: a.featured ?? false,
+    });
+    console.log(`  + ${a.title}`);
+  }
+
   console.log('\nSite settings (hero + cinematic video)...');
   const heroVideoAssetId = await uploadAsset('file', '/videos/hero-luxury-home.mp4');
   const heroPosterAssetId = await uploadAsset('image', '/hero-poster.jpg');
@@ -184,11 +207,11 @@ async function run() {
     heroHeadlineLine1: 'Extraordinary addresses,',
     heroHeadlineLine2: 'for an extraordinary city.',
     heroSubtitle:
-      'Sialuxe Real Estate curates Dubai’s finest waterfront villas, sky residences and private estates for a global clientele — with the discretion of a private office.',
+      'S I A Luxe Real Estate curates Dubai’s finest waterfront villas, sky residences and private estates for a global clientele — with the discretion of a private office.',
     interstitialVideo: { _type: 'file', asset: { _type: 'reference', _ref: interstitialVideoAssetId } },
     interstitialHeadline: 'Where every address is extraordinary',
     interstitialBody:
-      'From private beach clubs to sky-high infinity pools, discover what sets a Sialuxe residence apart.',
+      'From private beach clubs to sky-high infinity pools, discover what sets a S I A Luxe residence apart.',
     contactPhone: '+971 4 555 0100',
     contactEmail: 'hello@sialuxe.ae',
     whatsappNumber: '971505550100',

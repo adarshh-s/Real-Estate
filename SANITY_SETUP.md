@@ -81,8 +81,8 @@ Opens at `http://localhost:3333`. You should see everything from step 4.
 cd studio
 npx sanity deploy
 ```
-Pick a studio hostname (e.g. `sialuxe-real-estate` → gives you
-`sialuxe-real-estate.sanity.studio`). That URL is what you send the client.
+Pick a studio hostname (e.g. `sia-luxe-real-estate` → gives you
+`sia-luxe-real-estate.sanity.studio`). That URL is what you send the client.
 
 **7. Run the main site and confirm it's now pulling live data:**
 

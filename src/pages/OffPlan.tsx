@@ -30,7 +30,7 @@ export function OffPlan() {
         <h1 className="mt-4 font-display text-4xl text-ink sm:text-5xl">Off-Plan &amp; New Developments</h1>
         <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink/60">
           Priority access to Dubai’s most anticipated launches, with structured payment plans and
-          direct developer allocations for Sialuxe clients.
+          direct developer allocations for S I A Luxe clients.
         </p>
       </div>
 

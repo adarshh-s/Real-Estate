@@ -16,6 +16,8 @@ import { Communities } from './pages/Communities';
 import { CommunityDetail } from './pages/CommunityDetail';
 import { Agents } from './pages/Agents';
 import { AgentDetail } from './pages/AgentDetail';
+import { Journal } from './pages/Journal';
+import { ArticleDetail } from './pages/ArticleDetail';
 import { About } from './pages/About';
 import { Sell } from './pages/Sell';
 import { Contact } from './pages/Contact';
@@ -56,6 +58,8 @@ function AppRoutes() {
               <Route path="/communities/:slug" element={<CommunityDetail />} />
               <Route path="/agents" element={<Agents />} />
               <Route path="/agents/:slug" element={<AgentDetail />} />
+              <Route path="/journal" element={<Journal />} />
+              <Route path="/journal/:slug" element={<ArticleDetail />} />
               <Route path="/about" element={<About />} />
               <Route path="/sell" element={<Sell />} />
               <Route path="/contact" element={<Contact />} />

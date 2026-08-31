@@ -13,7 +13,7 @@ export const agents: Agent[] = [
     email: 'yasmin.alfarsi@sialuxe.ae',
     languages: ['English', 'Arabic', 'French'],
     specialties: ['Palm Jumeirah', 'Jumeirah Bay Island', 'Branded Residences'],
-    bio: 'Yasmin leads Sialuxe’s private client practice, advising ultra-high-net-worth families on beachfront and branded residence acquisitions across the Palm and Jumeirah Bay Island.',
+    bio: 'Yasmin leads S I A Luxe’s private client practice, advising ultra-high-net-worth families on beachfront and branded residence acquisitions across the Palm and Jumeirah Bay Island.',
     listingsCount: 18,
   },
   {
@@ -55,7 +55,7 @@ export const agents: Agent[] = [
     email: 'oliver.bennett@sialuxe.ae',
     languages: ['English', 'German'],
     specialties: ['Off-Plan', 'Dubai Hills Estate', 'Master Communities'],
-    bio: 'Oliver works directly with Dubai’s leading developers to bring Sialuxe clients priority access to launches before they reach the open market.',
+    bio: 'Oliver works directly with Dubai’s leading developers to bring S I A Luxe clients priority access to launches before they reach the open market.',
     listingsCount: 40,
   },
   {
@@ -83,7 +83,7 @@ export const agents: Agent[] = [
     email: 'daniel.ortiz@sialuxe.ae',
     languages: ['English', 'Spanish'],
     specialties: ['Downtown Dubai', 'Leasing', 'Penthouses'],
-    bio: 'Daniel heads Sialuxe’s leasing desk, placing executive tenants into the city’s finest towers and managing landlord portfolios end to end.',
+    bio: 'Daniel heads S I A Luxe’s leasing desk, placing executive tenants into the city’s finest towers and managing landlord portfolios end to end.',
     listingsCount: 27,
   },
 ];

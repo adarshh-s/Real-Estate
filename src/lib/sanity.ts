@@ -1,5 +1,5 @@
 import { createClient } from '@sanity/client';
-import type { Property, Project, Community, Agent, Testimonial } from '../types';
+import type { Property, Project, Community, Agent, Testimonial, Article } from '../types';
 
 const projectId = import.meta.env.VITE_SANITY_PROJECT_ID as string | undefined;
 const dataset = import.meta.env.VITE_SANITY_DATASET as string | undefined;
@@ -88,6 +88,21 @@ const TESTIMONIAL_PROJECTION = `{
   quote
 }`;
 
+const ARTICLE_PROJECTION = `{
+  "id": _id,
+  title,
+  "slug": slug.current,
+  excerpt,
+  body,
+  "coverImage": coverImage.asset->url,
+  "images": images[].asset->url,
+  category,
+  "authorId": author->slug.current,
+  publishedAt,
+  readMinutes,
+  featured
+}`;
+
 export interface SiteSettings {
   heroVideoUrl?: string;
   heroPosterUrl?: string;
@@ -149,6 +164,19 @@ export async function fetchAgentBySlug(slug: string): Promise<Agent | null> {
 export async function fetchTestimonials(): Promise<Testimonial[] | null> {
   if (!sanityClient) return null;
   return sanityClient.fetch<Testimonial[]>(`*[_type == "testimonial"] ${TESTIMONIAL_PROJECTION}`);
+}
+
+export async function fetchArticles(): Promise<Article[] | null> {
+  if (!sanityClient) return null;
+  return sanityClient.fetch<Article[]>(`*[_type == "article"] | order(publishedAt desc) ${ARTICLE_PROJECTION}`);
+}
+
+export async function fetchArticleBySlug(slug: string): Promise<Article | null> {
+  if (!sanityClient) return null;
+  return sanityClient.fetch<Article | null>(
+    `*[_type == "article" && slug.current == $slug][0] ${ARTICLE_PROJECTION}`,
+    { slug },
+  );
 }
 
 export async function fetchSiteSettings(): Promise<SiteSettings | null> {

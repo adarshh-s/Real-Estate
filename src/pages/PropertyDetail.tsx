@@ -32,7 +32,7 @@ export function PropertyDetail() {
     .slice(0, 3);
   const saved = isShortlisted(property.id);
   const whatsappMessage = encodeURIComponent(
-    `Hello, I'm interested in ${property.title} (${property.reference}) listed on Sialuxe Real Estate.`,
+    `Hello, I'm interested in ${property.title} (${property.reference}) listed on S I A Luxe Real Estate.`,
   );
 
   return (

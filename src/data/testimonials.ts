@@ -6,7 +6,7 @@ export const testimonials: Testimonial[] = [
     name: 'A. Kessler',
     role: 'Buyer, Palm Jumeirah',
     quote:
-      'Sialuxe found us a frond villa before it ever reached the open market. The whole process, from the first call to keys in hand, was handled with total discretion.',
+      'S I A Luxe found us a frond villa before it ever reached the open market. The whole process, from the first call to keys in hand, was handled with total discretion.',
   },
   {
     id: 't2',

@@ -2,7 +2,7 @@ import type { StructureResolver } from 'sanity/structure';
 
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title('Sialuxe Real Estate Content')
+    .title('S I A Luxe Real Estate Content')
     .items([
       S.listItem()
         .title('Site Settings')
@@ -14,4 +14,6 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('community').title('Communities'),
       S.documentTypeListItem('agent').title('Agents'),
       S.documentTypeListItem('testimonial').title('Testimonials'),
+      S.divider(),
+      S.documentTypeListItem('article').title('Journal Articles'),
     ]);

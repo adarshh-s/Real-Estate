@@ -11,8 +11,9 @@ const EXPLORE = [
 ];
 
 const COMPANY = [
-  { label: 'About Sialuxe', to: '/about' },
+  { label: 'About S I A Luxe', to: '/about' },
   { label: 'Our Agents', to: '/agents' },
+  { label: 'Journal', to: '/journal' },
   { label: 'Sell With Us', to: '/sell' },
   { label: 'Contact', to: '/contact' },
 ];
@@ -26,7 +27,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
             <p className="font-display text-xl tracking-[0.08em]">
-              SIALUXE <span className="text-gold-soft">REAL ESTATE</span>
+              S I A LUXE <span className="text-gold-soft">REAL ESTATE</span>
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/60">
               A private-client real estate house representing Dubai’s most distinguished
@@ -86,7 +87,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-cream/10 pt-6 text-xs text-cream/40 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Sialuxe Real Estate LLC. RERA ORN 0000000. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} S I A Luxe Real Estate LLC. RERA ORN 0000000. All rights reserved.</p>
           <p>Regulated by the Real Estate Regulatory Agency (RERA), Dubai Land Department.</p>
         </div>
       </div>

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import type { Property, Project, Community, Agent, Testimonial } from '../types';
+import type { Property, Project, Community, Agent, Testimonial, Article } from '../types';
 import { properties as staticProperties, getPropertyBySlug as getStaticPropertyBySlug } from '../data/properties';
 import { projects as staticProjects, getProjectBySlug as getStaticProjectBySlug } from '../data/projects';
 import { communities as staticCommunities } from '../data/communities';
 import { agents as staticAgents } from '../data/agents';
 import { testimonials as staticTestimonials } from '../data/testimonials';
+import { articles as staticArticles, getArticleBySlug as getStaticArticleBySlug } from '../data/articles';
 import {
   fetchProperties,
   fetchPropertyBySlug,
@@ -14,6 +15,8 @@ import {
   fetchAgents,
   fetchAgentBySlug,
   fetchTestimonials,
+  fetchArticles,
+  fetchArticleBySlug,
   fetchSiteSettings,
   type SiteSettings,
 } from '../lib/sanity';
@@ -154,6 +157,39 @@ export function useTestimonials() {
   return testimonials;
 }
 
+export function useArticles() {
+  const [articles, setArticles] = useState<Article[]>(staticArticles);
+  useEffect(() => {
+    let cancelled = false;
+    fetchArticles()
+      .then((docs) => {
+        if (!cancelled && docs && docs.length > 0) setArticles(docs);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  return articles;
+}
+
+export function useArticleBySlug(slug: string | undefined) {
+  const [article, setArticle] = useState<Article | undefined>(() => (slug ? getStaticArticleBySlug(slug) : undefined));
+  useEffect(() => {
+    if (!slug) return;
+    let cancelled = false;
+    fetchArticleBySlug(slug)
+      .then((doc) => {
+        if (!cancelled && doc) setArticle(doc);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
+  return article;
+}
+
 const DEFAULT_SITE_SETTINGS: SiteSettings = {
   heroVideoUrl: '/videos/hero-luxury-home.mp4',
   heroPosterUrl: '/hero-poster.jpg',
@@ -161,11 +197,11 @@ const DEFAULT_SITE_SETTINGS: SiteSettings = {
   heroHeadlineLine1: 'Extraordinary addresses,',
   heroHeadlineLine2: 'for an extraordinary city.',
   heroSubtitle:
-    'Sialuxe Real Estate curates Dubai’s finest waterfront villas, sky residences and private estates for a global clientele — with the discretion of a private office.',
+    'S I A Luxe Real Estate curates Dubai’s finest waterfront villas, sky residences and private estates for a global clientele — with the discretion of a private office.',
   interstitialVideoUrl: '/videos/twilight-villa.mp4',
   interstitialHeadline: 'Where every address is extraordinary',
   interstitialBody:
-    'From private beach clubs to sky-high infinity pools, discover what sets a Sialuxe residence apart.',
+    'From private beach clubs to sky-high infinity pools, discover what sets a S I A Luxe residence apart.',
   contactPhone: '+971 4 555 0100',
   contactEmail: 'hello@sialuxe.ae',
   whatsappNumber: '971505550100',

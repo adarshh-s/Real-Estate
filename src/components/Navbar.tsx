@@ -12,6 +12,7 @@ const LINKS = [
   { label: 'New Projects', to: '/off-plan' },
   { label: 'Communities', to: '/communities' },
   { label: 'Agents', to: '/agents' },
+  { label: 'Journal', to: '/journal' },
   { label: 'About', to: '/about' },
 ];
 
@@ -91,7 +92,7 @@ export function Navbar() {
           to="/"
           className={clsx('font-display text-xl tracking-[0.08em]', transparent ? 'text-cream' : 'text-ink')}
         >
-          SIALUXE <span className={transparent ? 'text-gold-soft' : 'text-gold'}>REAL ESTATE</span>
+          S I A LUXE <span className={transparent ? 'text-gold-soft' : 'text-gold'}>REAL ESTATE</span>
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">

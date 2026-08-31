@@ -24,8 +24,8 @@ export const projects: Project[] = [
   },
   {
     id: 'pr2',
-    slug: 'sialuxe-tower-downtown',
-    name: 'Sialuxe Tower',
+    slug: 'sia-luxe-tower-downtown',
+    name: 'S I A Luxe Tower',
     developer: 'Emaar',
     community: 'Downtown Dubai',
     status: 'Presale',
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     handover: 'Q3 2028',
     images: gallery(24, 4, coverFor('Dubai Hills Estate')),
     description:
-      'An exclusive enclave of 45 villas backing onto the championship golf course, launching to Sialuxe private clients ahead of public release.',
+      'An exclusive enclave of 45 villas backing onto the championship golf course, launching to S I A Luxe private clients ahead of public release.',
     unitTypes: ['5-Bed Villa', '6-Bed Villa'],
     amenities: ['Golf course backdrop', 'Private pools', 'Clubhouse access', '24h security'],
   },

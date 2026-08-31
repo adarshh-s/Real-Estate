@@ -41,3 +41,7 @@ export function formatCompactAED(amountAED: number): string {
 export function formatNumber(n: number): string {
   return new Intl.NumberFormat('en-US').format(n);
 }
+
+export function formatDate(iso: string): string {
+  return new Date(iso).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}

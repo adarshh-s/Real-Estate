@@ -97,3 +97,20 @@ export interface Testimonial {
   role: string;
   quote: string;
 }
+
+export type ArticleCategory = 'Market Insight' | 'Buying Guide' | 'Neighborhood Guide' | 'Off-Plan' | 'Lifestyle';
+
+export interface Article {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  body: string;
+  coverImage: string;
+  images?: string[];
+  category: ArticleCategory;
+  authorId?: string;
+  publishedAt: string;
+  readMinutes?: number;
+  featured?: boolean;
+}

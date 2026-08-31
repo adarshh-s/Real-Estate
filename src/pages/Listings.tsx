@@ -73,7 +73,7 @@ export function Listings() {
   const mode = filters.status === 'For Sale' || filters.status === 'For Rent' ? MODE_CONTENT[filters.status] : null;
 
   useEffect(() => {
-    document.title = mode ? `${mode.heading} | Sialuxe Real Estate` : 'All Listings | Sialuxe Real Estate';
+    document.title = mode ? `${mode.heading} | S I A Luxe Real Estate` : 'All Listings | S I A Luxe Real Estate';
   }, [mode]);
 
   const results = useMemo(() => {
@@ -101,7 +101,7 @@ export function Listings() {
         )}
         <h1 className="mt-3 font-display text-4xl text-ink sm:text-5xl">{mode ? mode.heading : 'All Listings'}</h1>
         <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink/60">
-          {mode ? mode.description : 'Browse the full Sialuxe portfolio across Dubai — for sale and to let.'}
+          {mode ? mode.description : 'Browse the full S I A Luxe portfolio across Dubai — for sale and to let.'}
         </p>
         <p className="mt-4 text-sm text-ink/40">{results.length} residences found</p>
 
