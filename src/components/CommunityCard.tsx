@@ -40,7 +40,7 @@ export function CommunityCard({
       </div>
 
       <div className={clsx('relative z-10 p-6', featured && 'sm:max-w-lg sm:p-9')}>
-        <p className="mb-1.5 text-[10px] uppercase tracking-[0.25em] text-gold-soft">
+        <p className="mb-1.5 text-[10px] uppercase tracking-[0.25em] text-cream/90 [text-shadow:0_1px_6px_rgba(0,0,0,0.5)]">
           {community.tagline}
         </p>
         <h3 className={clsx('font-display leading-tight text-cream', featured ? 'text-3xl sm:text-4xl' : 'text-2xl')}>

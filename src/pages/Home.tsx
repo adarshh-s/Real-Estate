@@ -373,7 +373,7 @@ export function Home() {
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {spotlightCommunities.slice(1, 5).map((c, i) => (
               <Reveal key={c.id} delay={0.06 + i * 0.06}>
-                <CommunityCard community={c} index={i + 2} />
+                <CommunityCard community={c} />
               </Reveal>
             ))}
           </div>
