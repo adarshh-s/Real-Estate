@@ -11,6 +11,7 @@ import { MortgageCalculator } from '../components/MortgageCalculator';
 import { PropertyCard } from '../components/PropertyCard';
 import { PropertyMap } from '../components/PropertyMap';
 import { Button } from '../components/Button';
+import { Reveal } from '../components/Reveal';
 
 export function PropertyDetail() {
   const { slug = '' } = useParams();
@@ -177,7 +178,9 @@ export function PropertyDetail() {
 
       {mapLocation && (
         <div className="mx-auto max-w-7xl border-t border-ink/10 px-6 py-14 lg:px-10">
-          <h2 className="font-display text-2xl text-ink sm:text-3xl">Location</h2>
+          <Reveal>
+            <h2 className="font-display text-2xl text-ink sm:text-3xl">Location</h2>
+          </Reveal>
           <div className="mt-8">
             <PropertyMap
               location={mapLocation}
