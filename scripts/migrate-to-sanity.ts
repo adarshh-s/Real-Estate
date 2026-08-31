@@ -82,6 +82,7 @@ async function run() {
       avgPricePerSqft: c.avgPricePerSqft,
       listingsCount: c.listingsCount,
       popularFor: c.popularFor,
+      location: c.location ? { _type: 'geopoint', lat: c.location.lat, lng: c.location.lng } : undefined,
     });
     communityIdBySlug[c.slug] = doc._id;
     console.log(`  + ${c.name}`);
@@ -138,6 +139,7 @@ async function run() {
       featured: p.featured ?? false,
       yearBuilt: p.yearBuilt,
       reference: p.reference,
+      location: p.location ? { _type: 'geopoint', lat: p.location.lat, lng: p.location.lng } : undefined,
     });
     console.log(`  + ${p.title}`);
   }
@@ -182,13 +184,13 @@ async function run() {
     heroHeadlineLine1: 'Extraordinary addresses,',
     heroHeadlineLine2: 'for an extraordinary city.',
     heroSubtitle:
-      'Providence Estates curates Dubai’s finest waterfront villas, sky residences and private estates for a global clientele — with the discretion of a private office.',
+      'Sialuxe Real Estate curates Dubai’s finest waterfront villas, sky residences and private estates for a global clientele — with the discretion of a private office.',
     interstitialVideo: { _type: 'file', asset: { _type: 'reference', _ref: interstitialVideoAssetId } },
     interstitialHeadline: 'Where every address is extraordinary',
     interstitialBody:
-      'From private beach clubs to sky-high infinity pools, discover what sets a Providence residence apart.',
+      'From private beach clubs to sky-high infinity pools, discover what sets a Sialuxe residence apart.',
     contactPhone: '+971 4 555 0100',
-    contactEmail: 'hello@providence.ae',
+    contactEmail: 'hello@sialuxe.ae',
     whatsappNumber: '971505550100',
     officeAddress: 'Gate Village 7, DIFC, Dubai, UAE',
   });

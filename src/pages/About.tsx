@@ -19,7 +19,7 @@ const PRINCIPLES = [
 ];
 
 const MILESTONES = [
-  { year: '2023', label: 'Providence Estates founded in Dubai by a partnership of senior luxury consultants.' },
+  { year: '2023', label: 'Sialuxe Real Estate founded in Dubai by a partnership of senior luxury consultants.' },
   { year: '2024', label: 'Closed our first AED 100M+ portfolio sale on Palm Jumeirah.' },
   { year: '2025', label: 'Surpassed AED 1B in prime Dubai property transacted.' },
   { year: '2026', label: 'Grew to a team of six senior consultants across Dubai’s key communities.' },
@@ -32,7 +32,7 @@ export function About() {
   return (
     <div>
       <section className="relative flex min-h-[70vh] items-end overflow-hidden pt-16">
-        <img src={exteriors[4]} alt="Providence Estates" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={exteriors[4]} alt="Sialuxe Real Estate" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(14,20,32,0.5)_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent" />
         <div className="grain-overlay" />
@@ -64,7 +64,7 @@ export function About() {
             </p>
             <p className="relative font-display text-2xl leading-relaxed text-ink sm:text-3xl">
               Founded in 2023 by a partnership of Dubai’s most experienced luxury consultants,
-              Providence Estates was built to bring the discretion of a private office to a
+              Sialuxe Real Estate was built to bring the discretion of a private office to a
               market that had outgrown the traditional listings portal.
             </p>
             <p className="relative mt-8 max-w-xl text-[15px] leading-relaxed text-ink/60">
@@ -99,7 +99,7 @@ export function About() {
         <div className="bg-grid absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
-            <SectionHeading kicker="Our Principles" title="What Sets Providence Apart" align="center" />
+            <SectionHeading kicker="Our Principles" title="What Sets Sialuxe Apart" align="center" />
           </Reveal>
           <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PRINCIPLES.map((f, i) => (
@@ -122,7 +122,7 @@ export function About() {
           <Reveal className="group relative aspect-[4/5] overflow-hidden lg:aspect-auto lg:h-full">
             <img
               src={interiors[2]}
-              alt="Providence office"
+              alt="Sialuxe office"
               className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/45 via-transparent to-transparent" />
@@ -161,7 +161,7 @@ export function About() {
         <Reveal>
           <SectionHeading
             kicker="Leadership"
-            title="The People Behind Providence"
+            title="The People Behind Sialuxe"
             description="A small team of senior consultants, each with a decade or more advising Dubai’s ultra-prime market."
             action={
               <Link
@@ -188,13 +188,13 @@ export function About() {
       </section>
 
       <section className="relative overflow-hidden">
-        <img src={exteriors[5]} alt="Speak with Providence" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={exteriors[5]} alt="Speak with Sialuxe" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-ink/70" />
         <div className="grain-overlay" />
         <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 py-28 text-center">
           <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold-soft">Work With Us</p>
           <h2 className="font-display text-3xl leading-tight text-cream sm:text-4xl">
-            Speak with a Providence partner
+            Speak with a Sialuxe partner
           </h2>
           <p className="mt-5 max-w-lg text-[15px] text-cream/70">
             Whether buying, selling or investing, our private office is ready to guide your next

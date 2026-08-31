@@ -16,7 +16,7 @@ export function Contact() {
     <div className="pt-28">
       <div className="mx-auto max-w-7xl px-6 pt-8 lg:px-10">
         <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: 'Contact' }]} />
-        <h1 className="mt-4 font-display text-4xl text-ink sm:text-5xl">Speak With Providence</h1>
+        <h1 className="mt-4 font-display text-4xl text-ink sm:text-5xl">Speak With Sialuxe</h1>
         <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink/60">
           For enquiries about buying, renting, selling or our private client services, reach our
           Dubai headquarters directly or send us a message below.

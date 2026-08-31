@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "migrate:sanity": "tsx scripts/migrate-to-sanity.ts"
+    "migrate:sanity": "tsx scripts/migrate-to-sanity.ts",
+    "rebrand:sanity": "tsx scripts/rebrand-sanity.ts",
+    "backfill:locations": "tsx scripts/backfill-locations.ts"
   },
   "dependencies": {
     "@sanity/client": "^8.4.0",

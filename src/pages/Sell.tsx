@@ -37,7 +37,7 @@ export function Sell() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-6 py-14 lg:grid-cols-2 lg:px-10">
         <div className="order-2 lg:order-1">
           <div className="aspect-[4/3] overflow-hidden lg:aspect-auto lg:h-full">
-            <img src={exteriors[6]} alt="Sell with Providence" className="h-full w-full object-cover" />
+            <img src={exteriors[6]} alt="Sell with Sialuxe" className="h-full w-full object-cover" />
           </div>
         </div>
 
@@ -46,7 +46,7 @@ export function Sell() {
             <div className="flex h-full flex-col justify-center border border-ink/10 p-8 text-center">
               <p className="font-display text-2xl text-gold">Thank you</p>
               <p className="mt-3 text-sm text-ink/60">
-                A Providence partner will contact you within one business day to schedule your
+                A Sialuxe partner will contact you within one business day to schedule your
                 valuation.
               </p>
             </div>
@@ -102,7 +102,7 @@ export function Sell() {
       <section className="bg-cream-soft py-28 md:py-36">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
-            <SectionHeading kicker="How It Works" title="Selling With Providence" align="center" />
+            <SectionHeading kicker="How It Works" title="Selling With Sialuxe" align="center" />
           </Reveal>
           <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((s, i) => (

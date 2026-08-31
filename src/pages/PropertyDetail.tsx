@@ -1,6 +1,6 @@
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { BedDouble, Bath, Maximize, LandPlot, Heart, Phone, Mail, MessageCircle, Check } from 'lucide-react';
-import { usePropertyBySlug, useProperties, useAgents } from '../hooks/useSanityContent';
+import { usePropertyBySlug, useProperties, useAgents, useCommunities } from '../hooks/useSanityContent';
 import { useCurrency } from '../context/CurrencyContext';
 import { useShortlist } from '../context/ShortlistContext';
 import { formatPrice, formatNumber } from '../lib/format';
@@ -9,6 +9,7 @@ import { Breadcrumb } from '../components/Breadcrumb';
 import { Badge } from '../components/Badge';
 import { MortgageCalculator } from '../components/MortgageCalculator';
 import { PropertyCard } from '../components/PropertyCard';
+import { PropertyMap } from '../components/PropertyMap';
 import { Button } from '../components/Button';
 
 export function PropertyDetail() {
@@ -16,18 +17,21 @@ export function PropertyDetail() {
   const property = usePropertyBySlug(slug);
   const properties = useProperties();
   const agents = useAgents();
+  const communities = useCommunities();
   const { currency } = useCurrency();
   const { isShortlisted, toggle } = useShortlist();
 
   if (!property) return <Navigate to="/listings" replace />;
 
   const agent = agents.find((a) => a.id === property.agentId || a.slug === property.agentId);
+  const community = communities.find((c) => c.name === property.community);
+  const mapLocation = property.location ?? community?.location;
   const similar = properties
     .filter((p) => p.id !== property.id && p.community === property.community)
     .slice(0, 3);
   const saved = isShortlisted(property.id);
   const whatsappMessage = encodeURIComponent(
-    `Hello, I'm interested in ${property.title} (${property.reference}) listed on Providence Estates.`,
+    `Hello, I'm interested in ${property.title} (${property.reference}) listed on Sialuxe Real Estate.`,
   );
 
   return (
@@ -170,6 +174,18 @@ export function PropertyDetail() {
           <MortgageCalculator priceAED={property.priceAED} />
         </aside>
       </div>
+
+      {mapLocation && (
+        <div className="mx-auto max-w-7xl border-t border-ink/10 px-6 py-14 lg:px-10">
+          <h2 className="font-display text-2xl text-ink sm:text-3xl">Location</h2>
+          <div className="mt-8">
+            <PropertyMap
+              location={mapLocation}
+              address={`${property.subCommunity ? `${property.subCommunity}, ` : ''}${property.community}, Dubai`}
+            />
+          </div>
+        </div>
+      )}
 
       {similar.length > 0 && (
         <section className="border-t border-ink/10 bg-cream-soft py-20">

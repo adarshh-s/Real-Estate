@@ -10,7 +10,7 @@ export function Agents() {
         <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: 'Agents' }]} />
         <h1 className="mt-4 font-display text-4xl text-ink sm:text-5xl">Our Private Client Team</h1>
         <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink/60">
-          Every Providence consultant specialises in a distinct portfolio of communities, giving
+          Every Sialuxe consultant specialises in a distinct portfolio of communities, giving
           you direct access to the deepest local knowledge in the city.
         </p>
       </div>

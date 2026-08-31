@@ -13,6 +13,7 @@ export const communities: Community[] = [
     avgPricePerSqft: 3100,
     listingsCount: 128,
     popularFor: ['Beachfront villas', 'Branded residences', 'Private beach access'],
+    location: { lat: 25.1124, lng: 55.139 },
   },
   {
     id: 'c2',
@@ -25,6 +26,7 @@ export const communities: Community[] = [
     avgPricePerSqft: 2450,
     listingsCount: 214,
     popularFor: ['Skyline views', 'Sky villas', 'Walk-to-everything living'],
+    location: { lat: 25.1972, lng: 55.2744 },
   },
   {
     id: 'c3',
@@ -37,6 +39,7 @@ export const communities: Community[] = [
     avgPricePerSqft: 1950,
     listingsCount: 261,
     popularFor: ['Waterfront living', 'Yacht access', 'Rental yield'],
+    location: { lat: 25.0805, lng: 55.1403 },
   },
   {
     id: 'c4',
@@ -49,6 +52,7 @@ export const communities: Community[] = [
     avgPricePerSqft: 2200,
     listingsCount: 34,
     popularFor: ['Golf-course mansions', 'Ultra-privacy', 'Large plots'],
+    location: { lat: 25.0657, lng: 55.1713 },
   },
   {
     id: 'c5',
@@ -61,6 +65,7 @@ export const communities: Community[] = [
     avgPricePerSqft: 1750,
     listingsCount: 189,
     popularFor: ['Dubai Canal views', 'New completions', 'Strong yields'],
+    location: { lat: 25.1859, lng: 55.2632 },
   },
   {
     id: 'c6',
@@ -73,6 +78,7 @@ export const communities: Community[] = [
     avgPricePerSqft: 4600,
     listingsCount: 19,
     popularFor: ['Private island mansions', 'Ultra-prime', 'Bulgari Resort access'],
+    location: { lat: 25.21, lng: 55.2472 },
   },
   {
     id: 'c7',
@@ -85,6 +91,7 @@ export const communities: Community[] = [
     avgPricePerSqft: 1600,
     listingsCount: 176,
     popularFor: ['Family villas', 'Golf views', 'Green space'],
+    location: { lat: 25.1004, lng: 55.2477 },
   },
   {
     id: 'c8',
@@ -97,5 +104,6 @@ export const communities: Community[] = [
     avgPricePerSqft: 1450,
     listingsCount: 61,
     popularFor: ['Fairway villas', 'Tour-standard golf', 'Low density'],
+    location: { lat: 25.0398, lng: 55.1699 },
   },
 ];

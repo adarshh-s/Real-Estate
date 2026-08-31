@@ -91,7 +91,7 @@ export function Navbar() {
           to="/"
           className={clsx('font-display text-xl tracking-[0.08em]', transparent ? 'text-cream' : 'text-ink')}
         >
-          PROVIDENCE <span className={transparent ? 'text-gold-soft' : 'text-gold'}>ESTATES</span>
+          SIALUXE <span className={transparent ? 'text-gold-soft' : 'text-gold'}>REAL ESTATE</span>
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">

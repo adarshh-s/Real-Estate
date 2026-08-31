@@ -66,6 +66,13 @@ export const property = defineType({
       group: 'details',
     }),
     defineField({ name: 'images', title: 'Images', type: 'array', of: [{ type: 'image', options: { hotspot: true } }], group: 'media' }),
+    defineField({
+      name: 'location',
+      title: 'Map Location',
+      type: 'geopoint',
+      description: 'Exact pin for this property. Leave empty to fall back to the community’s location.',
+      group: 'details',
+    }),
     defineField({ name: 'description', title: 'Description', type: 'text', rows: 5, group: 'details' }),
     defineField({ name: 'amenities', title: 'Amenities', type: 'array', of: [{ type: 'string' }], group: 'details' }),
     defineField({

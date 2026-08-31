@@ -8,8 +8,8 @@ const projectId = process.env.SANITY_STUDIO_PROJECT_ID || '';
 const dataset = process.env.SANITY_STUDIO_DATASET || 'production';
 
 export default defineConfig({
-  name: 'providence-estates',
-  title: 'Providence Estates',
+  name: 'sialuxe-real-estate',
+  title: 'Sialuxe Real Estate',
   projectId,
   dataset,
   plugins: [structureTool({ structure }), visionTool()],

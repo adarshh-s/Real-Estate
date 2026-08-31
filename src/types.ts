@@ -36,6 +36,7 @@ export interface Property {
   featured?: boolean;
   yearBuilt?: number;
   reference: string;
+  location?: { lat: number; lng: number };
 }
 
 export type ProjectStatus = 'Launching Soon' | 'Presale' | 'Under Construction' | 'Ready';
@@ -72,6 +73,7 @@ export interface Community {
   avgPricePerSqft: number;
   listingsCount: number;
   popularFor: string[];
+  location?: { lat: number; lng: number };
 }
 
 export interface Agent {

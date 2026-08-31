@@ -33,7 +33,8 @@ const PROPERTY_PROJECTION = `{
   tags,
   featured,
   yearBuilt,
-  reference
+  reference,
+  "location": location{lat, lng}
 }`;
 
 const PROJECT_PROJECTION = `{
@@ -61,7 +62,8 @@ const COMMUNITY_PROJECTION = `{
   description,
   avgPricePerSqft,
   listingsCount,
-  popularFor
+  popularFor,
+  "location": location{lat, lng}
 }`;
 
 const AGENT_PROJECTION = `{

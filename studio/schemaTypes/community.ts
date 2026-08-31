@@ -19,6 +19,12 @@ export const community = defineType({
     defineField({ name: 'avgPricePerSqft', title: 'Avg. Price per Sqft (AED)', type: 'number' }),
     defineField({ name: 'listingsCount', title: 'Listings Count', type: 'number' }),
     defineField({ name: 'popularFor', title: 'Popular For', type: 'array', of: [{ type: 'string' }] }),
+    defineField({
+      name: 'location',
+      title: 'Map Location',
+      type: 'geopoint',
+      description: 'Used as the default pin for any property in this community that has no location of its own.',
+    }),
   ],
   preview: {
     select: { title: 'name', subtitle: 'tagline', media: 'image' },

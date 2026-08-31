@@ -252,7 +252,7 @@ export function Home() {
             <SectionHeading
               kicker="Curated Collections"
               title="Shop By What Matters To You"
-              description="Every Providence listing is tagged and verified by our research desk — start with the collection that fits your brief."
+              description="Every Sialuxe listing is tagged and verified by our research desk — start with the collection that fits your brief."
             />
           </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -293,7 +293,7 @@ export function Home() {
             <SectionHeading
               kicker="Priority Access"
               title="New Developments"
-              description="Off-market launches and structured payment plans, released to Providence clients ahead of the public market."
+              description="Off-market launches and structured payment plans, released to Sialuxe clients ahead of the public market."
               light
               action={
                 <Link
@@ -333,7 +333,7 @@ export function Home() {
         <div className="grain-overlay" />
         <Reveal className="relative z-10 mx-auto max-w-2xl px-6 text-center">
           <p className="mb-5 flex items-center justify-center gap-3 text-xs uppercase tracking-[0.35em] text-gold-soft">
-            <span className="h-px w-8 bg-gold-soft" /> The Providence Standard
+            <span className="h-px w-8 bg-gold-soft" /> The Sialuxe Standard
           </p>
           <h2 className="font-display text-3xl leading-tight text-cream sm:text-4xl md:text-5xl">
             {settings.interstitialHeadline}
@@ -396,7 +396,7 @@ export function Home() {
             <div className="absolute bottom-6 left-6 right-6 flex items-center gap-4 rounded-2xl border border-white/20 bg-white/85 p-4 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.35)] backdrop-blur-md sm:right-auto sm:w-72">
               <p className="font-display text-2xl text-ink">AED 1.2B+</p>
               <p className="text-[11px] uppercase leading-tight tracking-[0.1em] text-ink/55">
-                In prime Dubai property transacted through Providence
+                In prime Dubai property transacted through Sialuxe
               </p>
             </div>
           </Reveal>
@@ -405,7 +405,7 @@ export function Home() {
               “
             </span>
             <p className="relative mb-4 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-gold">
-              <span className="h-px w-8 bg-gold" /> The Providence Journal
+              <span className="h-px w-8 bg-gold" /> The Sialuxe Journal
             </p>
             <h2 className="relative font-display text-3xl leading-tight text-ink sm:text-4xl lg:text-[2.75rem]">
               Inside Dubai’s billion-dirham skyline
@@ -443,13 +443,13 @@ export function Home() {
         </div>
       </section>
 
-      {/* Why Providence */}
+      {/* Why Sialuxe */}
       <section className="relative overflow-hidden py-28 md:py-36">
         <GradientMesh />
         <div className="bg-grid absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
-            <SectionHeading kicker="Why Providence" title="A Private Office, Not a Portal" align="center" />
+            <SectionHeading kicker="Why Sialuxe" title="A Private Office, Not a Portal" align="center" />
           </Reveal>
           <div className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-3">
             {[
@@ -533,7 +533,7 @@ export function Home() {
 
       {/* CTA */}
       <section className="relative overflow-hidden">
-        <img src={exteriors[3]} alt="Sell with Providence" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={exteriors[3]} alt="Sell with Sialuxe" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-ink/70" />
         <div className="grain-overlay" />
         <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 py-28 text-center">
@@ -542,7 +542,7 @@ export function Home() {
             Let’s find the right buyer for your property
           </h2>
           <p className="mt-5 max-w-lg text-[15px] text-cream/70">
-            Request a complimentary valuation and a discreet marketing strategy from a Providence
+            Request a complimentary valuation and a discreet marketing strategy from a Sialuxe
             partner.
           </p>
           <Button to="/sell" variant="outline-light" className="mt-8">

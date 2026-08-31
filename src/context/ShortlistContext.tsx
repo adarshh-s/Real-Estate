@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 
-const STORAGE_KEY = 'providence-shortlist';
+const STORAGE_KEY = 'sialuxe-shortlist';
 
 interface ShortlistContextValue {
   ids: string[];

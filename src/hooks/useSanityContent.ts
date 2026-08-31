@@ -161,13 +161,13 @@ const DEFAULT_SITE_SETTINGS: SiteSettings = {
   heroHeadlineLine1: 'Extraordinary addresses,',
   heroHeadlineLine2: 'for an extraordinary city.',
   heroSubtitle:
-    'Providence Estates curates Dubai’s finest waterfront villas, sky residences and private estates for a global clientele — with the discretion of a private office.',
+    'Sialuxe Real Estate curates Dubai’s finest waterfront villas, sky residences and private estates for a global clientele — with the discretion of a private office.',
   interstitialVideoUrl: '/videos/twilight-villa.mp4',
   interstitialHeadline: 'Where every address is extraordinary',
   interstitialBody:
-    'From private beach clubs to sky-high infinity pools, discover what sets a Providence residence apart.',
+    'From private beach clubs to sky-high infinity pools, discover what sets a Sialuxe residence apart.',
   contactPhone: '+971 4 555 0100',
-  contactEmail: 'hello@providence.ae',
+  contactEmail: 'hello@sialuxe.ae',
   whatsappNumber: '971505550100',
   officeAddress: 'Gate Village 7, DIFC, Dubai, UAE',
 };
