@@ -71,6 +71,7 @@ export interface Community {
   tagline: string;
   description: string;
   avgPricePerSqft: number;
+  avgRentalYield?: number;
   listingsCount: number;
   popularFor: string[];
   location?: { lat: number; lng: number };

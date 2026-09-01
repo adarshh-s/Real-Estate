@@ -1,0 +1,57 @@
+// One-time script: adds the `avgRentalYield` field to communities already
+// seeded in Sanity by migrate-to-sanity.ts, using the values in
+// src/data/communities.ts. Safe to run more than once (skips communities that
+// already have a yield set).
+//
+// Usage: npm run backfill:yields
+
+import { createClient } from '@sanity/client';
+import { communities } from '../src/data/communities.ts';
+
+try {
+  process.loadEnvFile();
+} catch {
+  // no .env file yet — fall through to the missing-var check below
+}
+
+const projectId = process.env.VITE_SANITY_PROJECT_ID;
+const dataset = process.env.VITE_SANITY_DATASET || 'production';
+const token = process.env.SANITY_WRITE_TOKEN;
+
+if (!projectId || !token) {
+  console.error('Missing VITE_SANITY_PROJECT_ID or SANITY_WRITE_TOKEN.');
+  process.exit(1);
+}
+
+const client = createClient({ projectId, dataset, token, apiVersion: '2024-01-01', useCdn: false });
+
+async function run() {
+  let patched = 0;
+
+  for (const c of communities) {
+    if (c.avgRentalYield === undefined) continue;
+
+    const doc = await client.fetch<{ _id: string; avgRentalYield?: number } | null>(
+      `*[_type == "community" && slug.current == $slug][0]{ _id, avgRentalYield }`,
+      { slug: c.slug },
+    );
+    if (!doc) {
+      console.log(`Skipping ${c.name} — not found in Sanity.`);
+      continue;
+    }
+    if (doc.avgRentalYield !== undefined && doc.avgRentalYield !== null) {
+      console.log(`Skipping ${c.name} — already has a rental yield.`);
+      continue;
+    }
+    await client.patch(doc._id).set({ avgRentalYield: c.avgRentalYield }).commit();
+    console.log(`Patched ${c.name} — ${c.avgRentalYield}%`);
+    patched += 1;
+  }
+
+  console.log(patched === 0 ? 'Nothing to backfill.' : `Done — patched ${patched} communit${patched === 1 ? 'y' : 'ies'}.`);
+}
+
+run().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

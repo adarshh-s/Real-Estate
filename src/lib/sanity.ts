@@ -61,6 +61,7 @@ const COMMUNITY_PROJECTION = `{
   tagline,
   description,
   avgPricePerSqft,
+  avgRentalYield,
   listingsCount,
   popularFor,
   "location": location{lat, lng}

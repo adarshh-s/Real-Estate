@@ -17,6 +17,7 @@ export const community = defineType({
     defineField({ name: 'tagline', title: 'Tagline', type: 'string' }),
     defineField({ name: 'description', title: 'Description', type: 'text', rows: 4 }),
     defineField({ name: 'avgPricePerSqft', title: 'Avg. Price per Sqft (AED)', type: 'number' }),
+    defineField({ name: 'avgRentalYield', title: 'Est. Rental Yield (%)', type: 'number' }),
     defineField({ name: 'listingsCount', title: 'Listings Count', type: 'number' }),
     defineField({ name: 'popularFor', title: 'Popular For', type: 'array', of: [{ type: 'string' }] }),
     defineField({

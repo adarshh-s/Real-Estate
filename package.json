@@ -11,6 +11,7 @@
     "migrate:sanity": "tsx scripts/migrate-to-sanity.ts",
     "rebrand:sanity": "tsx scripts/rebrand-sanity.ts",
     "backfill:locations": "tsx scripts/backfill-locations.ts",
+    "backfill:yields": "tsx scripts/backfill-community-yields.ts",
     "seed:articles": "tsx scripts/seed-articles.ts",
     "fix:sialuxe-spacing": "tsx scripts/fix-sialuxe-spacing.ts",
     "letter-space:sia": "tsx scripts/letter-space-sia.ts",

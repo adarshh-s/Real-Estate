@@ -47,15 +47,23 @@ export function CommunityDetail() {
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4 self-start rounded-2xl border border-ink/10 p-6">
-            <div>
-              <p className="font-display text-2xl text-gold">AED {formatNumber(community.avgPricePerSqft)}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.1em] text-ink/50">Avg. Price / Sqft</p>
+          <div className="self-start rounded-2xl border border-ink/10 p-6">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <p className="font-display text-2xl text-gold">AED {formatNumber(community.avgPricePerSqft)}</p>
+                <p className="mt-1 text-xs uppercase tracking-[0.1em] text-ink/50">Avg. Price / Sqft</p>
+              </div>
+              <div>
+                <p className="font-display text-2xl text-gold">{community.listingsCount}</p>
+                <p className="mt-1 text-xs uppercase tracking-[0.1em] text-ink/50">Active Listings</p>
+              </div>
             </div>
-            <div>
-              <p className="font-display text-2xl text-gold">{community.listingsCount}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.1em] text-ink/50">Active Listings</p>
-            </div>
+            <Link
+              to={`/communities/compare?a=${community.slug}`}
+              className="mt-5 flex items-center gap-1.5 text-xs uppercase tracking-[0.14em] text-gold underline underline-offset-4"
+            >
+              Compare with another community
+            </Link>
           </div>
         </div>
 

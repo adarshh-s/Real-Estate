@@ -11,6 +11,7 @@ export const communities: Community[] = [
     description:
       'Signature beachfront villas and branded residences along the fronds of Dubai’s most photographed address, minutes from Atlantis and the Palm promenade.',
     avgPricePerSqft: 3100,
+    avgRentalYield: 4.6,
     listingsCount: 128,
     popularFor: ['Beachfront villas', 'Branded residences', 'Private beach access'],
     location: { lat: 25.1124, lng: 55.139 },
@@ -24,6 +25,7 @@ export const communities: Community[] = [
     description:
       'The city’s cultural core — Burj Khalifa, Dubai Mall and the Opera District wrapped around fountain and skyline-facing towers.',
     avgPricePerSqft: 2450,
+    avgRentalYield: 5.4,
     listingsCount: 214,
     popularFor: ['Skyline views', 'Sky villas', 'Walk-to-everything living'],
     location: { lat: 25.1972, lng: 55.2744 },
@@ -37,6 +39,7 @@ export const communities: Community[] = [
     description:
       'A two-kilometre marina lined with waterfront towers, yacht berths and one of the city’s longest running social scenes.',
     avgPricePerSqft: 1950,
+    avgRentalYield: 6.3,
     listingsCount: 261,
     popularFor: ['Waterfront living', 'Yacht access', 'Rental yield'],
     location: { lat: 25.0805, lng: 55.1403 },
@@ -50,6 +53,7 @@ export const communities: Community[] = [
     description:
       'Gated mansions set around the Montgomerie golf course — the most understated address for the city’s most private buyers.',
     avgPricePerSqft: 2200,
+    avgRentalYield: 3.7,
     listingsCount: 34,
     popularFor: ['Golf-course mansions', 'Ultra-privacy', 'Large plots'],
     location: { lat: 25.0657, lng: 55.1713 },
@@ -63,6 +67,7 @@ export const communities: Community[] = [
     description:
       'Canal-front towers and design-led addresses a short walk from Downtown, popular with end-users and yield-focused investors alike.',
     avgPricePerSqft: 1750,
+    avgRentalYield: 6.9,
     listingsCount: 189,
     popularFor: ['Dubai Canal views', 'New completions', 'Strong yields'],
     location: { lat: 25.1859, lng: 55.2632 },
@@ -76,6 +81,7 @@ export const communities: Community[] = [
     description:
       'Ultra-prime beachfront mansions on a private island beside the Bulgari Resort — among the highest price-per-sqft addresses in the region.',
     avgPricePerSqft: 4600,
+    avgRentalYield: 3.4,
     listingsCount: 19,
     popularFor: ['Private island mansions', 'Ultra-prime', 'Bulgari Resort access'],
     location: { lat: 25.21, lng: 55.2472 },
@@ -89,6 +95,7 @@ export const communities: Community[] = [
     description:
       'Master-planned villas and townhouses around an 18-hole championship course and Dubai Hills Mall — the address of choice for families.',
     avgPricePerSqft: 1600,
+    avgRentalYield: 5.7,
     listingsCount: 176,
     popularFor: ['Family villas', 'Golf views', 'Green space'],
     location: { lat: 25.1004, lng: 55.2477 },
@@ -102,6 +109,7 @@ export const communities: Community[] = [
     description:
       'Fairway-facing villas across two championship courses, favoured by golf enthusiasts and those seeking space without leaving the city.',
     avgPricePerSqft: 1450,
+    avgRentalYield: 5.1,
     listingsCount: 61,
     popularFor: ['Fairway villas', 'Tour-standard golf', 'Low density'],
     location: { lat: 25.0398, lng: 55.1699 },
