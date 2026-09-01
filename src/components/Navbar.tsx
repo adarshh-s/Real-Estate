@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Heart, Menu, X, Phone, Mail } from 'lucide-react';
 import clsx from 'clsx';
 import { CurrencySwitcher } from './CurrencySwitcher';
+import { LogoMark } from './LogoMark';
 import { useShortlist } from '../context/ShortlistContext';
 import { useSiteSettings } from '../hooks/useSanityContent';
 
@@ -90,9 +91,15 @@ export function Navbar() {
       >
         <Link
           to="/"
-          className={clsx('font-display text-xl tracking-[0.08em]', transparent ? 'text-cream' : 'text-ink')}
+          className={clsx(
+            'flex items-center gap-2.5 font-display text-xl tracking-[0.08em]',
+            transparent ? 'text-cream' : 'text-ink',
+          )}
         >
-          S I A LUXE <span className={transparent ? 'text-gold-soft' : 'text-gold'}>REAL ESTATE</span>
+          <LogoMark />
+          <span>
+            S I A LUXE <span className={transparent ? 'text-gold-soft' : 'text-gold'}>REAL ESTATE</span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
