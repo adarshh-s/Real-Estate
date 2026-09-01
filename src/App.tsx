@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { CurrencyProvider } from './context/CurrencyContext';
 import { ShortlistProvider } from './context/ShortlistContext';
 import { Navbar } from './components/Navbar';
@@ -24,11 +24,33 @@ import { Contact } from './pages/Contact';
 import { Shortlist } from './pages/Shortlist';
 import { NotFound } from './pages/NotFound';
 
+// Scrolls to top on a normal navigation (clicking a link), but restores the
+// scroll position a visitor had when they use the browser's back/forward
+// buttons — otherwise "back" always dumps them at the top of the page.
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, key } = useLocation();
+  const navigationType = useNavigationType();
+  const positions = useRef<Record<string, number>>({});
+
   useEffect(() => {
+    return () => {
+      positions.current[key] = window.scrollY;
+    };
+  }, [key]);
+
+  useEffect(() => {
+    const saved = positions.current[key];
+    if (navigationType === 'POP' && saved !== undefined) {
+      window.scrollTo(0, saved);
+      // The page remounts with static fallback content first, then live
+      // Sanity data swaps in and can reflow the page taller — that clamps
+      // the scroll above until it settles, so nudge it back a few times.
+      const retries = [100, 350, 800].map((delay) => window.setTimeout(() => window.scrollTo(0, saved), delay));
+      return () => retries.forEach(window.clearTimeout);
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, key, navigationType]);
+
   return null;
 }
 

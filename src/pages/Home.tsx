@@ -191,7 +191,7 @@ export function Home() {
       <Marquee items={communities.map((c) => c.name)} />
 
       {/* Featured listings */}
-      <section className="mx-auto max-w-7xl px-6 py-28 md:py-36 lg:px-10">
+      <section className="mx-auto max-w-7xl px-6 py-16 sm:py-20 md:py-28 lg:py-36 lg:px-10">
         <Reveal>
           <SectionHeading
             kicker="Curated Portfolio"
@@ -222,7 +222,7 @@ export function Home() {
       </section>
 
       {/* Live activity */}
-      <section className="border-t border-ink/10 py-28 md:py-36">
+      <section className="border-t border-ink/10 py-16 sm:py-20 md:py-28 lg:py-36">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-10">
           <Reveal>
             <p className="mb-4 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-gold">
@@ -246,7 +246,7 @@ export function Home() {
       </section>
 
       {/* Curated collections */}
-      <section className="border-t border-ink/10 bg-cream-soft py-28 md:py-36">
+      <section className="border-t border-ink/10 bg-cream-soft py-16 sm:py-20 md:py-28 lg:py-36">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <SectionHeading
@@ -287,7 +287,7 @@ export function Home() {
       </section>
 
       {/* Off-plan spotlight */}
-      <section className="bg-ink py-28 md:py-36 text-cream">
+      <section className="bg-ink py-16 sm:py-20 md:py-28 lg:py-36 text-cream">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <SectionHeading
@@ -350,7 +350,7 @@ export function Home() {
       </section>
 
       {/* Communities */}
-      <section className="mx-auto max-w-7xl px-6 py-28 md:py-36 lg:px-10">
+      <section className="mx-auto max-w-7xl px-6 py-16 sm:py-20 md:py-28 lg:py-36 lg:px-10">
         <Reveal>
           <SectionHeading
             kicker="Where To Live"
@@ -444,7 +444,7 @@ export function Home() {
       </section>
 
       {/* Why S I A Luxe */}
-      <section className="relative overflow-hidden py-28 md:py-36">
+      <section className="relative overflow-hidden py-16 sm:py-20 md:py-28 lg:py-36">
         <GradientMesh />
         <div className="bg-grid absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
@@ -488,7 +488,7 @@ export function Home() {
       </section>
 
       {/* Agents */}
-      <section className="bg-cream-soft py-28 md:py-36">
+      <section className="bg-cream-soft py-16 sm:py-20 md:py-28 lg:py-36">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <SectionHeading
@@ -515,7 +515,7 @@ export function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="mx-auto max-w-7xl px-6 py-28 md:py-36 lg:px-10">
+      <section className="mx-auto max-w-7xl px-6 py-16 sm:py-20 md:py-28 lg:py-36 lg:px-10">
         <Reveal>
           <SectionHeading kicker="Client Word" title="Trusted By Discerning Owners" align="center" />
         </Reveal>
@@ -536,7 +536,7 @@ export function Home() {
         <img src={exteriors[3]} alt="Sell with S I A Luxe" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-ink/70" />
         <div className="grain-overlay" />
-        <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 py-28 text-center">
+        <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 py-20 md:py-28 text-center">
           <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold-soft">Thinking Of Selling?</p>
           <h2 className="font-display text-3xl leading-tight text-cream sm:text-4xl">
             Let’s find the right buyer for your property

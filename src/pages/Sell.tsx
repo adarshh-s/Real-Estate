@@ -99,7 +99,7 @@ export function Sell() {
         </div>
       </div>
 
-      <section className="bg-cream-soft py-28 md:py-36">
+      <section className="bg-cream-soft py-16 sm:py-20 md:py-28 lg:py-36">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <SectionHeading kicker="How It Works" title="Selling With S I A Luxe" align="center" />

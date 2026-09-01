@@ -53,7 +53,7 @@ export function About() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-24 md:py-32 lg:px-10">
+      <section className="mx-auto max-w-7xl px-6 py-14 sm:py-20 md:py-24 lg:py-32 lg:px-10">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1.2fr_1fr] lg:gap-24">
           <Reveal className="relative">
             <span className="pointer-events-none absolute -left-2 -top-14 select-none font-display text-[9rem] leading-none text-ink/[0.05] lg:text-[11rem]">
@@ -94,7 +94,7 @@ export function About() {
         <StatStrip light={false} />
       </section>
 
-      <section className="relative overflow-hidden py-28 md:py-36">
+      <section className="relative overflow-hidden py-16 sm:py-20 md:py-28 lg:py-36">
         <GradientMesh />
         <div className="bg-grid absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
@@ -157,7 +157,7 @@ export function About() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-28 md:py-36 lg:px-10">
+      <section className="mx-auto max-w-7xl px-6 py-16 sm:py-20 md:py-28 lg:py-36 lg:px-10">
         <Reveal>
           <SectionHeading
             kicker="Leadership"
@@ -191,7 +191,7 @@ export function About() {
         <img src={exteriors[5]} alt="Speak with S I A Luxe" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-ink/70" />
         <div className="grain-overlay" />
-        <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 py-28 text-center">
+        <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 py-20 md:py-28 text-center">
           <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold-soft">Work With Us</p>
           <h2 className="font-display text-3xl leading-tight text-cream sm:text-4xl">
             Speak with a S I A Luxe partner

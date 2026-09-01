@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { SlidersHorizontal, X, TrendingUp, Percent, BadgeCheck, PiggyBank, CalendarClock, Sofa } from 'lucide-react';
 import { useProperties } from '../hooks/useSanityContent';
@@ -59,6 +59,8 @@ export function Listings() {
     tag: searchParams.get('tag') || '',
   }));
 
+  const isFirstRender = useRef(true);
+
   useEffect(() => {
     setFilters((prev) => ({
       ...prev,
@@ -67,7 +69,14 @@ export function Listings() {
       type: searchParams.get('type') || '',
       tag: searchParams.get('tag') || '',
     }));
-    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    // Skip on the very first render so a restored scroll position (e.g. from
+    // the browser's back button) isn't immediately overridden — only jump to
+    // top when the filters actually change while already on this page.
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    }
   }, [searchParams]);
 
   const mode = filters.status === 'For Sale' || filters.status === 'For Rent' ? MODE_CONTENT[filters.status] : null;
