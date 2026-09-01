@@ -9,6 +9,7 @@ import { ProjectCard } from '../components/ProjectCard';
 import { CommunityCard } from '../components/CommunityCard';
 import { AgentCard } from '../components/AgentCard';
 import { StatStrip } from '../components/StatStrip';
+import { CinematicInterstitial } from '../components/CinematicInterstitial';
 import { Button } from '../components/Button';
 import { Reveal } from '../components/Reveal';
 import { ScrollRail } from '../components/ScrollRail';
@@ -316,38 +317,11 @@ export function Home() {
       </section>
 
       {/* Cinematic interstitial */}
-      <section className="relative flex h-[70vh] items-center justify-center overflow-hidden bg-ink">
-        <video
-          key={settings.interstitialVideoUrl}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
-          poster="/twilight-poster.jpg"
-          className="absolute inset-0 h-full w-full object-cover"
-        >
-          <source src={settings.interstitialVideoUrl} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-ink/55" />
-        <div className="grain-overlay" />
-        <Reveal className="relative z-10 mx-auto max-w-2xl px-6 text-center">
-          <p className="mb-5 flex items-center justify-center gap-3 text-xs uppercase tracking-[0.35em] text-gold-soft">
-            <span className="h-px w-8 bg-gold-soft" /> The S I A Luxe Standard
-          </p>
-          <h2 className="font-display text-3xl leading-tight text-cream sm:text-4xl md:text-5xl">
-            {settings.interstitialHeadline}
-          </h2>
-          <p className="mt-5 text-[15px] leading-relaxed text-cream/70">{settings.interstitialBody}</p>
-          <Link
-            to="/listings"
-            className="group mt-8 inline-flex items-center gap-2 rounded-full border border-cream/50 px-6 py-3 text-xs uppercase tracking-[0.18em] text-cream transition-all duration-300 hover:scale-[1.03] hover:bg-cream hover:text-ink active:scale-[0.97]"
-          >
-            Explore The Portfolio
-            <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-        </Reveal>
-      </section>
+      <CinematicInterstitial
+        videoUrl={settings.interstitialVideoUrl}
+        headline={settings.interstitialHeadline}
+        body={settings.interstitialBody}
+      />
 
       {/* Communities */}
       <section className="mx-auto max-w-7xl px-6 py-16 sm:py-20 md:py-28 lg:py-36 lg:px-10">
