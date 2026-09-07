@@ -70,7 +70,7 @@ export function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative flex min-h-[100vh] flex-col justify-end overflow-hidden bg-ink">
+      <section className="relative flex min-h-[100vh] flex-col justify-end overflow-hidden bg-black">
         <video
           key={settings.heroVideoUrl}
           autoPlay
@@ -83,10 +83,11 @@ export function Home() {
         >
           <source src={settings.heroVideoUrl} type="video/mp4" />
         </video>
-        {/* corner vignette so a bright, top-down shot still reads as premium/cinematic */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(14,20,32,0.55)_100%)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/45 via-transparent to-ink/25" />
+        {/* corner vignette so a bright, top-down shot still reads as premium/cinematic — kept
+            black rather than the accent color so it blends naturally with any video */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.55)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-black/25" />
         <div className="grain-overlay" />
 
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 pb-16 pt-44 lg:px-10">

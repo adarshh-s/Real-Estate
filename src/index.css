@@ -6,16 +6,16 @@
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter",
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  --color-ink: #000000;
-  --color-ink-soft: #171717;
+  --color-ink: #4e7b81;
+  --color-ink-soft: #628f95;
   --color-cream: #ffffff;
   --color-cream-soft: #f2f2f2;
   --color-surface: #ffffff;
   --color-sand: #e6dcc8;
-  --color-gold: #000000;
-  --color-gold-soft: #a3a3a3;
-  --color-gold-pale: #e5e5e5;
-  --color-line: #e5e5e5;
+  --color-gold: #4e7b81;
+  --color-gold-soft: #9bb3b7;
+  --color-gold-pale: #e2e9ea;
+  --color-line: #e2e9ea;
 
   --animate-marquee: marquee 32s linear infinite;
   --animate-marquee-vertical: marquee-vertical 26s linear infinite;
