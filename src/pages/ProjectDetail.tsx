@@ -7,6 +7,7 @@ import { Gallery } from '../components/Gallery';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Badge } from '../components/Badge';
 import { Button } from '../components/Button';
+import { ROICalculator } from '../components/ROICalculator';
 
 export function ProjectDetail() {
   const { slug = '' } = useParams();
@@ -84,7 +85,7 @@ export function ProjectDetail() {
           </div>
         </div>
 
-        <aside>
+        <aside className="flex flex-col gap-6">
           <div className="rounded-2xl border border-ink/10 p-6">
             <p className="font-display text-lg text-ink">Register Your Interest</p>
             <p className="mt-2 text-sm text-ink/60">
@@ -100,6 +101,7 @@ export function ProjectDetail() {
               </Button>
             </div>
           </div>
+          <ROICalculator priceAED={project.priceFromAED} />
         </aside>
       </div>
     </div>

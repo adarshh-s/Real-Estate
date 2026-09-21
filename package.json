@@ -15,7 +15,8 @@
     "seed:articles": "tsx scripts/seed-articles.ts",
     "fix:sialuxe-spacing": "tsx scripts/fix-sialuxe-spacing.ts",
     "letter-space:sia": "tsx scripts/letter-space-sia.ts",
-    "update:hero-video": "tsx scripts/update-hero-video.ts"
+    "update:hero-video": "tsx scripts/update-hero-video.ts",
+    "update:brand-positioning": "tsx scripts/update-brand-positioning.ts"
   },
   "dependencies": {
     "@sanity/client": "^8.4.0",

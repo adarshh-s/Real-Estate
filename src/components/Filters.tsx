@@ -9,6 +9,8 @@ export interface FilterState {
   maxPriceAED: number;
   completion: 'All' | 'Ready' | 'Off-Plan';
   tag: string;
+  search: string;
+  minSizeSqft: number;
 }
 
 export const DEFAULT_FILTERS: FilterState = {
@@ -19,16 +21,25 @@ export const DEFAULT_FILTERS: FilterState = {
   maxPriceAED: 0,
   completion: 'All',
   tag: '',
+  search: '',
+  minSizeSqft: 0,
 };
 
-const PROPERTY_TYPES = ['Apartment', 'Penthouse', 'Villa', 'Townhouse', 'Mansion'];
-const COLLECTION_TAGS = ['Waterfront', 'Sky Villa', 'Branded Residence', 'Exclusive', 'New'];
-const PRICE_CAPS = [
+export const PROPERTY_TYPES = ['Apartment', 'Penthouse', 'Villa', 'Townhouse', 'Mansion'];
+export const COLLECTION_TAGS = ['Waterfront', 'Sky Villa', 'Branded Residence', 'Exclusive', 'New'];
+export const PRICE_CAPS = [
   { label: 'Any Price', value: 0 },
   { label: 'Up to AED 2M', value: 2_000_000 },
   { label: 'Up to AED 5M', value: 5_000_000 },
   { label: 'Up to AED 15M', value: 15_000_000 },
   { label: 'Up to AED 40M', value: 40_000_000 },
+];
+export const SIZE_CAPS = [
+  { label: 'Any Size', value: 0 },
+  { label: '1,000+ sqft', value: 1_000 },
+  { label: '2,500+ sqft', value: 2_500 },
+  { label: '5,000+ sqft', value: 5_000 },
+  { label: '10,000+ sqft', value: 10_000 },
 ];
 
 function FieldLabel({ children }: { children: string }) {
@@ -51,6 +62,17 @@ export function Filters({
 
   return (
     <div className="flex flex-col gap-6">
+      <div>
+        <FieldLabel>Search</FieldLabel>
+        <input
+          type="text"
+          value={value.search}
+          onChange={(e) => set('search', e.target.value)}
+          placeholder="Search by name, community or reference"
+          className={selectCls}
+        />
+      </div>
+
       <div>
         <FieldLabel>Status</FieldLabel>
         <div className="flex gap-2">
@@ -123,6 +145,21 @@ export function Filters({
           {PRICE_CAPS.map((p) => (
             <option key={p.value} value={p.value}>
               {p.label}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <FieldLabel>Minimum Size</FieldLabel>
+        <select
+          value={value.minSizeSqft}
+          onChange={(e) => set('minSizeSqft', Number(e.target.value))}
+          className={selectCls}
+        >
+          {SIZE_CAPS.map((s) => (
+            <option key={s.value} value={s.value}>
+              {s.label}
             </option>
           ))}
         </select>

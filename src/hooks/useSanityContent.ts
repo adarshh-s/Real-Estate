@@ -193,15 +193,15 @@ export function useArticleBySlug(slug: string | undefined) {
 const DEFAULT_SITE_SETTINGS: SiteSettings = {
   heroVideoUrl: '/videos/hero-luxury-home.mp4',
   heroPosterUrl: '/hero-poster.jpg',
-  heroKicker: 'Dubai · International Realty',
-  heroHeadlineLine1: 'Extraordinary addresses,',
-  heroHeadlineLine2: 'for an extraordinary city.',
+  heroKicker: 'Private Real Estate · Investment · Advisory',
+  heroHeadlineLine1: 'Real estate,',
+  heroHeadlineLine2: 'considered differently.',
   heroSubtitle:
-    'S I A Luxe Real Estate curates Dubai’s finest waterfront villas, sky residences and private estates for a global clientele — with the discretion of a private office.',
+    'A private real estate investment and advisory partner for Dubai — bringing the right opportunities into focus, not simply the most listings.',
   interstitialVideoUrl: '/videos/twilight-villa.mp4',
-  interstitialHeadline: 'Where every address is extraordinary',
+  interstitialHeadline: 'Property is the opportunity. Perspective is the advantage.',
   interstitialBody:
-    'From private beach clubs to sky-high infinity pools, discover what sets a S I A Luxe residence apart.',
+    'We look beyond the property to location, developer, entry price, payment structure and long-term potential — before we bring an opportunity forward.',
   contactPhone: '+971 4 555 0100',
   contactEmail: 'hello@sialuxe.ae',
   whatsappNumber: '971505550100',

@@ -8,6 +8,7 @@ import { Gallery } from '../components/Gallery';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Badge } from '../components/Badge';
 import { MortgageCalculator } from '../components/MortgageCalculator';
+import { ROICalculator } from '../components/ROICalculator';
 import { PropertyCard } from '../components/PropertyCard';
 import { PropertyMap } from '../components/PropertyMap';
 import { Button } from '../components/Button';
@@ -173,6 +174,7 @@ export function PropertyDetail() {
             </div>
           )}
           <MortgageCalculator priceAED={property.priceAED} />
+          {property.status === 'For Sale' && <ROICalculator priceAED={property.priceAED} />}
         </aside>
       </div>
 

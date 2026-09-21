@@ -12,14 +12,14 @@ import { useAgents, useCommunities } from '../hooks/useSanityContent';
 import { exteriors, interiors } from '../lib/images';
 
 const PRINCIPLES = [
-  { icon: ShieldCheck, title: 'Discretion', body: 'Confidential handling of every transaction, from first enquiry to closing.' },
-  { icon: Award, title: 'Senior Expertise', body: 'Our founding consultants bring a combined six decades of experience from Dubai’s leading agencies.' },
-  { icon: TrendingUp, title: 'Data-Led', body: 'Every valuation is benchmarked against verified, real-time Dubai transaction data — not guesswork.' },
-  { icon: Handshake, title: 'Partnership', body: 'One dedicated consultant sees your transaction through from start to finish.' },
+  { icon: ShieldCheck, title: 'Discretion', body: 'We treat client objectives, preferences and decisions with the privacy and professionalism they deserve.' },
+  { icon: Award, title: 'Discernment', body: 'We value relevance over volume — every opportunity is assessed against what genuinely fits the brief.' },
+  { icon: TrendingUp, title: 'Perspective', body: 'We look beyond the property to location, developer, market context and long-term potential.' },
+  { icon: Handshake, title: 'Personal Service', body: 'Every client has a different objective. Our approach begins by understanding the individual.' },
 ];
 
 const MILESTONES = [
-  { year: '2023', label: 'S I A Luxe Real Estate founded in Dubai by a partnership of senior luxury consultants.' },
+  { year: '2023', label: 'S I A Luxe founded in Dubai by a partnership of senior real estate investment advisors.' },
   { year: '2024', label: 'Closed our first AED 100M+ portfolio sale on Palm Jumeirah.' },
   { year: '2025', label: 'Surpassed AED 1B in prime Dubai property transacted.' },
   { year: '2026', label: 'Grew to a team of six senior consultants across Dubai’s key communities.' },
@@ -33,7 +33,7 @@ export function About() {
     <div>
       <section className="relative flex min-h-[70vh] items-end overflow-hidden pt-16">
         <img src={exteriors[4]} alt="S I A Luxe Real Estate" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(78,123,129,0.5)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(23,23,23,0.5)_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent" />
         <div className="grain-overlay" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-14 lg:px-10">
@@ -42,13 +42,14 @@ export function About() {
             <span className="h-px w-8 bg-gold-soft" /> Est. 2023 · Dubai
           </p>
           <h1 className="mt-5 max-w-2xl font-display text-4xl leading-[1.05] text-cream sm:text-5xl md:text-6xl">
-            <StaggerText text="A private office for" delay={0.1} />
+            <StaggerText text="A private real estate" delay={0.1} />
             <br />
-            <StaggerText text="Dubai’s finest addresses" delay={0.35} />
+            <StaggerText text="investment & advisory partner" delay={0.35} />
           </h1>
           <p className="mt-6 max-w-md text-[15px] leading-relaxed text-cream/70">
-            A senior team with decades of combined experience, a fast-growing portfolio of
-            Dubai’s finest addresses, and a single point of contact for every client we serve.
+            For clients who expect more than a property transaction — a senior team measuring
+            success not by how many listings we show, but by the quality of opportunities we
+            bring into focus.
           </p>
         </div>
       </section>
@@ -63,15 +64,14 @@ export function About() {
               <span className="h-px w-8 bg-gold" /> Our Story
             </p>
             <p className="relative font-display text-2xl leading-relaxed text-ink sm:text-3xl">
-              Founded in 2023 by a partnership of Dubai’s most experienced luxury consultants,
-              S I A Luxe Real Estate was built to bring the discretion of a private office to a
-              market that had outgrown the traditional listings portal.
+              Founded in 2023, S I A Luxe was shaped around a different idea: what if real estate
+              felt less like searching, and more like being advised?
             </p>
             <p className="relative mt-8 max-w-xl text-[15px] leading-relaxed text-ink/60">
-              We represent a portfolio of the city’s most significant properties — from Palm
-              Jumeirah beachfront villas to Emirates Hills estates — connecting owners with a
-              curated, verified network of qualified buyers. Every engagement is handled by a
-              dedicated partner, not a call centre.
+              We begin with the client’s objective, understand the investment or lifestyle
+              context, and bring relevant opportunities forward. Location, developer, entry
+              price, payment structure, rental demand and long-term potential — we bring these
+              together with clarity, discretion and a more personal standard of service.
             </p>
           </Reveal>
 
@@ -99,7 +99,7 @@ export function About() {
         <div className="bg-grid absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
-            <SectionHeading kicker="Our Principles" title="What Sets S I A Luxe Apart" align="center" />
+            <SectionHeading kicker="Our Values" title="What Sets S I A Luxe Apart" align="center" />
           </Reveal>
           <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PRINCIPLES.map((f, i) => (

@@ -5,6 +5,7 @@ import { useProperties } from '../hooks/useSanityContent';
 import type { Tag } from '../types';
 import { PropertyCard } from '../components/PropertyCard';
 import { Filters, DEFAULT_FILTERS, type FilterState } from '../components/Filters';
+import { FilterBar } from '../components/FilterBar';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Button } from '../components/Button';
 
@@ -92,8 +93,14 @@ export function Listings() {
       if (filters.type && p.type !== filters.type) return false;
       if (filters.minBeds && p.beds < filters.minBeds) return false;
       if (filters.maxPriceAED && p.priceAED > filters.maxPriceAED) return false;
+      if (filters.minSizeSqft && p.sizeSqft < filters.minSizeSqft) return false;
       if (filters.completion !== 'All' && p.completion !== filters.completion) return false;
       if (filters.tag && !p.tags?.includes(filters.tag as Tag)) return false;
+      if (filters.search) {
+        const q = filters.search.trim().toLowerCase();
+        const haystack = `${p.title} ${p.community} ${p.subCommunity ?? ''} ${p.reference}`.toLowerCase();
+        if (!haystack.includes(q)) return false;
+      }
       return true;
     });
     if (sort === 'price-asc') list = [...list].sort((a, b) => a.priceAED - b.priceAED);
@@ -130,9 +137,9 @@ export function Listings() {
       </div>
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-12 lg:grid-cols-[260px_1fr] lg:px-10">
-        <aside className="hidden lg:block">
+        <aside className="relative z-20 hidden lg:block">
           <div className="sticky top-28">
-            <Filters value={filters} onChange={setFilters} />
+            <FilterBar value={filters} onChange={setFilters} />
           </div>
         </aside>
 

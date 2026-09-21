@@ -8,6 +8,7 @@ const EXPLORE = [
   { label: 'Rent', to: '/listings?status=For Rent' },
   { label: 'New Projects', to: '/off-plan' },
   { label: 'Communities', to: '/communities' },
+  { label: 'ROI Calculator', to: '/roi-calculator' },
 ];
 
 const COMPANY = [
@@ -26,12 +27,10 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
-            <p className="font-display text-xl tracking-[0.08em]">
-              S I A LUXE <span className="text-gold-soft">REAL ESTATE</span>
-            </p>
+            <img src="/logo-sia-luxe.png" alt="S I A Luxe Real Estate" className="h-9 w-auto" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/60">
-              A private-client real estate house representing Dubai’s most distinguished
-              addresses, built by a senior team with decades of combined experience.
+              A private real estate investment and advisory house for Dubai — bringing the right
+              opportunities into focus for clients who expect more than a transaction.
             </p>
             <div className="mt-6 flex gap-4 text-cream/70">
               <InstagramIcon size={18} className="hover:text-gold-soft" />

@@ -15,6 +15,7 @@ import { ProjectDetail } from './pages/ProjectDetail';
 import { Communities } from './pages/Communities';
 import { CommunityDetail } from './pages/CommunityDetail';
 import { CompareCommunities } from './pages/CompareCommunities';
+import { ROICalculatorPage } from './pages/ROICalculatorPage';
 import { Agents } from './pages/Agents';
 import { AgentDetail } from './pages/AgentDetail';
 import { Journal } from './pages/Journal';
@@ -79,6 +80,7 @@ function AppRoutes() {
               <Route path="/off-plan/:slug" element={<ProjectDetail />} />
               <Route path="/communities" element={<Communities />} />
               <Route path="/communities/compare" element={<CompareCommunities />} />
+              <Route path="/roi-calculator" element={<ROICalculatorPage />} />
               <Route path="/communities/:slug" element={<CommunityDetail />} />
               <Route path="/agents" element={<Agents />} />
               <Route path="/agents/:slug" element={<AgentDetail />} />

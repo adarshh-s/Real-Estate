@@ -13,6 +13,7 @@ import { CinematicInterstitial } from '../components/CinematicInterstitial';
 import { Button } from '../components/Button';
 import { Reveal } from '../components/Reveal';
 import { ScrollRail } from '../components/ScrollRail';
+import { BleedRail } from '../components/BleedRail';
 import { GradientMesh } from '../components/GradientMesh';
 import { Marquee } from '../components/Marquee';
 import { VerticalTicker } from '../components/VerticalTicker';
@@ -210,11 +211,11 @@ export function Home() {
           />
         </Reveal>
         <div className="mt-12">
-          <ScrollRail itemClassName="w-[320px] sm:w-[360px]">
+          <BleedRail itemClassName="w-[320px] sm:w-[360px]">
             {featured.map((p) => (
               <PropertyCard key={p.id} property={p} />
             ))}
-          </ScrollRail>
+          </BleedRail>
         </div>
         <div className="mt-12 text-center md:hidden">
           <Button to="/listings" variant="outline">
