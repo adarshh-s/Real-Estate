@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { useInView, animate } from 'framer-motion';
 
 const stats = [
-  { prefix: 'AED ', target: 1.2, decimals: 1, suffix: 'B+', label: 'Property Transacted' },
-  { prefix: '', target: 140, decimals: 0, suffix: '+', label: 'Residences Sold or Let' },
-  { prefix: '', target: 60, decimals: 0, suffix: '+', label: 'Yrs Combined Team Experience' },
-  { prefix: '', target: 98, decimals: 0, suffix: '%', label: 'Client Satisfaction Rate' },
+  { prefix: 'AED ', target: 260, decimals: 0, suffix: 'M+', label: 'Property Transacted' },
+  { prefix: '', target: 80, decimals: 0, suffix: '+', label: 'Units Sold' },
+  { prefix: '', target: 12, decimals: 0, suffix: '+', label: 'Years Experience' },
+  { prefix: '', target: 96, decimals: 0, suffix: '%', label: 'Client Satisfaction Rate' },
 ];
 
 function AnimatedStat({

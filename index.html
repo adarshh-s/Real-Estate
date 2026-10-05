@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="S I A Luxe — a private real estate investment and advisory partner for Dubai, bringing the right opportunities into focus for investors, portfolio builders and homeowners." />
-    <title>S I A Luxe | Private Real Estate, Investment &amp; Advisory — Dubai</title>
+    <meta name="description" content="S I A Luxe, a private real estate investment and advisory partner for Dubai, bringing the right opportunities into focus for investors, portfolio builders and homeowners." />
+    <title>S I A Luxe | Private Real Estate, Investment &amp; Advisory, Dubai</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- hero video/poster are served from Sanity's CDN, opening the connection
+         before the video element even mounts shaves off DNS/TLS handshake time -->
+    <link rel="preconnect" href="https://cdn.sanity.io" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   </head>
   <body>
     <div id="root"></div>

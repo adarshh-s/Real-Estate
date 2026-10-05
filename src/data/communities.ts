@@ -1,21 +1,9 @@
 import type { Community } from '../types';
 import { exteriors } from '../lib/images';
 
+// Only communities where we currently have real property or off-plan project
+// inventory, kept in sync with the Sanity dataset via scripts/prune-unavailable-communities.ts.
 export const communities: Community[] = [
-  {
-    id: 'c1',
-    slug: 'palm-jumeirah',
-    name: 'Palm Jumeirah',
-    image: exteriors[1],
-    tagline: 'The island that reshaped the coastline',
-    description:
-      'Signature beachfront villas and branded residences along the fronds of Dubai’s most photographed address, minutes from Atlantis and the Palm promenade.',
-    avgPricePerSqft: 3100,
-    avgRentalYield: 4.6,
-    listingsCount: 128,
-    popularFor: ['Beachfront villas', 'Branded residences', 'Private beach access'],
-    location: { lat: 25.1124, lng: 55.139 },
-  },
   {
     id: 'c2',
     slug: 'downtown-dubai',
@@ -23,40 +11,12 @@ export const communities: Community[] = [
     image: exteriors[2],
     tagline: 'Beneath the Burj Khalifa',
     description:
-      'The city’s cultural core — Burj Khalifa, Dubai Mall and the Opera District wrapped around fountain and skyline-facing towers.',
+      'The city’s cultural core, with Burj Khalifa, Dubai Mall and the Opera District wrapped around fountain and skyline-facing towers.',
     avgPricePerSqft: 2450,
     avgRentalYield: 5.4,
-    listingsCount: 214,
+    listingsCount: 3,
     popularFor: ['Skyline views', 'Sky villas', 'Walk-to-everything living'],
     location: { lat: 25.1972, lng: 55.2744 },
-  },
-  {
-    id: 'c3',
-    slug: 'dubai-marina',
-    name: 'Dubai Marina',
-    image: exteriors[0],
-    tagline: 'A promenade of glass and water',
-    description:
-      'A two-kilometre marina lined with waterfront towers, yacht berths and one of the city’s longest running social scenes.',
-    avgPricePerSqft: 1950,
-    avgRentalYield: 6.3,
-    listingsCount: 261,
-    popularFor: ['Waterfront living', 'Yacht access', 'Rental yield'],
-    location: { lat: 25.0805, lng: 55.1403 },
-  },
-  {
-    id: 'c4',
-    slug: 'emirates-hills',
-    name: 'Emirates Hills',
-    image: exteriors[4],
-    tagline: 'Dubai’s Beverly Hills',
-    description:
-      'Gated mansions set around the Montgomerie golf course — the most understated address for the city’s most private buyers.',
-    avgPricePerSqft: 2200,
-    avgRentalYield: 3.7,
-    listingsCount: 34,
-    popularFor: ['Golf-course mansions', 'Ultra-privacy', 'Large plots'],
-    location: { lat: 25.0657, lng: 55.1713 },
   },
   {
     id: 'c5',
@@ -68,23 +28,9 @@ export const communities: Community[] = [
       'Canal-front towers and design-led addresses a short walk from Downtown, popular with end-users and yield-focused investors alike.',
     avgPricePerSqft: 1750,
     avgRentalYield: 6.9,
-    listingsCount: 189,
+    listingsCount: 6,
     popularFor: ['Dubai Canal views', 'New completions', 'Strong yields'],
     location: { lat: 25.1859, lng: 55.2632 },
-  },
-  {
-    id: 'c6',
-    slug: 'jumeirah-bay-island',
-    name: 'Jumeirah Bay Island',
-    image: exteriors[6],
-    tagline: 'The seahorse-shaped enclave',
-    description:
-      'Ultra-prime beachfront mansions on a private island beside the Bulgari Resort — among the highest price-per-sqft addresses in the region.',
-    avgPricePerSqft: 4600,
-    avgRentalYield: 3.4,
-    listingsCount: 19,
-    popularFor: ['Private island mansions', 'Ultra-prime', 'Bulgari Resort access'],
-    location: { lat: 25.21, lng: 55.2472 },
   },
   {
     id: 'c7',
@@ -93,10 +39,10 @@ export const communities: Community[] = [
     image: exteriors[3],
     tagline: 'A city within a park',
     description:
-      'Master-planned villas and townhouses around an 18-hole championship course and Dubai Hills Mall — the address of choice for families.',
+      'Master-planned villas and townhouses around an 18-hole championship course and Dubai Hills Mall, the address of choice for families.',
     avgPricePerSqft: 1600,
     avgRentalYield: 5.7,
-    listingsCount: 176,
+    listingsCount: 2,
     popularFor: ['Family villas', 'Golf views', 'Green space'],
     location: { lat: 25.1004, lng: 55.2477 },
   },
@@ -110,8 +56,50 @@ export const communities: Community[] = [
       'Fairway-facing villas across two championship courses, favoured by golf enthusiasts and those seeking space without leaving the city.',
     avgPricePerSqft: 1450,
     avgRentalYield: 5.1,
-    listingsCount: 61,
+    listingsCount: 1,
     popularFor: ['Fairway villas', 'Tour-standard golf', 'Low density'],
     location: { lat: 25.0398, lng: 55.1699 },
+  },
+  {
+    id: 'c9',
+    slug: 'dubai-creek-harbour',
+    name: 'Dubai Creek Harbour',
+    image: exteriors[2],
+    tagline: 'A new skyline rising on the Creek',
+    description:
+      'Emaar’s waterfront district facing Ras Al Khor, built around a promenade, marina and a skyline set to rival Downtown, offering early positioning for long-term growth.',
+    avgPricePerSqft: 2100,
+    avgRentalYield: 5.8,
+    listingsCount: 3,
+    popularFor: ['Creek & skyline views', 'New-build towers', 'Waterfront promenade'],
+    location: { lat: 25.199, lng: 55.354 },
+  },
+  {
+    id: 'c13',
+    slug: 'la-mer',
+    name: 'La Mer',
+    image: exteriors[3],
+    tagline: 'A beach village in Jumeirah',
+    description:
+      'A low-rise beachfront lifestyle district blending residences with a curated stretch of cafes, retail and open sand, closer to Downtown than most beach addresses.',
+    avgPricePerSqft: 2650,
+    avgRentalYield: 5.2,
+    listingsCount: 1,
+    popularFor: ['Beachfront lifestyle', 'Low-rise living', 'Close to Downtown'],
+    location: { lat: 25.2285, lng: 55.268 },
+  },
+  {
+    id: 'c17',
+    slug: 'palm-jebel-ali',
+    name: 'Palm Jebel Ali',
+    image: exteriors[5],
+    tagline: 'The next Palm island',
+    description:
+      'Nakheel’s second palm-shaped island, larger than Palm Jumeirah, featuring early-release waterfront villas for buyers positioning ahead of completion.',
+    avgPricePerSqft: 2800,
+    avgRentalYield: 4.2,
+    listingsCount: 1,
+    popularFor: ['Early-release villas', 'Waterfront plots', 'Long-term positioning'],
+    location: { lat: 24.9857, lng: 55.0273 },
   },
 ];

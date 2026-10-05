@@ -20,7 +20,7 @@ export function MortgageCalculator({ priceAED }: { priceAED: number }) {
   return (
     <div className="rounded-2xl border border-ink/10 p-6">
       <h3 className="font-display text-xl text-ink">Mortgage Calculator</h3>
-      <p className="mt-1 text-xs text-ink/50">Estimate only — for indicative purposes.</p>
+      <p className="mt-1 text-xs text-ink/50">Estimate only, for indicative purposes.</p>
 
       <div className="mt-6 flex flex-col gap-5">
         <div>

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { SlidersHorizontal, X, TrendingUp, Percent, BadgeCheck, PiggyBank, CalendarClock, Sofa } from 'lucide-react';
+import { SlidersHorizontal, X, TrendingUp, Percent, BadgeCheck, PiggyBank, CalendarClock, Sofa, Sparkles, RotateCcw } from 'lucide-react';
 import { useProperties } from '../hooks/useSanityContent';
 import type { Tag } from '../types';
 import { PropertyCard } from '../components/PropertyCard';
@@ -8,13 +8,14 @@ import { Filters, DEFAULT_FILTERS, type FilterState } from '../components/Filter
 import { FilterBar } from '../components/FilterBar';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Button } from '../components/Button';
+import { getSuggestedProperties } from '../lib/recommendations';
 
 const MODE_CONTENT = {
   'For Sale': {
     kicker: 'Own In Dubai',
     heading: 'Properties For Sale',
     description:
-      'Freehold ownership across Dubai’s most established and emerging communities — with zero income or capital gains tax, and residency options for qualifying buyers.',
+      'Freehold ownership across Dubai’s most established and emerging communities, with zero income or capital gains tax, and residency options for qualifying buyers.',
     stats: [
       { icon: TrendingUp, label: 'Avg. Price Growth', value: '+8.2% YoY' },
       { icon: Percent, label: 'Property & Income Tax', value: '0%' },
@@ -31,9 +32,9 @@ const MODE_CONTENT = {
     kicker: 'Move In Dubai',
     heading: 'Properties For Rent',
     description:
-      'Furnished and unfurnished leases across Dubai’s most sought-after addresses — flexible terms, move-in ready homes, and a dedicated leasing desk for relocating tenants.',
+      'Furnished and unfurnished leases across Dubai’s most sought-after addresses, flexible terms, move-in ready homes, and a dedicated leasing desk for relocating tenants.',
     stats: [
-      { icon: PiggyBank, label: 'Avg. Rental Yield', value: '6–8%' },
+      { icon: PiggyBank, label: 'Avg. Rental Yield', value: '6% to 8%' },
       { icon: CalendarClock, label: 'Lease Terms', value: 'Flexible' },
       { icon: Sofa, label: 'Move-In Ready', value: 'Furnished Options' },
     ],
@@ -108,6 +109,48 @@ export function Listings() {
     return list;
   }, [properties, filters, sort]);
 
+  const suggestedResults = useMemo(() => {
+    if (results.length > 0) return [];
+    return getSuggestedProperties(properties, filters);
+  }, [results.length, properties, filters]);
+
+  const activeFilterList = useMemo(() => {
+    const list: { key: keyof FilterState; label: string; reset: () => void }[] = [];
+    if (filters.status !== 'All' && !mode) {
+      list.push({ key: 'status', label: `Status: ${filters.status}`, reset: () => setFilters((p) => ({ ...p, status: 'All' })) });
+    }
+    if (filters.community) {
+      list.push({ key: 'community', label: filters.community, reset: () => setFilters((p) => ({ ...p, community: '' })) });
+    }
+    if (filters.type) {
+      list.push({ key: 'type', label: filters.type, reset: () => setFilters((p) => ({ ...p, type: '' })) });
+    }
+    if (filters.minBeds > 0) {
+      list.push({ key: 'minBeds', label: `${filters.minBeds}+ Beds`, reset: () => setFilters((p) => ({ ...p, minBeds: 0 })) });
+    }
+    if (filters.maxPriceAED > 0) {
+      const millions = filters.maxPriceAED / 1_000_000;
+      list.push({
+        key: 'maxPriceAED',
+        label: `Under AED ${millions >= 1 ? `${millions.toFixed(millions % 1 === 0 ? 0 : 1)}M` : filters.maxPriceAED.toLocaleString()}`,
+        reset: () => setFilters((p) => ({ ...p, maxPriceAED: 0 })),
+      });
+    }
+    if (filters.minSizeSqft > 0) {
+      list.push({ key: 'minSizeSqft', label: `${filters.minSizeSqft.toLocaleString()}+ sqft`, reset: () => setFilters((p) => ({ ...p, minSizeSqft: 0 })) });
+    }
+    if (filters.completion !== 'All') {
+      list.push({ key: 'completion', label: filters.completion, reset: () => setFilters((p) => ({ ...p, completion: 'All' })) });
+    }
+    if (filters.tag) {
+      list.push({ key: 'tag', label: filters.tag, reset: () => setFilters((p) => ({ ...p, tag: '' })) });
+    }
+    if (filters.search) {
+      list.push({ key: 'search', label: `"${filters.search}"`, reset: () => setFilters((p) => ({ ...p, search: '' })) });
+    }
+    return list;
+  }, [filters, mode]);
+
   return (
     <div className="pt-28">
       <div className="mx-auto max-w-7xl px-6 pt-8 lg:px-10">
@@ -117,9 +160,13 @@ export function Listings() {
         )}
         <h1 className="mt-3 font-display text-4xl text-ink sm:text-5xl">{mode ? mode.heading : 'All Listings'}</h1>
         <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink/60">
-          {mode ? mode.description : 'Browse the full S I A Luxe portfolio across Dubai — for sale and to let.'}
+          {mode ? mode.description : 'Browse the full S I A Luxe portfolio across Dubai, for sale and to let.'}
         </p>
-        <p className="mt-4 text-sm text-ink/40">{results.length} residences found</p>
+        <p className="mt-4 text-sm text-ink/40">
+          {results.length > 0
+            ? `${results.length} residences found`
+            : `0 exact matches · Showing ${suggestedResults.length} suggested residences`}
+        </p>
 
         {mode && (
           <div className="mt-8 grid grid-cols-1 gap-4 border-y border-ink/10 py-6 sm:grid-cols-3">
@@ -173,9 +220,84 @@ export function Listings() {
               ))}
             </div>
           ) : (
-            <div className="rounded-3xl border border-dashed border-ink/15 py-24 text-center">
-              <p className="font-display text-xl text-ink">No properties match your search</p>
-              <p className="mt-2 text-sm text-ink/50">Try adjusting your filters or budget.</p>
+            <div className="space-y-12">
+              <div className="rounded-3xl border border-dashed border-ink/20 bg-surface/60 p-8 sm:p-12 text-center backdrop-blur-sm">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gold/15 text-gold">
+                  <Sparkles size={24} />
+                </div>
+                <h2 className="mt-4 font-display text-2xl text-ink sm:text-3xl">No Exact Matches Found</h2>
+                <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-ink/60">
+                  We couldn't find residences matching all your filters combined. Below are the closest residences matching key aspects of your search.
+                </p>
+
+                {activeFilterList.length > 0 && (
+                  <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+                    <span className="text-xs text-ink/50 mr-1">Active filters:</span>
+                    {activeFilterList.map((item) => (
+                      <button
+                        key={item.key}
+                        type="button"
+                        onClick={item.reset}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-ink/15 bg-cream px-3 py-1 text-xs text-ink transition-colors hover:border-gold hover:text-gold"
+                        title={`Remove ${item.label}`}
+                      >
+                        <span>{item.label}</span>
+                        <X size={12} className="text-ink/50 hover:text-ink" />
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setFilters(mode ? { ...DEFAULT_FILTERS, status: filters.status } : DEFAULT_FILTERS)}
+                    className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-2.5 text-xs uppercase tracking-[0.16em] font-medium text-cream transition-colors hover:bg-gold hover:text-ink"
+                  >
+                    <RotateCcw size={13} />
+                    <span>Reset All Filters</span>
+                  </button>
+                </div>
+              </div>
+
+              {suggestedResults.length > 0 && (
+                <div>
+                  <div className="mb-6 flex flex-col gap-1 border-b border-ink/10 pb-4 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.24em] font-medium text-gold">Recommended For You</p>
+                      <h3 className="mt-1 font-display text-2xl text-ink">Suggested Similar Residences</h3>
+                      <p className="mt-1 text-xs text-ink/50">
+                        Properties matching some of your selected preferences (location, property type, or budget).
+                      </p>
+                    </div>
+                    <p className="shrink-0 text-xs text-ink/40">
+                      {suggestedResults.length} suggested {suggestedResults.length === 1 ? 'residence' : 'residences'}
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 xl:grid-cols-3">
+                    {suggestedResults.map(({ property, reasons }) => (
+                      <div key={property.id} className="flex flex-col">
+                        {reasons.length > 0 && (
+                          <div className="mb-2.5 flex flex-wrap items-center gap-1.5">
+                            <span className="text-[10px] uppercase tracking-[0.12em] font-medium text-ink/40">Matches:</span>
+                            {reasons.map((reason) => (
+                              <span
+                                key={reason}
+                                className="inline-flex items-center gap-1 rounded-full border border-gold/30 bg-gold/10 px-2.5 py-0.5 text-[10px] uppercase tracking-[0.08em] font-medium text-ink"
+                              >
+                                <span className="h-1 w-1 rounded-full bg-gold" />
+                                {reason}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        <PropertyCard property={property} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -211,7 +333,7 @@ export function Listings() {
               onClick={() => setMobileFiltersOpen(false)}
               className="mt-8 rounded-full bg-ink py-3 text-xs uppercase tracking-[0.16em] text-cream"
             >
-              Show {results.length} Results
+              {results.length > 0 ? `Show ${results.length} Results` : `Show ${suggestedResults.length} Suggestions`}
             </button>
           </div>
         </div>

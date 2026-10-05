@@ -16,7 +16,7 @@ export const projects: Project[] = [
     priceFromAED: 18500000,
     paymentPlan: { onBooking: 20, duringConstruction: 50, onHandover: 30 },
     handover: 'Q2 2028',
-    images: gallery(21, 4, coverFor('Palm Jumeirah')),
+    images: gallery(21, 8, coverFor('Palm Jumeirah')),
     description:
       'A collection of 24 beachfront mansions on a new Palm frond extension, each with private beach frontage and a rooftop infinity pool.',
     unitTypes: ['6-Bed Mansion', '7-Bed Mansion'],
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     priceFromAED: 3200000,
     paymentPlan: { onBooking: 10, duringConstruction: 70, onHandover: 20 },
     handover: 'Q4 2027',
-    images: gallery(22, 4, coverFor('Downtown Dubai')),
+    images: gallery(22, 8, coverFor('Downtown Dubai')),
     description:
       'A slender 68-storey tower rising beside the Burj Khalifa, with sky lounges at every tenth floor and direct Dubai Mall connectivity.',
     unitTypes: ['1-Bed', '2-Bed', '3-Bed Sky Villa'],
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     priceFromAED: 1650000,
     paymentPlan: { onBooking: 20, duringConstruction: 55, onHandover: 25 },
     handover: 'Q1 2027',
-    images: gallery(23, 4, coverFor('Business Bay')),
+    images: gallery(23, 8, coverFor('Business Bay')),
     description:
       'The second phase of the Canal Heights waterfront collection, offering studios to three-bedroom residences directly on the Dubai Canal.',
     unitTypes: ['Studio', '1-Bed', '2-Bed', '3-Bed'],
@@ -64,7 +64,7 @@ export const projects: Project[] = [
     priceFromAED: 6400000,
     paymentPlan: { onBooking: 20, duringConstruction: 50, onHandover: 30 },
     handover: 'Q3 2028',
-    images: gallery(24, 4, coverFor('Dubai Hills Estate')),
+    images: gallery(24, 8, coverFor('Dubai Hills Estate')),
     description:
       'An exclusive enclave of 45 villas backing onto the championship golf course, launching to S I A Luxe private clients ahead of public release.',
     unitTypes: ['5-Bed Villa', '6-Bed Villa'],
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     priceFromAED: 2100000,
     paymentPlan: { onBooking: 15, duringConstruction: 60, onHandover: 25 },
     handover: 'Q2 2027',
-    images: gallery(25, 4, coverFor('Dubai Marina')),
+    images: gallery(25, 8, coverFor('Dubai Marina')),
     description:
       'A slender marina-facing tower with a crown-level sky pool and interiors curated by an international design house.',
     unitTypes: ['1-Bed', '2-Bed', '3-Bed'],
@@ -96,9 +96,9 @@ export const projects: Project[] = [
     priceFromAED: 55000000,
     paymentPlan: { onBooking: 30, duringConstruction: 40, onHandover: 30 },
     handover: 'Q4 2028',
-    images: gallery(26, 4, coverFor('Jumeirah Bay Island')),
+    images: gallery(26, 8, coverFor('Jumeirah Bay Island')),
     description:
-      'The final land release on Jumeirah Bay Island — twelve waterfront villa plots with bespoke architectural design services included.',
+      'The final land release on Jumeirah Bay Island, featuring twelve waterfront villa plots with bespoke architectural design services included.',
     unitTypes: ['Custom Villa Plot'],
     amenities: ['Private plot design', 'Marina berth per villa', 'Beach club membership'],
   },

@@ -125,8 +125,8 @@ export function CompareCommunities() {
         />
         <h1 className="mt-4 font-display text-4xl text-ink sm:text-5xl">Compare Communities</h1>
         <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink/60">
-          Set two neighbourhoods side by side — price per sqft, estimated rental yield and what each
-          address is known for — to see which fits the brief.
+          Set two neighbourhoods side by side: price per sqft, estimated rental yield and what each
+          address is known for, to see which fits the brief.
         </p>
 
         <Reveal className="mt-10 grid grid-cols-2 items-center gap-4">

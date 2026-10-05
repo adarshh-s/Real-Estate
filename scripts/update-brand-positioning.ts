@@ -29,10 +29,10 @@ const PATCH = {
   heroHeadlineLine1: 'Real estate,',
   heroHeadlineLine2: 'considered differently.',
   heroSubtitle:
-    'A private real estate investment and advisory partner for Dubai — bringing the right opportunities into focus, not simply the most listings.',
+    'A private real estate investment and advisory partner for Dubai, bringing the right opportunities into focus, not simply the most listings.',
   interstitialHeadline: 'Property is the opportunity. Perspective is the advantage.',
   interstitialBody:
-    'We look beyond the property to location, developer, entry price, payment structure and long-term potential — before we bring an opportunity forward.',
+    'We look beyond the property to location, developer, entry price, payment structure and long-term potential, before we bring an opportunity forward.',
 };
 
 async function run() {

@@ -44,6 +44,7 @@ export function Button({
   variant = 'primary',
   to,
   href,
+  download,
   className,
   ...rest
 }: {
@@ -51,6 +52,7 @@ export function Button({
   variant?: Variant;
   to?: string;
   href?: string;
+  download?: boolean | string;
   className?: string;
 } & Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
@@ -70,7 +72,14 @@ export function Button({
   }
   if (href) {
     return (
-      <MotionAnchor href={href} className={classes} target="_blank" rel="noreferrer" {...magneticProps}>
+      <MotionAnchor
+        href={href}
+        download={download}
+        className={classes}
+        target="_blank"
+        rel="noreferrer"
+        {...magneticProps}
+      >
         {children}
       </MotionAnchor>
     );

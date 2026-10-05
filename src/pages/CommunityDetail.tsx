@@ -1,6 +1,7 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { useCommunities, useProperties } from '../hooks/useSanityContent';
+import { useCommunities, useProperties, useProjects } from '../hooks/useSanityContent';
 import { PropertyCard } from '../components/PropertyCard';
+import { ProjectCard } from '../components/ProjectCard';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { formatNumber } from '../lib/format';
 
@@ -8,11 +9,15 @@ export function CommunityDetail() {
   const { slug = '' } = useParams();
   const communities = useCommunities();
   const properties = useProperties();
+  const projects = useProjects();
   const community = communities.find((c) => c.slug === slug);
 
   if (!community) return <Navigate to="/communities" replace />;
 
   const listings = properties.filter((p) => p.community === community.name);
+  // project.community sometimes carries extra location detail (e.g. "La Mer, Jumeirah"),
+  // so match on the community name appearing anywhere in it rather than an exact match.
+  const communityProjects = projects.filter((p) => p.community?.toLowerCase().includes(community.name.toLowerCase()));
 
   return (
     <div className="pt-16">
@@ -67,28 +72,49 @@ export function CommunityDetail() {
           </div>
         </div>
 
-        <div className="mt-16">
-          <div className="flex items-end justify-between">
-            <h2 className="font-display text-2xl text-ink sm:text-3xl">Available in {community.name}</h2>
-            <Link
-              to={`/listings?community=${encodeURIComponent(community.name)}`}
-              className="hidden text-xs uppercase tracking-[0.14em] text-gold underline underline-offset-4 sm:block"
-            >
-              View All
-            </Link>
-          </div>
-          {listings.length > 0 ? (
+        {listings.length > 0 && (
+          <div className="mt-16">
+            <div className="flex items-end justify-between">
+              <h2 className="font-display text-2xl text-ink sm:text-3xl">Available in {community.name}</h2>
+              <Link
+                to={`/listings?community=${encodeURIComponent(community.name)}`}
+                className="hidden text-xs uppercase tracking-[0.14em] text-gold underline underline-offset-4 sm:block"
+              >
+                View All
+              </Link>
+            </div>
             <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
               {listings.map((p) => (
                 <PropertyCard key={p.id} property={p} />
               ))}
             </div>
-          ) : (
-            <p className="mt-8 text-sm text-ink/50">
-              No current listings — contact us for off-market opportunities in {community.name}.
-            </p>
-          )}
-        </div>
+          </div>
+        )}
+
+        {communityProjects.length > 0 && (
+          <div className="mt-16">
+            <div className="flex items-end justify-between">
+              <h2 className="font-display text-2xl text-ink sm:text-3xl">New Projects in {community.name}</h2>
+              <Link
+                to="/off-plan"
+                className="hidden text-xs uppercase tracking-[0.14em] text-gold underline underline-offset-4 sm:block"
+              >
+                View All
+              </Link>
+            </div>
+            <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+              {communityProjects.map((p) => (
+                <ProjectCard key={p.id} project={p} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {listings.length === 0 && communityProjects.length === 0 && (
+          <p className="mt-16 text-sm text-ink/50">
+            No current listings. Contact us for off-market opportunities in {community.name}.
+          </p>
+        )}
       </div>
     </div>
   );

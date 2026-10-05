@@ -22,8 +22,12 @@ const PROPERTY_PROJECTION = `{
   rentPeriod,
   beds,
   baths,
+  parking,
   sizeSqft,
   plotSqft,
+  developer,
+  view,
+  availableFrom,
   furnishing,
   completion,
   "images": images[].asset->url,
@@ -34,7 +38,20 @@ const PROPERTY_PROJECTION = `{
   featured,
   yearBuilt,
   reference,
-  "location": location{lat, lng}
+  "location": location{lat, lng},
+  "createdAt": _createdAt,
+  showInActivity,
+  activityLabel,
+  "transactions": transactions[]{
+    "id": coalesce(_key, unitNumber),
+    date,
+    unitNumber,
+    type,
+    rooms,
+    procedure,
+    areaSqm,
+    priceAED
+  }
 }`;
 
 const PROJECT_PROJECTION = `{
@@ -43,6 +60,7 @@ const PROJECT_PROJECTION = `{
   "slug": slug.current,
   developer,
   community,
+  tier,
   status,
   priceFromAED,
   paymentPlan,
@@ -50,7 +68,20 @@ const PROJECT_PROJECTION = `{
   "images": images[].asset->url,
   description,
   unitTypes,
-  amenities
+  amenities,
+  "brochureUrl": coalesce(brochure.asset->url, brochureUrl),
+  "transactions": transactions[]{
+    "id": coalesce(_key, unitNumber),
+    date,
+    unitNumber,
+    type,
+    rooms,
+    procedure,
+    areaSqm,
+    priceAED
+  },
+  showInActivity,
+  activityLabel
 }`;
 
 const COMMUNITY_PROJECTION = `{
@@ -107,6 +138,8 @@ const ARTICLE_PROJECTION = `{
 export interface SiteSettings {
   heroVideoUrl?: string;
   heroPosterUrl?: string;
+  heroVideoMobileUrl?: string;
+  heroPosterMobileUrl?: string;
   heroKicker?: string;
   heroHeadlineLine1?: string;
   heroHeadlineLine2?: string;
@@ -118,6 +151,9 @@ export interface SiteSettings {
   contactEmail?: string;
   whatsappNumber?: string;
   officeAddress?: string;
+  legalCompanyName?: string;
+  tradeLicenseNumber?: string;
+  reraOrn?: string;
 }
 
 export async function fetchProperties(): Promise<Property[] | null> {
@@ -185,6 +221,8 @@ export async function fetchSiteSettings(): Promise<SiteSettings | null> {
   return sanityClient.fetch<SiteSettings | null>(`*[_type == "siteSettings"][0]{
     "heroVideoUrl": heroVideo.asset->url,
     "heroPosterUrl": heroPoster.asset->url,
+    "heroVideoMobileUrl": heroVideoMobile.asset->url,
+    "heroPosterMobileUrl": heroPosterMobile.asset->url,
     heroKicker,
     heroHeadlineLine1,
     heroHeadlineLine2,
@@ -195,6 +233,9 @@ export async function fetchSiteSettings(): Promise<SiteSettings | null> {
     contactPhone,
     contactEmail,
     whatsappNumber,
-    officeAddress
+    officeAddress,
+    legalCompanyName,
+    tradeLicenseNumber,
+    reraOrn
   }`);
 }

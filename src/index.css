@@ -6,16 +6,21 @@
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter",
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  --color-ink: #171717;
-  --color-ink-soft: #4a4a4a;
+  /* Official brand palette: Charcoal Black #1A1A1A / Grey #8A8A8A /
+     Silver #C0C0C0 / Off White #F5F5F5 / White #FFFFFF. Grey carries the
+     "accent" role here (prices, active states) since Silver alone is too
+     light for text-level contrast on white — Silver is used instead for
+     lighter/decorative fills (gold-soft, gold-pale). */
+  --color-ink: #1a1a1a;
+  --color-ink-soft: #6e6e6e;
   --color-cream: #ffffff;
-  --color-cream-soft: #f2f2f2;
+  --color-cream-soft: #f5f5f5;
   --color-surface: #ffffff;
-  --color-sand: #e5e5e5;
-  --color-gold: #171717;
-  --color-gold-soft: #767676;
-  --color-gold-pale: #e5e5e5;
-  --color-line: #e5e5e5;
+  --color-sand: #e0e0e0;
+  --color-gold: #8a8a8a;
+  --color-gold-soft: #c0c0c0;
+  --color-gold-pale: #ececec;
+  --color-line: #e0e0e0;
 
   --animate-marquee: marquee 32s linear infinite;
   --animate-marquee-vertical: marquee-vertical 26s linear infinite;
@@ -51,6 +56,14 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* mobile browser chrome (address bar) makes 100vh taller than the visible
+   viewport; svh/dvh report the real visible height once supported, with
+   100vh kept first as the fallback for browsers that don't parse them */
+.hero-viewport {
+  min-height: 100vh;
+  min-height: 100svh;
 }
 
 body {

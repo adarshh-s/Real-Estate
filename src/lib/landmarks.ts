@@ -39,6 +39,8 @@ function haversineKm(a: { lat: number; lng: number }, b: { lat: number; lng: num
 export interface NearbyLandmark {
   name: string;
   category: string;
+  lat: number;
+  lng: number;
   distanceKm: number;
   driveMinutes: number;
 }
@@ -51,6 +53,8 @@ export function nearestLandmarks(origin: { lat: number; lng: number }, count = 5
     return {
       name: l.name,
       category: l.category,
+      lat: l.lat,
+      lng: l.lng,
       distanceKm,
       driveMinutes: Math.max(3, Math.round((distanceKm / AVG_CITY_SPEED_KMH) * 60)),
     };

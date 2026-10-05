@@ -37,13 +37,26 @@ async function run() {
   console.log('Uploading new hero poster...');
   const posterAssetId = await uploadAsset('image', 'hero-poster.jpg');
 
-  await client
-    .patch('siteSettings')
-    .set({
-      heroVideo: { _type: 'file', asset: { _type: 'reference', _ref: videoAssetId } },
-      heroPoster: { _type: 'image', asset: { _type: 'reference', _ref: posterAssetId } },
-    })
-    .commit();
+  const fields: Record<string, unknown> = {
+    heroVideo: { _type: 'file', asset: { _type: 'reference', _ref: videoAssetId } },
+    heroPoster: { _type: 'image', asset: { _type: 'reference', _ref: posterAssetId } },
+  };
+
+  const mobileVideoPath = path.join(PUBLIC_DIR, 'videos/hero-luxury-home-mobile.mp4');
+  if (fs.existsSync(mobileVideoPath)) {
+    console.log('Uploading new mobile hero video...');
+    const mobileVideoAssetId = await uploadAsset('file', 'videos/hero-luxury-home-mobile.mp4');
+    fields.heroVideoMobile = { _type: 'file', asset: { _type: 'reference', _ref: mobileVideoAssetId } };
+  }
+
+  const mobilePosterPath = path.join(PUBLIC_DIR, 'hero-poster-mobile.jpg');
+  if (fs.existsSync(mobilePosterPath)) {
+    console.log('Uploading new mobile hero poster...');
+    const mobilePosterAssetId = await uploadAsset('image', 'hero-poster-mobile.jpg');
+    fields.heroPosterMobile = { _type: 'image', asset: { _type: 'reference', _ref: mobilePosterAssetId } };
+  }
+
+  await client.patch('siteSettings').set(fields).commit();
 
   console.log('Done — hero video and poster updated in Sanity.');
 }

@@ -1,0 +1,1082 @@
+[
+  {
+    "slug": "alana-the-valley",
+    "name": "Alana at The Valley",
+    "developer": "Emaar Properties",
+    "community": "The Valley",
+    "status": "Under Construction",
+    "priceFromAED": null,
+    "handover": "Not yet announced",
+    "unitTypes": [
+      "3BR Townhouse",
+      "4BR Villa"
+    ],
+    "amenities": [
+      "Community parks",
+      "Retail plaza",
+      "Cycling & walking trails",
+      "Swimming pools",
+      "Kids play areas",
+      "Nearby schools",
+      "24/7 security",
+      "Landscaped gardens"
+    ],
+    "description": "Alana is one of the newer residential clusters within Emaar's expansive The Valley masterplan on the Dubai-Al Ain Road, a family-first community built around the idea of trading city density for space, greenery and a genuine sense of neighbourhood. Set among The Valley's signature Golden Beach lagoon, cycling trails and Town Centre retail hub, Alana offers a mix of three- and four-bedroom townhouses and villas designed for growing households who want room to breathe without leaving Dubai's commuter radius. Every home sits within walking distance of parks, community pools and a dedicated school zone, while the wider Valley masterplan continues to add retail, sports and leisure infrastructure as later phases complete. It's an easy, low-stress entry point into one of Emaar's most in-demand suburban addresses.",
+    "imageFile": "alana-the-valley.jpg"
+  },
+  {
+    "slug": "masaar",
+    "name": "Masaar",
+    "developer": "Arada",
+    "community": "Tilal City, Sharjah",
+    "status": "Under Construction",
+    "priceFromAED": 1970000,
+    "handover": "Q4 2028 (phases through Q4 2029)",
+    "unitTypes": [
+      "2BR Townhouse",
+      "3BR Townhouse",
+      "4BR Villa",
+      "5BR Villa",
+      "6BR Villa"
+    ],
+    "amenities": [
+      "19M sq ft of forest trails",
+      "Cycling & jogging paths",
+      "Swimmable lakes",
+      "Retail plaza",
+      "Adventure park",
+      "Community pools",
+      "Kids play areas",
+      "Wellness zone"
+    ],
+    "description": "Masaar is Arada's flagship forest-living community in Tilal City, Sharjah, just minutes from the Dubai border and built around one simple idea: bring the outdoors back into everyday life. The 19-million-square-foot masterplan is threaded with cycling and jogging trails that wind through more than 50,000 trees, connecting a series of themed neighbourhoods of two- to six-bedroom townhouses and villas. Residents get direct access to a retail plaza, swimmable lakes, adventure and forest parks, and a dedicated wellness zone, all designed to encourage an active, nature-led lifestyle rarely found this close to a major city. With phases launching in stages through 2028 and 2029, Masaar has become one of the region's most talked-about family communities, popular with buyers who want space, greenery and strong long-term rental demand without sacrificing proximity to Dubai.",
+    "imageFile": "masaar.jpg"
+  },
+  {
+    "slug": "al-ghadeer-gardens",
+    "name": "Al Ghadeer Gardens",
+    "developer": "Aldar Properties",
+    "community": "Al Ghadeer, Abu Dhabi",
+    "status": "Under Construction",
+    "priceFromAED": 1700000,
+    "handover": "Q4 2029",
+    "unitTypes": [
+      "2BR Townhouse",
+      "3BR Townhouse",
+      "4BR Villa"
+    ],
+    "amenities": [
+      "Community parks",
+      "Retail strip",
+      "Schools nearby",
+      "Mosques",
+      "Cycling paths",
+      "Kids play areas",
+      "Landscaped streets",
+      "24/7 security"
+    ],
+    "description": "Al Ghadeer Gardens is Aldar's townhouse and villa collection within Al Ghadeer, a well-established, walkable community that sits directly on the Abu Dhabi-Dubai border, close enough to Dubai for a daily commute, yet priced and planned like an Abu Dhabi suburb. The 437-unit release adds two- and three-bedroom townhouses and four-bedroom villas to a district that already has its own parks, retail strip, mosques and schools, so new owners move into a neighbourhood with amenities already running rather than a masterplan still under construction. Al Ghadeer has built a reputation as one of the more affordable family-villa entry points in the wider Abu Dhabi-Dubai corridor, and this newest phase is aimed squarely at end-users and investors chasing that value proposition rather than ultra-luxury buyers.",
+    "imageFile": "al-ghadeer-gardens.jpg"
+  },
+  {
+    "slug": "damac-islands",
+    "name": "DAMAC Islands",
+    "developer": "Damac Properties",
+    "community": "Dubailand",
+    "status": "Under Construction",
+    "priceFromAED": 2250000,
+    "handover": "Q4 2028 (Islands 2: 30 Jun 2030)",
+    "unitTypes": [
+      "4BR Townhouse",
+      "5BR Villa",
+      "6BR Villa",
+      "7BR Villa"
+    ],
+    "amenities": [
+      "Six island-themed clusters",
+      "Private beach clubs",
+      "Water sports",
+      "Kids clubs",
+      "Resort-style pools",
+      "Landscaped parks",
+      "Retail & dining",
+      "24/7 security"
+    ],
+    "description": "DAMAC Islands is Damac's most ambitious themed villa community to date, six island-inspired clusters (Maldives, Bora Bora, Seychelles, Hawaii, Bali and Fiji), each with its own architectural identity, built around a network of lagoons, sandy beach clubs and resort-style leisure facilities in Dubailand. The four- to seven-bedroom townhouses and villas lean into a tropical-resort aesthetic rarely attempted at this scale in Dubai, with a second phase, DAMAC Islands 2, recently launched to add larger villa and twin-villa layouts for buyers who found the first release oversubscribed. It's designed as a full lifestyle destination rather than just a housing estate, beach clubs, water sports and family leisure sit alongside the homes, and has attracted strong investor interest on the strength of Damac's delivery track record and the sheer novelty of the concept.",
+    "imageFile": "damac-islands.jpg"
+  },
+  {
+    "slug": "greenz-by-danube",
+    "name": "Greenz by Danube",
+    "developer": "Danube Properties",
+    "community": "Dubai International Academic City",
+    "status": "Launching Soon",
+    "priceFromAED": null,
+    "handover": "Not yet announced",
+    "unitTypes": [
+      "3BR Townhouse",
+      "4BR Villa",
+      "5BR Villa"
+    ],
+    "amenities": [
+      "Fully furnished interiors",
+      "Community pool",
+      "Gym",
+      "Landscaped gardens",
+      "Kids play area",
+      "Retail nearby",
+      "24/7 security"
+    ],
+    "description": "Greenz marks Danube Properties' first move from apartment towers into low-rise villa and townhouse living, landing in Dubai International Academic City with 768 fully furnished three- to five-bedroom homes. True to Danube's model, units arrive turnkey, furniture, white goods and fit-out included, which has made the brand one of the most accessible entry points into Dubai off-plan for first-time investors. Greenz adds a community pool, gym and landscaped common areas to a part of Dubai increasingly popular with families priced out of more central villa communities, while still sitting within easy reach of Academic City's universities, Silicon Oasis and the wider E611 corridor. Pricing and handover details are still being finalised as the project moves from launch into presale, but early demand has mirrored Danube's usual pattern of fast sell-outs on release.",
+    "imageFile": "greenz-by-danube.jpg"
+  },
+  {
+    "slug": "reportage-village",
+    "name": "Reportage Village",
+    "developer": "Reportage Properties",
+    "community": "Wadi Al Safa 7, Dubailand",
+    "status": "Under Construction",
+    "priceFromAED": 1550000,
+    "handover": "Q4 2027",
+    "unitTypes": [
+      "2BR Townhouse",
+      "3BR Townhouse",
+      "4BR Townhouse"
+    ],
+    "amenities": [
+      "Multiple swimming pools",
+      "Outdoor gym",
+      "Sports court",
+      "Jogging track",
+      "Tennis court",
+      "Nursery",
+      "Mosque",
+      "Kids play areas"
+    ],
+    "description": "Reportage Village is a 1,767-unit townhouse community from Reportage Properties, an Egyptian-UAE developer that has been quietly building one of Dubai's larger affordable-villa portfolios in Wadi Al Safa 7, Dubailand. The two- to four-bedroom townhouses are aimed squarely at families and investors looking for villa-style space at apartment-adjacent prices, with construction already around a fifth complete and handover targeted for late 2027. On-site amenities lean toward everyday family living rather than resort extravagance, multiple pools, an outdoor gym, sports courts, a jogging track, tennis, a nursery and a mosque, reflecting the project's positioning as a practical, well-priced villa alternative rather than a branded lifestyle destination. For buyers focused on rental yield and end-user affordability in the Dubailand corridor, it's one of the more straightforward propositions on the market.",
+    "imageFile": "reportage-village.jpg"
+  },
+  {
+    "slug": "tilal-binghatti",
+    "name": "Tilal",
+    "developer": "Binghatti Developers",
+    "community": "Al Rowaiyah, Academic City",
+    "status": "Launching Soon",
+    "priceFromAED": null,
+    "handover": "Dec 2029",
+    "unitTypes": [
+      "4BR Townhouse",
+      "5BR Villa",
+      "6BR Villa",
+      "7BR Mansion"
+    ],
+    "amenities": [
+      "Man-made beach (12,000 sqm)",
+      "Swimmable lakes",
+      "Smart home technology",
+      "50+ lifestyle amenities",
+      "Community pools",
+      "Kids play areas",
+      "Retail plaza",
+      "24/7 security"
+    ],
+    "description": "Tilal is Binghatti's first venture beyond its signature apartment towers into villa and townhouse territory, a 1,200-unit community in Al Rowaiyah near Academic City built around a genuinely unusual centrepiece: a 12,000 sqm man-made beach and a series of swimmable lakes. Four- to seven-bedroom townhouses, villas and mansions are arranged around this water-first landscape, supported by more than 50 lifestyle amenities and smart-home technology throughout, a nod to Binghatti's design-forward reputation carrying over from its Business Bay towers. It's a bold, resort-style pitch for a developer better known for striking apartment architecture, aimed at buyers who want the Binghatti brand and design language but in a lower-density, family-sized format. As a launch-phase project, exact pricing is still being finalised, though the scale of amenity provision suggests a premium position within its Dubailand micro-market.",
+    "imageFile": "tilal-binghatti.jpg"
+  },
+  {
+    "slug": "the-valley",
+    "name": "The Valley",
+    "developer": "Emaar Properties",
+    "community": "Dubai-Al Ain Road",
+    "status": "Under Construction",
+    "priceFromAED": 2500000,
+    "handover": "Varies by cluster: Q3 2026-Q4 2028",
+    "unitTypes": [
+      "3BR Townhouse",
+      "4BR Townhouse",
+      "5BR Villa"
+    ],
+    "amenities": [
+      "Golden Beach lagoon",
+      "Town Centre retail hub",
+      "Sports Village",
+      "Cycling & jogging trails",
+      "Community parks",
+      "Schools",
+      "Mosques",
+      "Swimming pools"
+    ],
+    "description": "The Valley is Emaar's AED25 billion suburban masterplan along the Dubai-Al Ain Road, built on the premise that Dubai's next generation of buyers wants space, greenery and a genuine sense of community rather than another high-rise postcode. Spanning 200 hectares and more than 4,500 homes across named clusters, Eden, Nara, Rivana, Farm Gardens, Avena and others, the development centres on the Golden Beach lagoon and a Town Centre retail hub, with a dedicated Sports Village adding padel, cricket and skate facilities as later phases complete. Three- to five-bedroom townhouses and villas are released in staggered clusters with handovers running from 2026 through 2028, giving buyers multiple entry points at different price bands. It has become one of Emaar's best-selling suburban brands, popular with end-user families and investors alike thanks to the developer's track record and the sheer scale of amenity provision as the masterplan matures.",
+    "imageFile": "the-valley.jpg"
+  },
+  {
+    "slug": "sobha-sanctuary",
+    "name": "Sobha Sanctuary",
+    "developer": "Sobha Realty",
+    "community": "Dubailand",
+    "status": "Under Construction",
+    "priceFromAED": 3990000,
+    "handover": "Not yet announced",
+    "unitTypes": [
+      "4BR Villa",
+      "5BR Villa",
+      "6BR Villa"
+    ],
+    "amenities": [
+      "Crystal lagoons",
+      "Landscaped parks",
+      "Waterfront walkways",
+      "Community pools",
+      "Cycling trails",
+      "Kids play areas",
+      "24/7 security",
+      "Clubhouse"
+    ],
+    "description": "Sobha Sanctuary is a low-density luxury villa enclave on an 872-acre site in Dubailand, positioned as Sobha Realty's answer to buyers who want space and privacy without leaving the brand's signature build quality behind. Four- to six-bedroom villas are arranged around a network of crystal-clear lagoons, landscaped parks and waterfront walkways, with Sobha's in-house construction model, the developer builds almost everything itself rather than subcontracting, used as the core sales pitch around finish quality and delivery reliability. Starting from roughly AED 4 million, Sanctuary sits at the upper end of Sobha's Dubailand portfolio alongside sister project Sobha Hartland, targeting end-users who want a genuinely quiet, nature-facing villa lifestyle within a reasonable drive of the city centre. Exact handover timing is still to be confirmed as the project moves through presale.",
+    "imageFile": "sobha-sanctuary.jpg"
+  },
+  {
+    "slug": "amali-residences",
+    "name": "Amali Residences",
+    "developer": "Amali Properties",
+    "community": "Al Wasl, Dubai Water Canal",
+    "status": "Launching Soon",
+    "priceFromAED": 10000000,
+    "handover": "Q4 2029",
+    "unitTypes": [
+      "2BR Apartment",
+      "3BR Duplex",
+      "4BR Sky Penthouse",
+      "Sky Villa"
+    ],
+    "amenities": [
+      "Private pools (Sky Villas)",
+      "Indoor & outdoor pools",
+      "Yoga & Pilates studio",
+      "Full gym",
+      "Kids waterpark",
+      "Canal & Downtown views",
+      "Concierge",
+      "Covered parking"
+    ],
+    "description": "Amali Residences is a 48-storey, roughly 211-home canal-front tower in Al Wasl from boutique developer Amali Properties, built around a genuinely rare concept for Dubai: double-height 'Sky Villa' units with their own private pools and terraces stacked partway up a high-rise rather than confined to penthouse level. Two- to four-bedroom apartments, duplexes and Sky Penthouses sit alongside these Sky Villas, all overlooking the Dubai Water Canal with views toward Downtown and Safa Park. Amenities lean firmly toward wellness, indoor and outdoor pools, a dedicated yoga and Pilates studio, a full gym and a kids' waterpark, positioning the tower as a lifestyle-first address rather than a purely investment-grade stack. Starting from around AED 10 million, it's aimed at end-users and investors chasing something more architecturally distinctive than the standard canal-front apartment product.",
+    "imageFile": "amali-residences.jpg"
+  },
+  {
+    "slug": "lunaya",
+    "name": "Lunaya",
+    "developer": "Zaya (with FIVE Holdings)",
+    "community": "Jebel Ali",
+    "status": "Launching Soon",
+    "priceFromAED": 4900000,
+    "handover": "2029",
+    "unitTypes": [
+      "4BR Villa",
+      "5BR Villa"
+    ],
+    "amenities": [
+      "900,000 sqft swimmable lagoons",
+      "4.5km trail network",
+      "Padel, tennis & pickleball",
+      "Spa",
+      "Kids club",
+      "Dog park",
+      "Skate park",
+      "65% greenery & open space"
+    ],
+    "description": "Lunaya is a lagoon-centric villa community in Jebel Ali developed by Zaya, the team behind Nadia Zaal's Zaya Nurai Island, in partnership with FIVE Holdings, built around 900,000 sq ft of swimmable lagoons and roughly 65% greenery and open space across the masterplan. Four- and five-bedroom villas are arranged along a 4.5km trail network, with padel, tennis and pickleball courts, a spa, a kids' club, a dog park and a skate park rounding out what is positioned as an active, outdoors-first family community rather than a purely architectural showpiece. Starting from around AED 4.9 million with handover targeted for 2029, Lunaya is aimed at buyers who want Jebel Ali's improving connectivity and relative value alongside a genuinely resort-scaled amenity offering, backed by a development team with a strong luxury-hospitality pedigree.",
+    "imageFile": "lunaya.jpg"
+  },
+  {
+    "slug": "bayn",
+    "name": "Bayn",
+    "developer": "ORA Developers",
+    "community": "Ghantoot, between Dubai & Abu Dhabi",
+    "status": "Launching Soon",
+    "priceFromAED": 2750000,
+    "handover": "Dec 2028 (Phase 1)",
+    "unitTypes": [
+      "3BR Villa",
+      "4BR Townhouse",
+      "6BR Villa",
+      "8BR Mansion"
+    ],
+    "amenities": [
+      "7km+ waterfront",
+      "Marina",
+      "Sports facilities",
+      "Waterfront promenades",
+      "Community parks",
+      "Retail & dining",
+      "Schools (planned)",
+      "24/7 security"
+    ],
+    "description": "Bayn is ORA Developers' flagship UAE community, a 9,000-residence coastal masterplan in Ghantoot, the stretch of coastline between Dubai and Abu Dhabi, built around more than 7km of waterfront, a marina and a full suite of sports facilities. Three- to eight-bedroom villas, townhouses and mansions are planned in phases, with the first release targeting completion by December 2028, positioning Bayn as a long-term land play on one of the last substantial waterfront corridors within reach of both emirates. ORA, led by Egyptian billionaire Naguib Sawiris, has built a reputation in Egypt for large-scale coastal and golf-anchored communities, and Bayn represents the group's most significant UAE bet to date. Starting from around AED 2.75 million, it's pitched at buyers comfortable taking an early position in a masterplan that will take years to fully build out.",
+    "imageFile": "bayn.jpg"
+  },
+  {
+    "slug": "palm-jebel-ali-villas",
+    "name": "Palm Jebel Ali Villas",
+    "developer": "Nakheel",
+    "community": "Palm Jebel Ali",
+    "status": "Under Construction",
+    "priceFromAED": 21500000,
+    "handover": "Late 2026-2027 (phased)",
+    "unitTypes": [
+      "5BR Villa",
+      "6BR Villa",
+      "7BR Mansion"
+    ],
+    "amenities": [
+      "Direct beachfront",
+      "Private pools",
+      "Beach Collection & Coral Collection tiers",
+      "Marina access",
+      "Private beach clubs",
+      "24/7 security",
+      "Concierge"
+    ],
+    "description": "Palm Jebel Ali is Nakheel's second palm-shaped island, now moving from masterplan to active construction with the first villa handovers underway after years of delay. Five- to seven-bedroom villas and mansions are released across a Beach Collection and a more exclusive Coral Collection tier, all with direct beachfront and private pools, priced at a notable discount per square foot compared with the original Palm Jumeirah despite similar fundamentals, a private island footprint, direct beach access and Nakheel's established island-infrastructure expertise. Starting from around AED 21.5 million with phased handovers running through 2027 and select contracts into 2028/2029, it's aimed at ultra-high-net-worth buyers and investors betting on Palm Jebel Ali repeating Palm Jumeirah's long-term value trajectory as the island matures and amenities come online.",
+    "imageFile": "palm-jebel-ali.jpg"
+  },
+  {
+    "slug": "jumeirah-golf-estates",
+    "name": "Jumeirah Golf Estates",
+    "developer": "wasl Asset Management (Investment Corporation of Dubai)",
+    "community": "Jumeirah Golf Estates",
+    "status": "Ready",
+    "priceFromAED": null,
+    "handover": "Ongoing new sub-phases",
+    "unitTypes": [
+      "Villa",
+      "Townhouse",
+      "Apartment"
+    ],
+    "amenities": [
+      "Two Greg Norman golf courses",
+      "Clubhouse",
+      "Fairway & lake frontage",
+      "European Tour host venue",
+      "Retail & dining",
+      "Community parks",
+      "Schools nearby",
+      "24/7 security"
+    ],
+    "description": "Jumeirah Golf Estates is one of Dubai's most established master-planned golf communities, built around two Greg Norman-designed championship courses, Fire and Earth, and home to the Dubai Desert Classic on the European Tour. Opened in 2009 and majority-owned through wasl Asset Management and the Investment Corporation of Dubai, the community has matured into a mix of villas, townhouses and apartments developed in phases by multiple builders, with new sub-projects, including branded golf-villa collections, continuing to launch within the estate. Its appeal rests less on any single building and more on the setting itself: fairway and lake frontage, an established clubhouse, mature landscaping and a genuine golf-lifestyle identity that newer, unbuilt communities can't yet replicate. For buyers who want golf-course living with a proven track record rather than a masterplan promise, JGE remains one of the safer long-term bets in Dubai.",
+    "imageFile": "jumeirah-golf-estates.jpg"
+  },
+  {
+    "slug": "the-heights",
+    "name": "The Heights Country Club and Wellness",
+    "developer": "Emaar Properties",
+    "community": "Near Expo City, Dubai South",
+    "status": "Under Construction",
+    "priceFromAED": null,
+    "handover": "2029 (community); villas Q1-Q3 2030",
+    "unitTypes": [
+      "3BR Townhouse",
+      "4BR Townhouse",
+      "4BR Villa"
+    ],
+    "amenities": [
+      "Country club & wellness facilities",
+      "Cycling & walking trails",
+      "Neighbourhood retail",
+      "Community parks",
+      "Fitness studios",
+      "Kids play areas",
+      "24/7 security"
+    ],
+    "description": "The Heights, often shortened to 'Emaar Heights' in early marketing, is an 81-million-square-foot, roughly AED55 billion wellness-led master community from Emaar near Expo City and Dubai South, positioned as the developer's most ambitious health-and-lifestyle-first masterplan to date. Three- and four-bedroom townhouses and villas are built around a country-club concept, with cycling and walking trails, wellness and fitness facilities, and neighbourhood retail woven through the plan from day one rather than added later. Community infrastructure is targeted for 2029, with individual villa clusters releasing in stages from 2030, giving early buyers a long runway before delivery. It's aimed at buyers who want to get in early on what Emaar is positioning as a flagship wellness brand, in a part of Dubai benefiting from Expo City's ongoing infrastructure investment and improving connectivity to the wider south corridor.",
+    "imageFile": "the-heights.jpg"
+  },
+  {
+    "slug": "golf-place",
+    "name": "Golf Place",
+    "developer": "Emaar Properties",
+    "community": "Dubai Hills Estate",
+    "status": "Under Construction",
+    "priceFromAED": null,
+    "handover": "Not yet announced (Phase 2 ongoing)",
+    "unitTypes": [
+      "4BR Villa",
+      "5BR Villa",
+      "6BR Villa"
+    ],
+    "amenities": [
+      "18-hole championship golf course frontage",
+      "Community park",
+      "Retail boulevard",
+      "Schools nearby",
+      "Cycling trails",
+      "Swimming pools",
+      "24/7 security"
+    ],
+    "description": "Golf Place is one of Emaar's flagship villa collections within Dubai Hills Estate, built directly onto the fairways of the community's 18-hole championship golf course. Four- to six-bedroom villas are arranged to maximise golf-course frontage and views, with a second phase, Golf Place II, continuing to release as demand for fairway-facing plots in Dubai Hills has stayed consistently strong since the original launch. As part of the wider Dubai Hills Estate masterplan, owners get access to the community's parks, retail boulevard and schools alongside the golf-specific setting, making it one of the more complete, amenity-rich golf addresses in Dubai rather than a standalone club. It remains a benchmark comparison point for newer golf-villa launches elsewhere in the city, thanks to Emaar's delivery track record and Dubai Hills' now well-established community infrastructure.",
+    "imageFile": "golf-place.jpg"
+  },
+  {
+    "slug": "ghaf-woods",
+    "name": "Ghaf Woods",
+    "developer": "Majid Al Futtaim",
+    "community": "Dubailand",
+    "status": "Under Construction",
+    "priceFromAED": 1470000,
+    "handover": "Q3 2027-Q3 2029 (varies by cluster)",
+    "unitTypes": [
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Apartment",
+      "Duplex"
+    ],
+    "amenities": [
+      "Forest-view living",
+      "Native ghaf tree preservation",
+      "Nature trails",
+      "Community pools",
+      "Kids play areas",
+      "Retail nearby",
+      "Cycling paths"
+    ],
+    "description": "Ghaf Woods is Majid Al Futtaim's nature-first residential community in Dubailand, built around preserving and integrating the native ghaf tree, the UAE's national tree, into a series of named sub-clusters including DISTRIKT, Capria East and West, Serra and Cilia. One- to three-bedroom apartments, garden units and duplexes are designed with forest-facing views and generous outdoor space as the core selling point, reflecting MAF's broader retail-and-leisure DNA (the group behind Mall of the Emirates and Mall of Egypt) applied to a lower-density residential format. Handovers are staggered across clusters from 2027 through 2029, giving buyers flexibility on price point and delivery timing within a single masterplan. For buyers prioritising greenery and a genuinely different environmental concept over golf or waterfront theming, Ghaf Woods has quickly become one of the more distinctive mid-market launches in Dubailand.",
+    "imageFile": "ghaf-woods.jpg"
+  },
+  {
+    "slug": "athlon",
+    "name": "Athlon",
+    "developer": "Aldar Properties (with Dubai Holding)",
+    "community": "Dubailand, next to Arabian Ranches 3",
+    "status": "Under Construction",
+    "priceFromAED": 2800000,
+    "handover": "Q3 2028",
+    "unitTypes": [
+      "1BR Apartment",
+      "3BR Townhome",
+      "4BR Townhome",
+      "3BR Villa",
+      "6BR Villa"
+    ],
+    "amenities": [
+      "Running & bike tracks",
+      "Connects to 86km Al Qudra Cycle Track",
+      "Sports courts",
+      "Yoga spaces",
+      "Community pools",
+      "Kids play areas",
+      "Retail plaza",
+      "24/7 security"
+    ],
+    "description": "Athlon is Aldar's first major residential play in Dubai, developed in partnership with Dubai Holding as a roughly 2,692-unit, 119-hectare wellness and active-living masterplan in Dubailand, directly adjacent to the established Arabian Ranches 3 community. One- to three-bedroom apartments sit alongside three- and four-bedroom townhomes and three- to six-bedroom villas, all organised around running and bike tracks, sports courts and yoga spaces that connect directly into Dubai's 86km Al Qudra Cycle Track, a genuine, ready-built piece of infrastructure rather than a rendering promise. Handover is targeted for Q3 2028, and starting prices around AED 2.8 million position it competitively against neighbouring Arabian Ranches and Dubai Hills product. As Aldar's entry into the Dubai market after years of Abu Dhabi dominance, Athlon carries added significance as a test of the Abu Dhabi developer's ability to compete head-on with Emaar and Dubai Holding on their home turf.",
+    "imageFile": "athlon.jpg"
+  },
+  {
+    "slug": "valo",
+    "name": "Valo",
+    "developer": "Emaar Properties",
+    "community": "Dubai Creek Harbour",
+    "status": "Under Construction",
+    "priceFromAED": null,
+    "handover": "Q3 2028",
+    "unitTypes": [
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Townhouse"
+    ],
+    "amenities": [
+      "Eco-tech water conservation",
+      "Smart lighting",
+      "Shaded balconies",
+      "Gym",
+      "Wellness zones",
+      "Community pool",
+      "Retail nearby",
+      "Marina access"
+    ],
+    "description": "Valo is a 285-unit eco-concept development within Emaar's Dubai Creek Harbour, built around water-conservation systems, smart lighting and shaded balconies designed to reduce energy use without compromising on the waterfront views that define the wider Creek Harbour masterplan. One- to three-bedroom apartments and three-bedroom townhouses sit close to Creek Harbour's growing retail and marina precinct, with the Ras Al Khor Wildlife Sanctuary and the future Dubai Creek Tower skyline as backdrop. Handover is targeted for Q3 2028. Valo is positioned as a genuinely sustainability-led product rather than a marketing label, the eco-features are integrated at a building-systems level, appealing to buyers who want Creek Harbour's long-term growth story alongside a lower environmental footprint than a typical Dubai tower.",
+    "imageFile": "valo.jpg"
+  },
+  {
+    "slug": "jumeirah-asora-bay",
+    "name": "Jumeirah Residences Asora Bay",
+    "developer": "Meraas (Dubai Holding, branded with Jumeirah)",
+    "community": "La Mer, Jumeirah",
+    "status": "Under Construction",
+    "priceFromAED": 45000000,
+    "handover": "Early 2029",
+    "unitTypes": [
+      "Apartment",
+      "Penthouse",
+      "4BR Ocean Mansion",
+      "7BR Ocean Mansion"
+    ],
+    "amenities": [
+      "Private beach access",
+      "Jumeirah concierge & hospitality service",
+      "Hillside terraced architecture",
+      "Infinity pools",
+      "Spa",
+      "Valet parking",
+      "24/7 security"
+    ],
+    "description": "Jumeirah Residences Asora Bay is a 35-unit ultra-luxury hillside and coastal collection in La Mer, jointly developed and branded by Meraas (part of Dubai Holding) and the Jumeirah hospitality group. Apartments, a penthouse and four- to seven-bedroom Ocean Mansions are arranged across a terraced, hillside-inspired architectural concept, unusual for flat coastal Dubai, with direct private beach access and Jumeirah's five-star concierge and hospitality service woven into daily living rather than offered as an add-on. Starting from around AED 45 million with handover targeted for early 2029, it sits at the very top of Dubai's branded-residence market, competing directly with other five-star hospitality-branded product for the city's most exacting buyers. The Jumeirah name brings genuine hospitality-operations credibility rather than a purely decorative brand licence, which has been central to its positioning.",
+    "imageFile": "jumeirah-asora-bay.jpg"
+  },
+  {
+    "slug": "city-walk-crestlane",
+    "name": "City Walk Crestlane",
+    "developer": "Meraas (Dubai Holding)",
+    "community": "City Walk",
+    "status": "Under Construction",
+    "priceFromAED": null,
+    "handover": "Not yet announced",
+    "unitTypes": [
+      "Apartment"
+    ],
+    "amenities": [
+      "Overwater wellness centre",
+      "Movement & training studios",
+      "Co-working lounges",
+      "Resort-style pools",
+      "Kids play spaces",
+      "Retail & dining on doorstep",
+      "24/7 security"
+    ],
+    "description": "City Walk Crestlane is Meraas's waterfront residential extension of City Walk, one of Dubai's most established retail-and-lifestyle districts, built out as a series of towers, Crestlane 2 and 3 launched first, followed by a further two towers with several hundred units each. Apartments here sit above an overwater wellness centre, movement and training studios, co-working lounges and resort-style pools, reflecting Meraas's shift toward wellness-branded amenity programming across its newer launches rather than a purely retail-adjacent pitch. Its core appeal is location: City Walk's restaurants, cinema, Coca-Cola Arena and boutique retail are on the doorstep, alongside easy access to Downtown Dubai and Jumeirah, making it one of the more centrally positioned new-build options in the city for buyers who want walkable urban living over suburban space.",
+    "imageFile": "city-walk-crestlane.jpg"
+  },
+  {
+    "slug": "jumeirah-emirates-towers",
+    "name": "Jumeirah Residences Emirates Towers",
+    "developer": "Meraas (Dubai Holding)",
+    "community": "Sheikh Zayed Road, near Downtown Dubai",
+    "status": "Launching Soon",
+    "priceFromAED": 3510000,
+    "handover": "Sept 2030",
+    "unitTypes": [
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Apartment",
+      "4BR Apartment"
+    ],
+    "amenities": [
+      "Fitness centre",
+      "Executive co-working lounge",
+      "Private cinema",
+      "Resort-style pool",
+      "Padel courts",
+      "Kids zone",
+      "Jumeirah-branded service",
+      "Concierge"
+    ],
+    "description": "Jumeirah Residences Emirates Towers is Meraas's newest Jumeirah-branded launch, a 754-unit, two-tower development on Sheikh Zayed Road directly beside the Museum of the Future and within walking distance of Downtown Dubai. One- to four-bedroom branded residences come with a fitness centre, an executive co-working lounge, a private cinema, a resort-style pool and padel courts, positioning the project at the intersection of business-district convenience and hospitality-grade service, Jumeirah's operational involvement means owners get access to hotel-style amenities and service standards rather than a purely residential management model. Booking opened in September 2025 with handover targeted for September 2030, starting from around AED 3.5 million. It's aimed at buyers who want a genuinely central, branded address without paying Downtown Dubai's most premium per-square-foot rates.",
+    "imageFile": "jumeirah-emirates-towers.jpg"
+  },
+  {
+    "slug": "lumena-alta",
+    "name": "Lumena Alta",
+    "developer": "Omniyat",
+    "community": "Business Bay",
+    "status": "Launching Soon",
+    "priceFromAED": 19000000,
+    "handover": "Q1 2030",
+    "unitTypes": [
+      "Grade-A Office Unit"
+    ],
+    "amenities": [
+      "Sky Theatre",
+      "Sky Restaurant & infinity pool (335m)",
+      "Executive Wellness Suite",
+      "Business club",
+      "Valet parking",
+      "24/7 security",
+      "Concierge"
+    ],
+    "description": "Lumena Alta is a 72-storey, 380-metre commercial office tower from Omniyat in Business Bay, launched in October 2025 as a taller companion to the developer's original Lumena tower nearby. Grade-A office units are the focus here rather than residential apartments, with headline amenities built around business and hospitality experience: a Sky Theatre, a Sky Restaurant and infinity pool positioned 335 metres above street level, an Executive Wellness Suite and a dedicated business club. Starting from around AED 19 million with handover targeted for Q1 2030, Lumena Alta is aimed at corporate buyers, family offices and investors seeking premium, design-led office space in Business Bay rather than residential end-users. Note: this is a commercial listing, not a residential one.",
+    "imageFile": "lumena-alta.jpg"
+  },
+  {
+    "slug": "arancia-yards",
+    "name": "Arancia Yards",
+    "developer": "Beyond by Omniyat",
+    "community": "City of Arabia, Dubailand",
+    "status": "Launching Soon",
+    "priceFromAED": null,
+    "handover": "Q2 2029",
+    "unitTypes": [
+      "Studio",
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Apartment",
+      "3BR Townhouse"
+    ],
+    "amenities": [
+      "1km green spine",
+      "Sunken gardens",
+      "Rooftop terraces",
+      "70%+ open-air living space",
+      "Community pools",
+      "Kids play areas",
+      "Retail nearby"
+    ],
+    "description": "Arancia Yards is the first residential phase of 'The Yards', a new masterplan from Beyond, Omniyat's residential-focused arm, set within City of Arabia in Dubailand. Studio to three-bedroom apartments and three-bedroom townhouses are arranged around a one-kilometre green spine, sunken gardens and rooftop terraces, with more than 70% of the community designed as open-air living space rather than built form, an unusually generous ratio for a Dubai mid-to-upper-market launch. The project leans on Omniyat's design pedigree, best known for The Opus and One Palm, applied to a more accessible price point and product type than the developer's ultra-luxury back catalogue, aimed at buyers who want Omniyat-level design credibility without penthouse-level pricing. Handover is targeted for Q2 2029.",
+    "imageFile": "arancia-yards.jpg"
+  },
+  {
+    "slug": "meriva-collection",
+    "name": "The Meriva Collection",
+    "developer": "Ellington Properties",
+    "community": "Dubai Islands",
+    "status": "Under Construction",
+    "priceFromAED": 2800000,
+    "handover": "2030",
+    "unitTypes": [
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Apartment",
+      "3BR Penthouse",
+      "5BR Penthouse"
+    ],
+    "amenities": [
+      "Private beachfront",
+      "Resort-style pools",
+      "Lagoon water features",
+      "Fitness stations",
+      "Kids play areas",
+      "Landscaped gardens",
+      "24/7 security"
+    ],
+    "description": "The Meriva Collection is Ellington Properties' first hospitality-led beachfront project, a 903-unit development across six buildings on Dubai Islands, with the first phase marketed as 'Meriva Sunset'. One- to three-bedroom apartments and three- and five-bedroom penthouses sit directly on private beachfront, with resort-style pools, lagoon water features, fitness stations and kids' play areas built around a genuinely coastal, low-density feel rather than the tower-heavy product typical of Dubai Islands' earlier releases. Handover is targeted for 2030, starting from around AED 2.8 million. Ellington has built a strong reputation for interior design quality and boutique-scale delivery rather than sheer volume, and Meriva represents the brand's most significant beachfront bet to date as Dubai Islands continues its transformation from reclaimed land into an established residential destination.",
+    "imageFile": "meriva-collection.jpg"
+  },
+  {
+    "slug": "costa-mare",
+    "name": "Costa Mare",
+    "developer": "Ellington Properties",
+    "community": "Al Marjan Island, Ras Al Khaimah",
+    "status": "Under Construction",
+    "priceFromAED": null,
+    "handover": "Sept 2028",
+    "unitTypes": [
+      "Studio",
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Apartment",
+      "6BR Penthouse",
+      "5BR Villa"
+    ],
+    "amenities": [
+      "Infinity pools",
+      "Fitness centre",
+      "Spa",
+      "Landscaped gardens",
+      "Kids play areas",
+      "Beachfront access",
+      "24/7 security"
+    ],
+    "description": "Costa Mare is Ellington Properties' beachfront development on Al Marjan Island in Ras Al Khaimah, roughly 45 minutes from Dubai and positioned to capture buyers priced out of Dubai's own beachfront market or simply drawn to RAK's fast-growing hospitality and leisure scene, anchored by the nearby Wynn Al Marjan resort. Studio to three-bedroom apartments sit alongside six-bedroom penthouses, duplexes and five-bedroom villas, with infinity pools, a fitness centre, a spa and landscaped gardens delivered to Ellington's usual design-led standard. Handover is targeted for September 2028. For investors, Costa Mare represents a bet on Ras Al Khaimah's broader tourism and hospitality growth story as much as the property itself, and gives S I A Luxe clients a coastal, lower-entry-price alternative within the wider UAE portfolio alongside our core Dubai inventory.",
+    "imageFile": "costa-mare.jpg"
+  },
+  {
+    "slug": "sobha-central",
+    "name": "Sobha Central",
+    "developer": "Sobha Realty",
+    "community": "Sheikh Zayed Road, near JLT",
+    "status": "Under Construction",
+    "priceFromAED": null,
+    "handover": "2029",
+    "unitTypes": [
+      "1BR Apartment",
+      "2BR Apartment"
+    ],
+    "amenities": [
+      "Elevated parks",
+      "Tech-powered retail mall",
+      "Office space",
+      "Gym",
+      "Community pool",
+      "Retail & dining",
+      "24/7 security"
+    ],
+    "description": "Sobha Central is a six-tower mixed-use landmark on Sheikh Zayed Road near JLT, rising up to 90 storeys and delivering around 1,225 apartments alongside elevated parks, a tech-powered retail mall and dedicated office space, one of the more architecturally ambitious mixed-use launches on the Sheikh Zayed Road corridor in recent years. One- and two-bedroom apartments are the primary residential offering, aimed at a highly connected buyer who values Sheikh Zayed Road's Metro access and JLT proximity over larger unit sizes. Handover is targeted for 2029. As part of Sobha Realty's broader Sheikh Zayed Road push, Central sits alongside the developer's established Hartland and Sanctuary communities as a more urban, tower-based counterpoint to Sobha's villa-led reputation, built to the same in-house construction standard the brand has used to differentiate itself from other Dubai developers.",
+    "imageFile": "sobha-central.jpg"
+  },
+  {
+    "slug": "binghatti-skyrise",
+    "name": "Binghatti Skyrise",
+    "developer": "Binghatti Developers",
+    "community": "Business Bay",
+    "status": "Under Construction",
+    "priceFromAED": 975000,
+    "handover": "Dec 2026",
+    "unitTypes": [
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Apartment"
+    ],
+    "amenities": [
+      "Pool",
+      "Gym",
+      "Yoga zone",
+      "Kids area",
+      "Burj Khalifa views",
+      "Retail nearby",
+      "24/7 security",
+      "Covered parking"
+    ],
+    "description": "Binghatti Skyrise is three 48-storey, diamond-crowned towers in Business Bay, continuing the angular, sculptural design language that has made Binghatti one of Dubai's most recognisable developer brands over the past few years. One- to three-bedroom apartments come with Burj Khalifa views from many units, supported by a pool, gym, yoga zone and kids' area typical of Binghatti's mid-to-upper apartment product. Starting from around AED 975,000 with handover targeted for December 2026, Skyrise sits at a more accessible price point than Binghatti's branded collaborations, aimed at investors chasing the brand's strong rental and resale performance in Business Bay without the premium of a fashion or automotive tie-up. It's a straightforward, well-located apartment play from a developer with an increasingly proven delivery record.",
+    "imageFile": "binghatti-skyrise.jpg"
+  },
+  {
+    "slug": "bugatti-residences",
+    "name": "Bugatti Residences by Binghatti",
+    "developer": "Binghatti Developers (licensed collaboration with Bugatti)",
+    "community": "Business Bay",
+    "status": "Under Construction",
+    "priceFromAED": 19000000,
+    "handover": "Q3 2027",
+    "unitTypes": [
+      "2BR Apartment",
+      "3BR Apartment",
+      "4BR Apartment",
+      "Penthouse"
+    ],
+    "amenities": [
+      "Automotive-inspired design",
+      "Sky pool",
+      "Wellness amenities",
+      "Valet parking",
+      "Concierge",
+      "24/7 security",
+      "Private lobby"
+    ],
+    "description": "Bugatti Residences is Binghatti's licensed collaboration with the French automaker, a high-profile ultra-luxury tower in Business Bay that translates Bugatti's automotive design language, sculpted forms, carbon-fibre-inspired detailing, motion-inspired interiors, into two- to four-bedroom apartments and penthouses. Automotive-inspired design touches run throughout the building, alongside a sky pool and dedicated wellness amenities, positioning it as one of the most talked-about branded-residence launches in Dubai since the trend accelerated. Starting from around AED 19 million with handover targeted for Q3 2027, it competes directly with other automotive and fashion-branded towers for a very specific type of buyer who wants the brand association as much as the address. Binghatti's rapid construction pace on its other Business Bay towers gives some confidence on delivery timing, though branded-residence premiums typically carry higher resale risk than standard luxury product.",
+    "imageFile": "bugatti-residences.jpg"
+  },
+  {
+    "slug": "bayz-102",
+    "name": "Bayz 102",
+    "developer": "Danube Properties",
+    "community": "Business Bay",
+    "status": "Under Construction",
+    "priceFromAED": 1380000,
+    "handover": "Not yet announced",
+    "unitTypes": [
+      "Studio",
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Apartment",
+      "4BR Apartment",
+      "Penthouse"
+    ],
+    "amenities": [
+      "Fully furnished units",
+      "Community pool",
+      "Gym",
+      "Landscaped decks",
+      "Retail nearby",
+      "24/7 security",
+      "Covered parking"
+    ],
+    "description": "Bayz 102 is a 103-storey Danube Properties tower in Business Bay, the taller follow-up to the developer's original Bayz 101, and one of the tallest residential addresses in the district. Studio to four-bedroom apartments and penthouses are delivered to Danube's signature fully furnished, turnkey standard, with a community pool, gym and landscaped decks rounding out the offering, the same accessible, investor-friendly model that has made Danube one of Dubai's highest-volume developers by unit count. Starting from around AED 1.38 million, Bayz 102 is pitched at buyers who want height and Business Bay's central location without the premium pricing of branded or design-led towers nearby, backed by Danube's now well-established track record of on-time, furnished handovers across dozens of previous projects.",
+    "imageFile": "bayz-102.jpg"
+  },
+  {
+    "slug": "chelsea-residences",
+    "name": "Chelsea Residences",
+    "developer": "Damac Properties (with Chelsea FC)",
+    "community": "Maritime City",
+    "status": "Under Construction",
+    "priceFromAED": 2100000,
+    "handover": "Dec 2029",
+    "unitTypes": [
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Apartment"
+    ],
+    "amenities": [
+      "Rooftop football pitch",
+      "Chelsea Athlete Performance Centre",
+      "Cryotherapy",
+      "Wellness centre",
+      "Kids & dining venues",
+      "24/7 security",
+      "Concierge"
+    ],
+    "description": "Chelsea Residences is Dubai's first football-club-branded residential project, a six-tower, 1,400-plus-unit development in Maritime City built through Damac's partnership with Chelsea FC. One- to three-bedroom apartments sit above genuinely club-specific amenities: a rooftop football pitch, a Chelsea Athlete Performance Centre, cryotherapy facilities, a dedicated wellness centre and a mix of kids' and dining venues designed around the football theme rather than generic luxury branding. Handover is targeted for December 2029, starting from around AED 2.1 million. The project leans heavily on Chelsea FC's global fanbase as a marketing and sales channel, Damac has explicitly targeted international football fans and Premier League followers as much as the traditional Dubai investor pool, making it one of the more unusual, fandom-driven branded-residence plays in the current market cycle.",
+    "imageFile": "chelsea-residences.jpg"
+  },
+  {
+    "slug": "the-archive",
+    "name": "The Archive",
+    "developer": "Imtiaz Developments",
+    "community": "Dubai Land Residence Complex",
+    "status": "Under Construction",
+    "priceFromAED": 666000,
+    "handover": "Sept 2028",
+    "unitTypes": [
+      "Studio",
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Apartment"
+    ],
+    "amenities": [
+      "Two-storey library",
+      "Writer's Room",
+      "Rooftop Reading Salon",
+      "Gym",
+      "Mini-golf",
+      "Outdoor cinema",
+      "Kids play area"
+    ],
+    "description": "The Archive is a literary-themed residential tower from Imtiaz Developments in Dubai Land Residence Complex, built around a genuinely distinctive amenity concept for the affordable end of the market: a two-storey library, a dedicated Writer's Room and a rooftop Reading Salon, alongside more conventional extras like a gym, mini-golf and an outdoor cinema. Studio to three-bedroom apartments start from around AED 666,000, with handover targeted for September 2028, positioning the project firmly within Dubai's budget-to-mid-tier investor segment rather than competing on luxury finishes. Imtiaz has built its reputation on exactly this kind of themed, story-led amenity programming at accessible price points, turning a limited budget into a genuine point of differentiation rather than a generic tower, which has helped the developer stand out in DLRC's increasingly crowded affordable-apartment market.",
+    "imageFile": "the-archive.jpg"
+  },
+  {
+    "slug": "the-symphony",
+    "name": "The Symphony",
+    "developer": "Imtiaz Developments",
+    "community": "Meydan Horizon, Bu Kadra, MBR City",
+    "status": "Launching Soon",
+    "priceFromAED": 2000000,
+    "handover": "Q2 2029",
+    "unitTypes": [
+      "Residence",
+      "Penthouse"
+    ],
+    "amenities": [
+      "Zaha Hadid Architects design",
+      "Retail component",
+      "Office component",
+      "Gym",
+      "Community pool",
+      "24/7 security",
+      "Concierge"
+    ],
+    "description": "The Symphony is a Dh1 billion mixed-use tower in Meydan Horizon, part of Imtiaz Developments' broader AED3 billion Meydan portfolio, distinguished by its design pedigree, the tower is designed in collaboration with Zaha Hadid Architects, bringing a genuinely architect-led profile to a developer better known for accessible, amenity-rich apartment product. Residences span a range of configurations alongside penthouses, with retail and office components integrated into the base of the tower to create a mixed-use anchor for the still-developing Meydan Horizon and Bu Kadra district. Handover is targeted for Q2 2029, starting from around AED 2 million. For buyers, the Zaha Hadid association offers a rare combination of architectural credibility and Imtiaz's typically accessible pricing, in a part of Dubai, MBR City's southern edge, that has seen steadily rising interest as Meydan's infrastructure matures.",
+    "imageFile": "the-symphony.jpg"
+  },
+  {
+    "slug": "linar",
+    "name": "Linar",
+    "developer": "Alef Group",
+    "community": "Al Mamzar, Sharjah",
+    "status": "Under Construction",
+    "priceFromAED": null,
+    "handover": "From 2030",
+    "unitTypes": [
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Apartment",
+      "Penthouse"
+    ],
+    "amenities": [
+      "325m beachfront",
+      "Direct waterfront access",
+      "Community pools",
+      "Retail nearby",
+      "Kids play areas",
+      "24/7 security"
+    ],
+    "description": "Linar is a AED4 billion, 2,620-unit waterfront project from Alef Group in Al Mamzar, Sharjah, directly on the Dubai border and one of the largest single waterfront developments the emirate has seen. One- to three-bedroom apartments and penthouses sit along 325 metres of beachfront with direct waterfront access, with Phase 1 already sold out ahead of construction, reflecting strong demand for Sharjah's comparatively affordable waterfront product among buyers priced out of equivalent Dubai beachfront addresses. Handover for the remaining phases is targeted from 2030 onward. As with other Northern Emirates projects marketed to a Dubai-adjacent buyer pool, Linar's core appeal is value: waterfront living at a fraction of Dubai Marina or Palm Jumeirah pricing, with the trade-off being a slightly longer commute and a different regulatory environment for foreign ownership.",
+    "imageFile": "linar.jpg"
+  },
+  {
+    "slug": "samana-business-park",
+    "name": "Samana Business Park",
+    "developer": "Samana Developers",
+    "community": "Majan, Dubailand",
+    "status": "Under Construction",
+    "priceFromAED": 2600000,
+    "handover": "Q3 2028",
+    "unitTypes": [
+      "Office Unit",
+      "Mixed-Use Unit"
+    ],
+    "amenities": [
+      "Two gyms",
+      "Fitness studio",
+      "Multipurpose hall",
+      "Prayer rooms",
+      "Retail nearby",
+      "24/7 security",
+      "Covered parking"
+    ],
+    "description": "Samana Business Park is a mixed-use office and commercial building from Samana Developers in Majan, Dubailand, part of the developer's broader push beyond its signature furnished-apartment towers into commercial product. The building includes two gyms, a fitness studio, a multipurpose hall and prayer rooms, aimed at small businesses and investors seeking Grade-B office space in a fast-growing residential corridor rather than Dubai's more established commercial districts. Starting from around AED 2.6 million with handover targeted for Q3 2028, it's worth noting clearly as a commercial listing rather than residential, since Samana is far better known for its private-pool apartment towers elsewhere in Arjan and Majan, this project represents a genuine diversification rather than the developer's core product line.",
+    "imageFile": "samana-business-park.jpg"
+  },
+  {
+    "slug": "samana-greens",
+    "name": "Samana Greens",
+    "developer": "Samana Developers",
+    "community": "Arjan, Dubailand",
+    "status": "Under Construction",
+    "priceFromAED": null,
+    "handover": "Not yet announced",
+    "unitTypes": [
+      "Studio",
+      "1BR Apartment",
+      "2BR Apartment"
+    ],
+    "amenities": [
+      "Private plunge pool per unit",
+      "Shared gym",
+      "Kids play areas",
+      "Landscaped gardens",
+      "Retail nearby",
+      "24/7 security",
+      "Covered parking"
+    ],
+    "description": "Samana Greens is part of Samana Developers' Arjan portfolio, sitting alongside sister projects Samana Park Views and Samana Hills as one of the area's most recognisable furnished-apartment brands. Studio to two-bedroom apartments carry Samana's signature private plunge pool in every unit, a feature that has become the developer's core differentiator in a crowded Arjan market, alongside a shared gym and dedicated kids' areas. Samana's model leans heavily on payment-plan flexibility and furnished, ready-to-rent delivery, making its Arjan towers consistently popular with buy-to-let investors rather than owner-occupiers. As with much of Samana's portfolio, exact pricing and handover timing are confirmed closer to each building's individual launch, though the brand's Arjan cluster has built a strong track record of on-schedule delivery across its now-substantial portfolio in the district.",
+    "imageFile": "samana-greens.jpg"
+  },
+  {
+    "slug": "reef-997",
+    "name": "REEF 997",
+    "developer": "Reef Luxury Development",
+    "community": "Dubai Islands",
+    "status": "Under Construction",
+    "priceFromAED": 2026000,
+    "handover": "Q1 2028",
+    "unitTypes": [
+      "1BR Apartment",
+      "4BR Duplex",
+      "Penthouse"
+    ],
+    "amenities": [
+      "Outdoor-cooled common areas",
+      "Sunken balconies",
+      "Enclosed winter gardens",
+      "Gym",
+      "Community pool",
+      "24/7 security",
+      "Concierge"
+    ],
+    "description": "REEF 997 is a boutique 63-unit development from Reef Luxury Development on Dubai Islands, distinguished by a genuinely novel amenity claim: outdoor-cooled common areas, alongside sunken balconies and enclosed winter gardens designed to extend usable outdoor space year-round in Dubai's climate. One-bedroom apartments sit alongside four-bedroom duplexes and a penthouse, starting from around AED 2.03 million with handover targeted for Q1 2028. As a smaller, boutique player entering Dubai Islands' rapidly growing beachfront market, Reef Luxury Development is leaning on genuine product innovation, the outdoor-cooling and winter-garden concepts, rather than brand recognition or sheer scale to differentiate itself from the much larger developers also building on the same reclaimed island chain.",
+    "imageFile": "reef-997.jpg"
+  },
+  {
+    "slug": "alta-view-skyhomes",
+    "name": "Alta V1ew Skyhomes",
+    "developer": "Object 1",
+    "community": "Jumeirah Village Circle (JVC)",
+    "status": "Under Construction",
+    "priceFromAED": 748000,
+    "handover": "Dec 2028",
+    "unitTypes": [
+      "Studio",
+      "1BR Apartment",
+      "2BR Apartment"
+    ],
+    "amenities": [
+      "Indoor & outdoor pools",
+      "Spa",
+      "Fitness centre",
+      "Rooftop lounge",
+      "Kids play areas",
+      "Retail nearby",
+      "24/7 security"
+    ],
+    "description": "Alta V1ew Skyhomes is a 55-storey, 499-unit tower in Jumeirah Village Circle from Object 1, a developer known for a distinctive naming convention that swaps the letter 'i' for the numeral '1' across its portfolio. Studio to two-bedroom apartments come with indoor and outdoor pools, a spa, a fitness centre, a rooftop lounge and kids' play areas, positioned as a design-forward but accessible option within JVC's now-dense apartment market. Starting from around AED 748,000 with handover targeted for December 2028, it competes with dozens of similarly priced JVC towers on the strength of its amenity package and rooftop offering rather than location alone, JVC itself having become one of Dubai's highest-volume investor markets thanks to consistently strong rental yields.",
+    "imageFile": "alta-view-skyhomes.jpg"
+  },
+  {
+    "slug": "moonsa-residences",
+    "name": "Moonsa Residences",
+    "developer": "Dugasta Properties",
+    "community": "International City Phase 2, Al Warsan",
+    "status": "Under Construction",
+    "priceFromAED": 400000,
+    "handover": "Dec 2026 (Phase 2)",
+    "unitTypes": [
+      "Studio",
+      "1BR Apartment",
+      "2BR Apartment"
+    ],
+    "amenities": [
+      "Community pool",
+      "Gym",
+      "Retail nearby",
+      "24/7 security",
+      "Covered parking"
+    ],
+    "description": "Moonsa Residences is a budget-tier residential project from Dugasta Properties in International City Phase 2, Al Warsan, with its first phase already delivered as of January 2025 and a second phase now under construction targeting a December 2026 handover. Studio to two-bedroom apartments are aimed squarely at Dubai's value end of the market, International City has long been one of the city's most affordable, high-yield rental corridors, with standard community amenities including a shared pool and gym rather than the elaborate lifestyle programming seen in higher-priced launches. Starting from around AED 400,000 for Phase 1 product, Moonsa is a straightforward, no-frills investment proposition built on rental yield and low entry price rather than lifestyle positioning, consistent with Dugasta's broader focus on Dubai's affordable-housing segment.",
+    "imageFile": "moonsa-residences.jpg"
+  },
+  {
+    "slug": "terra-tower",
+    "name": "Terra Tower",
+    "developer": "Dugasta Properties",
+    "community": "Dubai Land Residence Complex",
+    "status": "Under Construction",
+    "priceFromAED": 525000,
+    "handover": "April 2027",
+    "unitTypes": [
+      "Studio",
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Apartment"
+    ],
+    "amenities": [
+      "Gym",
+      "Shared pool",
+      "Landscaped gardens",
+      "Retail nearby",
+      "24/7 security",
+      "Covered parking"
+    ],
+    "description": "Terra Tower is a 12-storey budget-to-mid-tier residential building from Dugasta Properties in Dubai Land Residence Complex, offering studio to three-bedroom apartments with a gym, a shared pool and landscaped gardens. Starting from around AED 525,000 with handover targeted for April 2027, it sits firmly within DLRC's fast-growing affordable-apartment corridor, an area that has attracted a wave of smaller and mid-sized developers building straightforward, well-priced product for first-time investors and end-users priced out of more established districts. Dugasta's portfolio across International City and DLRC has generally prioritised reliable, on-schedule delivery over architectural ambition, and Terra Tower follows that same practical, investor-focused formula rather than attempting to compete on lifestyle amenities with larger-scale masterplan communities.",
+    "imageFile": "terra-tower.jpg"
+  },
+  {
+    "slug": "tiger-sky-tower",
+    "name": "Tiger Sky Tower",
+    "developer": "Tiger Properties",
+    "community": "Marasi Bay, Business Bay",
+    "status": "Under Construction",
+    "priceFromAED": null,
+    "handover": "Q3/Q4 2029",
+    "unitTypes": [
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Apartment",
+      "4BR Penthouse"
+    ],
+    "amenities": [
+      "World's highest rainforest in a residential tower",
+      "Highest sky restaurant in the district",
+      "High-altitude infinity pool",
+      "Roller coaster",
+      "Gym",
+      "Spa",
+      "24/7 security"
+    ],
+    "description": "Tiger Sky Tower is a record-chasing, 122-floor, 532-metre supertall tower from Tiger Properties in Marasi Bay, Business Bay, built as a genuine $1 billion statement project rather than a standard residential launch. One- to four-bedroom apartments and penthouses are anchored by a set of headline-grabbing amenities: what's marketed as the world's highest rainforest inside a residential building, the highest sky restaurant in the district, an infinity pool at extreme altitude and even a roller coaster, amenity claims more commonly associated with entertainment venues than apartment towers. Handover is targeted for Q3/Q4 2029. Tiger Properties has built its recent reputation on exactly this kind of scale-and-spectacle positioning, and Sky Tower represents the developer's most ambitious project to date, aimed at buyers and investors drawn to the novelty and potential landmark status of the building as much as the apartments themselves.",
+    "imageFile": "tiger-sky-tower.jpg"
+  },
+  {
+    "slug": "volga-tower",
+    "name": "Volga Tower",
+    "developer": "Tiger Properties",
+    "community": "Jumeirah Village Triangle (JVT)",
+    "status": "Under Construction",
+    "priceFromAED": 1400000,
+    "handover": "Q4 2026",
+    "unitTypes": [
+      "1BR Apartment",
+      "2BR Apartment",
+      "3BR Apartment",
+      "4BR Apartment"
+    ],
+    "amenities": [
+      "Private pool per unit",
+      "Gym",
+      "Community pool",
+      "Kids play areas",
+      "Retail nearby",
+      "24/7 security",
+      "Covered parking"
+    ],
+    "description": "Volga Tower is a 40- to 46-storey residential tower from Tiger Properties in Jumeirah Village Triangle, styled after Russia's Volga River and continuing the developer's pattern of geography- and landmark-themed naming across its portfolio. One- to four-bedroom apartments each come with a private pool, Tiger's standard differentiator across its JVT and JVC product, alongside typical tower facilities management. Starting from around AED 1.4 million with handover targeted for Q4 2026, Volga Tower competes in JVT's increasingly crowded but still comparatively affordable apartment market, where private-pool units have become an effective way for developers to stand out without competing purely on price per square foot.",
+    "imageFile": "volga-tower.jpg"
+  }
+]

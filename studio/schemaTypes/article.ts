@@ -26,7 +26,7 @@ export const article = defineType({
       title: 'Additional Images',
       type: 'array',
       of: [{ type: 'image', options: { hotspot: true } }],
-      description: 'Optional — extra photos shown as a gallery within the article. Leave empty if not needed.',
+      description: 'Optional, extra photos shown as a gallery within the article. Leave empty if not needed.',
     }),
     defineField({ name: 'excerpt', title: 'Excerpt', type: 'text', rows: 2, description: 'Short teaser shown on the Journal index and article cards.', validation: (r) => r.required().max(220) }),
     defineField({ name: 'body', title: 'Body', type: 'text', rows: 14, description: 'Separate paragraphs with a blank line.', validation: (r) => r.required() }),

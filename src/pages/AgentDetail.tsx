@@ -1,23 +1,25 @@
 import { Navigate, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Phone, Mail, MessageCircle } from 'lucide-react';
-import { useAgents, useProperties } from '../hooks/useSanityContent';
+import { useAgentBySlug, useProperties } from '../hooks/useSanityContent';
 import { PropertyCard } from '../components/PropertyCard';
+import { PageLoading } from '../components/PageLoading';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Button } from '../components/Button';
 
 export function AgentDetail() {
   const { slug = '' } = useParams();
-  const agents = useAgents();
+  const { agent, notFound } = useAgentBySlug(slug);
   const properties = useProperties();
-  const agent = agents.find((a) => a.slug === slug);
 
-  if (!agent) return <Navigate to="/agents" replace />;
+  if (notFound) return <Navigate to="/agents" replace />;
+  if (!agent) return <PageLoading />;
 
   const listings = properties.filter((p) => p.agentId === agent.id || p.agentId === agent.slug);
   const whatsappMessage = encodeURIComponent(`Hello ${agent.name}, I'd like to speak with you about a property.`);
 
   return (
-    <div className="pt-28">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }} className="pt-28">
       <div className="mx-auto max-w-7xl px-6 pt-8 lg:px-10">
         <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: 'Agents', to: '/agents' }, { label: agent.name }]} />
       </div>
@@ -72,6 +74,6 @@ export function AgentDetail() {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

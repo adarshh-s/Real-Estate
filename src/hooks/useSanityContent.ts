@@ -7,6 +7,7 @@ import { agents as staticAgents } from '../data/agents';
 import { testimonials as staticTestimonials } from '../data/testimonials';
 import { articles as staticArticles, getArticleBySlug as getStaticArticleBySlug } from '../data/articles';
 import {
+  isSanityConfigured,
   fetchProperties,
   fetchPropertyBySlug,
   fetchProjects,
@@ -42,21 +43,31 @@ export function useProperties() {
   return properties;
 }
 
+// A document created only in Sanity (not part of the bundled demo data)
+// won't resolve until its fetch completes, so "not found" can only be
+// declared once that fetch has actually settled — otherwise every
+// Sanity-only property/project/agent/article would 404 for a moment on
+// every fresh page load, right up until the redirect below fires for real.
 export function usePropertyBySlug(slug: string | undefined) {
   const [property, setProperty] = useState<Property | undefined>(() => (slug ? getStaticPropertyBySlug(slug) : undefined));
+  const [checked, setChecked] = useState(() => !isSanityConfigured || Boolean(slug && getStaticPropertyBySlug(slug)));
   useEffect(() => {
     if (!slug) return;
     let cancelled = false;
     fetchPropertyBySlug(slug)
       .then((doc) => {
-        if (!cancelled && doc) setProperty(doc);
+        if (cancelled) return;
+        if (doc) setProperty(doc);
+        setChecked(true);
       })
-      .catch(() => {});
+      .catch(() => {
+        if (!cancelled) setChecked(true);
+      });
     return () => {
       cancelled = true;
     };
   }, [slug]);
-  return property;
+  return { property, notFound: checked && !property };
 }
 
 export function useProjects() {
@@ -77,19 +88,24 @@ export function useProjects() {
 
 export function useProjectBySlug(slug: string | undefined) {
   const [project, setProject] = useState<Project | undefined>(() => (slug ? getStaticProjectBySlug(slug) : undefined));
+  const [checked, setChecked] = useState(() => !isSanityConfigured || Boolean(slug && getStaticProjectBySlug(slug)));
   useEffect(() => {
     if (!slug) return;
     let cancelled = false;
     fetchProjectBySlug(slug)
       .then((doc) => {
-        if (!cancelled && doc) setProject(doc);
+        if (cancelled) return;
+        if (doc) setProject(doc);
+        setChecked(true);
       })
-      .catch(() => {});
+      .catch(() => {
+        if (!cancelled) setChecked(true);
+      });
     return () => {
       cancelled = true;
     };
   }, [slug]);
-  return project;
+  return { project, notFound: checked && !project };
 }
 
 export function useCommunities() {
@@ -126,19 +142,24 @@ export function useAgents() {
 
 export function useAgentBySlug(slug: string | undefined) {
   const [agent, setAgent] = useState<Agent | undefined>(() => staticAgents.find((a) => a.slug === slug));
+  const [checked, setChecked] = useState(() => !isSanityConfigured || staticAgents.some((a) => a.slug === slug));
   useEffect(() => {
     if (!slug) return;
     let cancelled = false;
     fetchAgentBySlug(slug)
       .then((doc) => {
-        if (!cancelled && doc) setAgent(doc);
+        if (cancelled) return;
+        if (doc) setAgent(doc);
+        setChecked(true);
       })
-      .catch(() => {});
+      .catch(() => {
+        if (!cancelled) setChecked(true);
+      });
     return () => {
       cancelled = true;
     };
   }, [slug]);
-  return agent;
+  return { agent, notFound: checked && !agent };
 }
 
 export function useTestimonials() {
@@ -175,37 +196,47 @@ export function useArticles() {
 
 export function useArticleBySlug(slug: string | undefined) {
   const [article, setArticle] = useState<Article | undefined>(() => (slug ? getStaticArticleBySlug(slug) : undefined));
+  const [checked, setChecked] = useState(() => !isSanityConfigured || Boolean(slug && getStaticArticleBySlug(slug)));
   useEffect(() => {
     if (!slug) return;
     let cancelled = false;
     fetchArticleBySlug(slug)
       .then((doc) => {
-        if (!cancelled && doc) setArticle(doc);
+        if (cancelled) return;
+        if (doc) setArticle(doc);
+        setChecked(true);
       })
-      .catch(() => {});
+      .catch(() => {
+        if (!cancelled) setChecked(true);
+      });
     return () => {
       cancelled = true;
     };
   }, [slug]);
-  return article;
+  return { article, notFound: checked && !article };
 }
 
 const DEFAULT_SITE_SETTINGS: SiteSettings = {
   heroVideoUrl: '/videos/hero-luxury-home.mp4',
   heroPosterUrl: '/hero-poster.jpg',
+  heroVideoMobileUrl: '/videos/hero-luxury-home-mobile.mp4',
+  heroPosterMobileUrl: '/hero-poster-mobile.jpg',
   heroKicker: 'Private Real Estate · Investment · Advisory',
   heroHeadlineLine1: 'Real estate,',
   heroHeadlineLine2: 'considered differently.',
   heroSubtitle:
-    'A private real estate investment and advisory partner for Dubai — bringing the right opportunities into focus, not simply the most listings.',
+    'A private real estate investment and advisory partner for Dubai, bringing the right opportunities into focus, not simply the most listings.',
   interstitialVideoUrl: '/videos/twilight-villa.mp4',
   interstitialHeadline: 'Property is the opportunity. Perspective is the advantage.',
   interstitialBody:
-    'We look beyond the property to location, developer, entry price, payment structure and long-term potential — before we bring an opportunity forward.',
-  contactPhone: '+971 4 555 0100',
-  contactEmail: 'hello@sialuxe.ae',
-  whatsappNumber: '971505550100',
-  officeAddress: 'Gate Village 7, DIFC, Dubai, UAE',
+    'We look beyond the property to location, developer, entry price, payment structure and long-term potential, before we bring an opportunity forward.',
+  contactPhone: '+971 56 874 6746',
+  contactEmail: 'info@sia-luxe.com',
+  whatsappNumber: '971568746746',
+  officeAddress: 'Office No. 2202, The Citadel Tower, Marasi Drive, Business Bay, Dubai, United Arab Emirates',
+  legalCompanyName: 'S I A Luxe Real Estate LLC',
+  tradeLicenseNumber: '1645460',
+  reraOrn: '63958',
 };
 
 export function useSiteSettings(): SiteSettings {

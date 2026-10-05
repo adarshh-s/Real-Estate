@@ -13,7 +13,7 @@ export function Communities() {
           <div>
             <h1 className="font-display text-4xl text-ink sm:text-5xl">Dubai’s Signature Communities</h1>
             <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink/60">
-              Every neighbourhood tells a different story — from the private beaches of the Palm to
+              Every neighbourhood tells a different story, from the private beaches of the Palm to
               the fairways of Jumeirah Golf Estates. Explore the addresses our clients call home.
             </p>
           </div>

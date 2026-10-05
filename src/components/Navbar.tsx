@@ -89,7 +89,11 @@ export function Navbar() {
         )}
       >
         <Link to="/" className="flex items-center">
-          <img src="/logo-sia-luxe.png" alt="S I A Luxe Real Estate" className="h-9 w-auto sm:h-10" />
+          <img
+            src={transparent ? '/logo-sia-luxe-white.png' : '/logo-sia-luxe.png'}
+            alt="S I A Luxe Real Estate"
+            className="h-9 w-auto sm:h-10"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">

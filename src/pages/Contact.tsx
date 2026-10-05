@@ -6,10 +6,33 @@ import { useSiteSettings } from '../hooks/useSanityContent';
 export function Contact() {
   const settings = useSiteSettings();
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    const form = new FormData(e.currentTarget);
+    setSending(true);
+    setError(false);
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'contact',
+          name: form.get('name'),
+          email: form.get('email'),
+          subject: form.get('subject'),
+          message: form.get('message'),
+        }),
+      });
+      if (!res.ok) throw new Error('Request failed');
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -35,16 +58,17 @@ export function Contact() {
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">Full Name</label>
-                  <input required className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none" />
+                  <input name="name" required className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none" />
                 </div>
                 <div>
                   <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">Email</label>
-                  <input type="email" required className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none" />
+                  <input name="email" type="email" required className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none" />
                 </div>
               </div>
               <div>
                 <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">Subject</label>
                 <select
+                  name="subject"
                   defaultValue="General Enquiry"
                   className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none"
                 >
@@ -57,13 +81,20 @@ export function Contact() {
               </div>
               <div>
                 <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">Message</label>
-                <textarea rows={5} required className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none" />
+                <textarea name="message" rows={5} required className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none" />
               </div>
+              {error && (
+                <p className="text-sm text-red-600">
+                  Something went wrong sending your message. Please call {settings.contactPhone} or
+                  email {settings.contactEmail} directly.
+                </p>
+              )}
               <button
                 type="submit"
-                className="mt-2 rounded-full border border-ink bg-ink py-3.5 text-xs uppercase tracking-[0.16em] text-cream transition-all active:scale-[0.98] hover:bg-cream hover:text-ink"
+                disabled={sending}
+                className="mt-2 rounded-full border border-ink bg-ink py-3.5 text-xs uppercase tracking-[0.16em] text-cream transition-all active:scale-[0.98] hover:bg-cream hover:text-ink disabled:opacity-50"
               >
-                Send Message
+                {sending ? 'Sending…' : 'Send Message'}
               </button>
             </form>
           )}

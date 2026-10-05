@@ -1,26 +1,29 @@
 import { Navigate, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useArticleBySlug, useArticles, useAgents } from '../hooks/useSanityContent';
 import { ArticleCard } from '../components/ArticleCard';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Badge } from '../components/Badge';
 import { Gallery } from '../components/Gallery';
+import { PageLoading } from '../components/PageLoading';
 import { Reveal } from '../components/Reveal';
 import { formatDate } from '../lib/format';
 
 export function ArticleDetail() {
   const { slug = '' } = useParams();
-  const article = useArticleBySlug(slug);
+  const { article, notFound } = useArticleBySlug(slug);
   const articles = useArticles();
   const agents = useAgents();
 
-  if (!article) return <Navigate to="/journal" replace />;
+  if (notFound) return <Navigate to="/journal" replace />;
+  if (!article) return <PageLoading />;
 
   const author = agents.find((a) => a.id === article.authorId || a.slug === article.authorId);
   const related = articles.filter((a) => a.id !== article.id && a.category === article.category).slice(0, 3);
   const paragraphs = article.body.split(/\n{2,}/);
 
   return (
-    <div className="pt-28">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }} className="pt-28">
       <div className="mx-auto max-w-3xl px-6 pt-8 lg:px-10">
         <Breadcrumb
           items={[
@@ -92,6 +95,6 @@ export function ArticleDetail() {
           </div>
         </section>
       )}
-    </div>
+    </motion.div>
   );
 }

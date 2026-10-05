@@ -46,7 +46,7 @@ export function Journal() {
         <p className="mt-5 text-xs uppercase tracking-[0.3em] text-gold">The S I A Luxe Journal</p>
         <h1 className="mt-3 font-display text-4xl text-ink sm:text-5xl">Market Insight &amp; Perspective</h1>
         <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink/60">
-          Notes from our private client desk — market reads, buying guides and neighbourhood
+          Notes from our private client desk: market reads, buying guides and neighbourhood
           intelligence, written by the consultants closing the deals.
         </p>
       </div>

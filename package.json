@@ -16,7 +16,23 @@
     "fix:sialuxe-spacing": "tsx scripts/fix-sialuxe-spacing.ts",
     "letter-space:sia": "tsx scripts/letter-space-sia.ts",
     "update:hero-video": "tsx scripts/update-hero-video.ts",
-    "update:brand-positioning": "tsx scripts/update-brand-positioning.ts"
+    "update:brand-positioning": "tsx scripts/update-brand-positioning.ts",
+    "upload:images": "tsx scripts/upload-property-images.ts",
+    "backfill:property-facts": "tsx scripts/backfill-property-facts.ts",
+    "add:communities": "tsx scripts/add-luxury-communities.ts",
+    "add:offplan-projects": "tsx scripts/add-offplan-projects.ts",
+    "update:offplan-descriptions": "tsx scripts/update-offplan-descriptions.ts",
+    "fix:property-data": "tsx scripts/fix-property-data-issues.ts",
+    "backfill:property-availability": "tsx scripts/backfill-property-availability.ts",
+    "update:offplan-payment-plans": "tsx scripts/update-offplan-payment-plans.ts",
+    "add:offplan-extra-images": "tsx scripts/add-offplan-extra-images.ts",
+    "update:offplan-descriptions-v2": "tsx scripts/update-offplan-descriptions-v2.ts",
+    "replace:offplan-images-hires": "tsx scripts/replace-offplan-images-hires.ts",
+    "normalize:property-communities": "tsx scripts/normalize-property-communities.ts",
+    "prune:communities": "tsx scripts/prune-unavailable-communities.ts",
+    "update:community-covers": "tsx scripts/update-community-covers.ts",
+    "update:company-info": "tsx scripts/update-company-info.ts",
+    "tier:offplan-projects": "tsx scripts/tier-offplan-projects.ts"
   },
   "dependencies": {
     "@sanity/client": "^8.4.0",
@@ -28,12 +44,14 @@
     "lucide-react": "^1.37.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-router-dom": "^7.18.3"
+    "react-router-dom": "^7.18.3",
+    "resend": "^6.32.0"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
+    "@vercel/node": "^20.0.0",
     "@vitejs/plugin-react": "^6.1.0",
     "autoprefixer": "^10.5.4",
     "oxlint": "^1.79.0",

@@ -26,6 +26,7 @@ import {
   useTestimonials,
   useSiteSettings,
 } from '../hooks/useSanityContent';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import { exteriors, interiors } from '../lib/images';
 import { useCurrency } from '../context/CurrencyContext';
 import { formatPrice, formatNumber } from '../lib/format';
@@ -40,14 +41,15 @@ const COLLECTION_BASE: { tag: Tag; title: string; description: string; image: st
 
 const TRUST_ITEMS = [
   { icon: ShieldCheck, label: 'RERA Licensed Brokerage' },
-  { icon: Star, label: '98% Client Satisfaction' },
-  { icon: Building2, label: '140+ Residences Sold' },
+  { icon: Star, label: '96% Client Satisfaction' },
+  { icon: Building2, label: '80+ Units Sold' },
   { icon: Users, label: '6 Senior Consultants' },
 ];
 
 export function Home() {
   const { currency } = useCurrency();
   const settings = useSiteSettings();
+  const isMobileViewport = useMediaQuery('(max-width: 767px)');
   const properties = useProperties();
   const projects = useProjects();
   const communities = useCommunities();
@@ -55,7 +57,47 @@ export function Home() {
   const testimonials = useTestimonials();
 
   const featured = useMemo(() => properties.filter((p) => p.featured).slice(0, 6), [properties]);
-  const tickerProperties = useMemo(() => properties.slice(0, 8), [properties]);
+  // Curated in Sanity via each listing's "Show in Live Portfolio Activity"
+  // toggle, pulling from both properties and off-plan projects. Falls back
+  // to the newest properties (with a cycling label) so the section never
+  // sits empty before anything's been curated.
+  const activityItems = useMemo(() => {
+    const fromProperties = properties
+      .filter((p) => p.showInActivity)
+      .map((p) => ({
+        id: p.id,
+        href: `/property/${p.slug}`,
+        title: p.title,
+        subtitle: p.community,
+        image: p.images[0],
+        priceAED: p.priceAED,
+        label: p.activityLabel || 'Update',
+      }));
+    const fromProjects = projects
+      .filter((p) => p.showInActivity)
+      .map((p) => ({
+        id: p.id,
+        href: `/off-plan/${p.slug}`,
+        title: p.name,
+        subtitle: p.community,
+        image: p.images[0],
+        priceAED: p.priceFromAED,
+        label: p.activityLabel || 'Update',
+      }));
+    const curated = [...fromProperties, ...fromProjects];
+    if (curated.length > 0) return curated;
+
+    const fallbackLabels = ['Just Listed', 'Price Updated', 'Under Offer', 'New Match'];
+    return properties.slice(0, 8).map((p, i) => ({
+      id: p.id,
+      href: `/property/${p.slug}`,
+      title: p.title,
+      subtitle: p.community,
+      image: p.images[0],
+      priceAED: p.priceAED,
+      label: fallbackLabels[i % fallbackLabels.length],
+    }));
+  }, [properties, projects]);
   const spotlightProjects = useMemo(() => projects.slice(0, 3), [projects]);
   const spotlightCommunities = useMemo(() => communities.slice(0, 6), [communities]);
   const heroFeaturedProperty = featured[0] ?? properties[0];
@@ -71,27 +113,34 @@ export function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative flex min-h-[100vh] flex-col justify-end overflow-hidden bg-black">
+      <section className="hero-viewport relative flex flex-col justify-end overflow-hidden bg-black">
         <video
-          key={settings.heroVideoUrl}
+          key={`${settings.heroVideoUrl}-${settings.heroVideoMobileUrl}`}
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          poster={settings.heroPosterUrl}
-          className="absolute inset-0 h-full w-full scale-[1.02] object-cover"
+          // @ts-expect-error fetchPriority isn't in the video element's TS types yet, but Chrome/Edge support it
+          fetchPriority="high"
+          poster={(isMobileViewport && settings.heroPosterMobileUrl) || settings.heroPosterUrl}
+          className="absolute inset-0 h-full w-full scale-[1.02] object-cover object-center"
         >
+          {/* portrait-cropped source so phones don't just get a narrow sliver of the
+              desktop widescreen video stretched full-height, see heroVideoMobile in Sanity */}
+          {settings.heroVideoMobileUrl && (
+            <source src={settings.heroVideoMobileUrl} type="video/mp4" media="(max-width: 767px)" />
+          )}
           <source src={settings.heroVideoUrl} type="video/mp4" />
         </video>
-        {/* corner vignette so a bright, top-down shot still reads as premium/cinematic — kept
+        {/* corner vignette so a bright, top-down shot still reads as premium/cinematic, kept
             black rather than the accent color so it blends naturally with any video */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.55)_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-black/25" />
         <div className="grain-overlay" />
 
-        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 pb-16 pt-44 lg:px-10">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-8 px-6 pb-10 pt-28 sm:gap-10 sm:pb-16 sm:pt-36 lg:px-10 lg:pt-44">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -168,7 +217,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* Trust strip — floats over the seam between hero and stats */}
+      {/* Trust strip, floats over the seam between hero and stats */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -243,7 +292,7 @@ export function Home() {
             </Button>
           </Reveal>
           <Reveal delay={0.1}>
-            <VerticalTicker properties={tickerProperties} />
+            <VerticalTicker items={activityItems} />
           </Reveal>
         </div>
       </section>
@@ -255,7 +304,7 @@ export function Home() {
             <SectionHeading
               kicker="Curated Collections"
               title="Shop By What Matters To You"
-              description="Every S I A Luxe listing is tagged and verified by our research desk — start with the collection that fits your brief."
+              description="Every S I A Luxe listing is tagged and verified by our research desk. Start with the collection that fits your brief."
             />
           </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -331,7 +380,7 @@ export function Home() {
           <SectionHeading
             kicker="Where To Live"
             title="Explore Dubai’s Signature Communities"
-            description="From the fronds of the Palm to the fairways of Jumeirah Golf Estates — find the address that fits your life."
+            description="From the fronds of the Palm to the fairways of Jumeirah Golf Estates, find the address that fits your life."
             action={
               <Link
                 to="/communities"
@@ -370,7 +419,7 @@ export function Home() {
               Market Insight
             </span>
             <div className="absolute bottom-6 left-6 right-6 flex items-center gap-4 rounded-2xl border border-white/20 bg-white/85 p-4 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.35)] backdrop-blur-md sm:right-auto sm:w-72">
-              <p className="font-display text-2xl text-ink">AED 1.2B+</p>
+              <p className="font-display text-2xl text-ink">AED 260M+</p>
               <p className="text-[11px] uppercase leading-tight tracking-[0.1em] text-ink/55">
                 In prime Dubai property transacted through S I A Luxe
               </p>
@@ -384,7 +433,7 @@ export function Home() {
               <span className="h-px w-8 bg-gold" /> The S I A Luxe Journal
             </p>
             <h2 className="relative font-display text-3xl leading-tight text-ink sm:text-4xl lg:text-[2.75rem]">
-              Inside Dubai’s billion-dirham skyline
+              Inside Dubai’s luxury property landscape
             </h2>
             <p className="relative mt-6 max-w-md text-[15px] leading-relaxed text-ink/60">
               From the Palm’s new frond extensions to the branded residences reshaping Downtown,
@@ -394,15 +443,15 @@ export function Home() {
 
             <div className="relative mt-9 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-ink/10 pt-6">
               <div>
-                <p className="font-display text-xl text-ink">140+</p>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">Transactions Closed</p>
+                <p className="font-display text-xl text-ink">80+</p>
+                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">Units Sold</p>
               </div>
               <div>
                 <p className="font-display text-xl text-ink">6</p>
                 <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">Senior Consultants</p>
               </div>
               <div>
-                <p className="font-display text-xl text-ink">60+ Yrs</p>
+                <p className="font-display text-xl text-ink">12+ Yrs</p>
                 <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">Combined Experience</p>
               </div>
             </div>
@@ -430,22 +479,22 @@ export function Home() {
           <div className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-3">
             {[
               {
-                icon: ShieldCheck,
-                stat: '100%',
-                title: 'Absolute Discretion',
-                body: 'Off-market listings and confidential negotiations for clients who value their privacy above all.',
-              },
-              {
                 icon: Handshake,
                 stat: '1:1',
                 title: 'Boutique By Design',
-                body: 'Every client works directly with a senior partner — never a rotating desk of coordinators.',
+                body: 'Every client works directly with a senior advisor, never through a rotating desk of coordinators.',
+              },
+              {
+                icon: ShieldCheck,
+                stat: '100%',
+                title: 'Discreet By Design',
+                body: 'Off market opportunities and confidential negotiations for clients who value privacy above all.',
               },
               {
                 icon: Award,
-                stat: '60+ Yrs',
-                title: 'Senior Team',
-                body: 'Our founding consultants bring a combined six decades of experience from Dubai’s leading agencies — now under one roof.',
+                stat: '12+ Yrs',
+                title: 'Market Experience',
+                body: 'Built on more than a decade of Dubai real estate experience, with an advisory approach shaped by investment, market intelligence and client representation.',
               },
             ].map((f, i) => (
               <Reveal key={f.title} delay={i * 0.08} className="h-full">
@@ -500,7 +549,7 @@ export function Home() {
             <Reveal key={t.id} delay={i * 0.08} className="border-t border-gold pt-6">
               <p className="font-display text-lg italic leading-snug text-ink">“{t.quote}”</p>
               <p className="mt-5 text-xs uppercase tracking-[0.12em] text-ink/50">
-                {t.name} — {t.role}
+                {t.name}, {t.role}
               </p>
             </Reveal>
           ))}

@@ -121,7 +121,7 @@ export const properties: Property[] = [
     completion: 'Ready',
     images: gallery(5, 5, coverFor('Business Bay')),
     description:
-      'A designer-furnished one-bedroom overlooking the Dubai Canal, moments from Downtown and Business Bay metro station — turnkey for an executive tenant.',
+      'A designer-furnished one-bedroom overlooking the Dubai Canal, moments from Downtown and Business Bay metro station, turnkey for an executive tenant.',
     amenities: ['Canal views', 'Furnished', 'Gym & pool', 'Covered parking', 'Metro access'],
     agentId: 'a6',
     yearBuilt: 2020,

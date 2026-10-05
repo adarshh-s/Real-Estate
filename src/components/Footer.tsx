@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { InstagramIcon, LinkedinIcon, FacebookIcon, YoutubeIcon } from './SocialIcons';
 import { Newsletter } from './Newsletter';
-import { useCommunities } from '../hooks/useSanityContent';
+import { useCommunities, useSiteSettings } from '../hooks/useSanityContent';
 
 const EXPLORE = [
   { label: 'Buy', to: '/listings?status=For Sale' },
@@ -21,15 +21,16 @@ const COMPANY = [
 
 export function Footer() {
   const communities = useCommunities();
+  const settings = useSiteSettings();
   const coverage = communities.slice(0, 5).map((c) => c.name);
   return (
     <footer className="bg-ink text-cream">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
-            <img src="/logo-sia-luxe.png" alt="S I A Luxe Real Estate" className="h-9 w-auto" />
+            <img src="/logo-sia-luxe-white.png" alt="S I A Luxe Real Estate" className="h-9 w-auto" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/60">
-              A private real estate investment and advisory house for Dubai — bringing the right
+              A private real estate investment and advisory house for Dubai, bringing the right
               opportunities into focus for clients who expect more than a transaction.
             </p>
             <div className="mt-6 flex gap-4 text-cream/70">
@@ -86,7 +87,10 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-cream/10 pt-6 text-xs text-cream/40 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} S I A Luxe Real Estate LLC. RERA ORN 0000000. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} {settings.legalCompanyName}. Trade License No. {settings.tradeLicenseNumber}
+            · RERA ORN {settings.reraOrn}. All rights reserved.
+          </p>
           <p>Regulated by the Real Estate Regulatory Agency (RERA), Dubai Land Department.</p>
         </div>
       </div>

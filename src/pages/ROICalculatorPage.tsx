@@ -11,11 +11,11 @@ import { formatNumber } from '../lib/format';
 const FAQS = [
   {
     q: 'What is a good ROI for property in Dubai?',
-    a: 'Most investors consider a gross rental yield of 6-8% strong for Dubai — well above cities like London or Singapore, where 3-4% is typical. Combined with capital appreciation, total annual returns of 8-12% are common in established communities.',
+    a: 'Most investors consider a gross rental yield of 6-8% strong for Dubai, well above cities like London or Singapore, where 3-4% is typical. Combined with capital appreciation, total annual returns of 8-12% are common in established communities.',
   },
   {
     q: 'What is the difference between gross yield and net yield?',
-    a: 'Gross yield is your annual rental income divided by the property price. Net yield subtracts annual costs — service charges, maintenance and management fees — giving a more realistic picture of what you actually keep.',
+    a: 'Gross yield is your annual rental income divided by the property price. Net yield subtracts annual costs (service charges, maintenance and management fees), giving a more realistic picture of what you actually keep.',
   },
   {
     q: 'Do Dubai property investors pay capital gains tax?',
@@ -70,7 +70,7 @@ export function ROICalculatorPage() {
               Return on a Dubai property investment comes from two sources: rental income and
               capital appreciation. Gross rental yield is your annual rent divided by the purchase
               price. Net yield subtracts annual service charges and running costs. Add expected
-              appreciation over your holding period and you get a total return — the figure that
+              appreciation over your holding period and you get a total return, the figure that
               matters most when comparing Dubai to other global property markets.
             </p>
           </Reveal>

@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { SectionHeading } from '../components/SectionHeading';
 import { Reveal } from '../components/Reveal';
-import { useCommunities } from '../hooks/useSanityContent';
+import { useCommunities, useSiteSettings } from '../hooks/useSanityContent';
 import { exteriors } from '../lib/images';
 
 const STEPS = [
@@ -14,11 +14,37 @@ const STEPS = [
 
 export function Sell() {
   const communities = useCommunities();
+  const settings = useSiteSettings();
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    const form = new FormData(e.currentTarget);
+    setSending(true);
+    setError(false);
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'sell',
+          name: form.get('name'),
+          email: form.get('email'),
+          phone: form.get('phone'),
+          community: form.get('community'),
+          propertyReference: form.get('propertyReference'),
+          message: form.get('message') || 'No additional details provided.',
+        }),
+      });
+      if (!res.ok) throw new Error('Request failed');
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -53,16 +79,17 @@ export function Sell() {
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                <Field label="Full Name" required />
-                <Field label="Phone Number" type="tel" required />
+                <Field name="name" label="Full Name" required />
+                <Field name="phone" label="Phone Number" type="tel" required />
               </div>
-              <Field label="Email Address" type="email" required />
+              <Field name="email" label="Email Address" type="email" required />
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">
                     Community
                   </label>
                   <select
+                    name="community"
                     required
                     defaultValue=""
                     className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none"
@@ -77,22 +104,30 @@ export function Sell() {
                     ))}
                   </select>
                 </div>
-                <Field label="Property Reference (optional)" required={false} />
+                <Field name="propertyReference" label="Property Reference (optional)" required={false} />
               </div>
               <div>
                 <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">
                   Tell us about your property
                 </label>
                 <textarea
+                  name="message"
                   rows={4}
                   className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none"
                 />
               </div>
+              {error && (
+                <p className="text-sm text-red-600">
+                  Something went wrong sending your request. Please call {settings.contactPhone} or
+                  email {settings.contactEmail} directly.
+                </p>
+              )}
               <button
                 type="submit"
-                className="mt-2 rounded-full border border-ink bg-ink py-3.5 text-xs uppercase tracking-[0.16em] text-cream transition-all active:scale-[0.98] hover:bg-cream hover:text-ink"
+                disabled={sending}
+                className="mt-2 rounded-full border border-ink bg-ink py-3.5 text-xs uppercase tracking-[0.16em] text-cream transition-all active:scale-[0.98] hover:bg-cream hover:text-ink disabled:opacity-50"
               >
-                Request Valuation
+                {sending ? 'Sending…' : 'Request Valuation'}
               </button>
             </form>
           )}
@@ -120,10 +155,12 @@ export function Sell() {
 }
 
 function Field({
+  name,
   label,
   type = 'text',
   required = true,
 }: {
+  name: string;
   label: string;
   type?: string;
   required?: boolean;
@@ -132,6 +169,7 @@ function Field({
     <div>
       <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">{label}</label>
       <input
+        name={name}
         type={type}
         required={required}
         className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none"

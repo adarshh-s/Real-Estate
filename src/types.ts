@@ -24,8 +24,12 @@ export interface Property {
   rentPeriod?: 'yearly' | 'monthly';
   beds: number;
   baths: number;
+  parking?: number;
   sizeSqft: number;
   plotSqft?: number;
+  developer?: string;
+  view?: string;
+  availableFrom?: string;
   furnishing: 'Furnished' | 'Unfurnished' | 'Partly Furnished';
   completion: 'Ready' | 'Off-Plan';
   images: string[];
@@ -37,6 +41,10 @@ export interface Property {
   yearBuilt?: number;
   reference: string;
   location?: { lat: number; lng: number };
+  createdAt?: string;
+  showInActivity?: boolean;
+  activityLabel?: string;
+  transactions?: DLDTransaction[];
 }
 
 export type ProjectStatus = 'Launching Soon' | 'Presale' | 'Under Construction' | 'Ready';
@@ -47,20 +55,39 @@ export interface PaymentPlan {
   onHandover: number;
 }
 
+export interface DLDTransaction {
+  id: string;
+  date: string;
+  unitNumber: string;
+  type: string;
+  rooms: number | string;
+  procedure: string;
+  areaSqm: number;
+  areaSqft?: number;
+  priceAED: number;
+  pricePerSqm?: number;
+  pricePerSqft?: number;
+}
+
 export interface Project {
   id: string;
   slug: string;
   name: string;
   developer: string;
   community: string;
+  tier?: 'T1' | 'T2' | 'T3';
   status: ProjectStatus;
-  priceFromAED: number;
-  paymentPlan: PaymentPlan;
+  priceFromAED?: number;
+  paymentPlan?: PaymentPlan;
   handover: string;
   images: string[];
   description: string;
   unitTypes: string[];
   amenities: string[];
+  brochureUrl?: string;
+  transactions?: DLDTransaction[];
+  showInActivity?: boolean;
+  activityLabel?: string;
 }
 
 export interface Community {

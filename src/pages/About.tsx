@@ -13,16 +13,13 @@ import { exteriors, interiors } from '../lib/images';
 
 const PRINCIPLES = [
   { icon: ShieldCheck, title: 'Discretion', body: 'We treat client objectives, preferences and decisions with the privacy and professionalism they deserve.' },
-  { icon: Award, title: 'Discernment', body: 'We value relevance over volume — every opportunity is assessed against what genuinely fits the brief.' },
+  { icon: Award, title: 'Discernment', body: 'We value relevance over volume: every opportunity is assessed against what genuinely fits the brief.' },
   { icon: TrendingUp, title: 'Perspective', body: 'We look beyond the property to location, developer, market context and long-term potential.' },
   { icon: Handshake, title: 'Personal Service', body: 'Every client has a different objective. Our approach begins by understanding the individual.' },
 ];
 
 const MILESTONES = [
-  { year: '2023', label: 'S I A Luxe founded in Dubai by a partnership of senior real estate investment advisors.' },
-  { year: '2024', label: 'Closed our first AED 100M+ portfolio sale on Palm Jumeirah.' },
-  { year: '2025', label: 'Surpassed AED 1B in prime Dubai property transacted.' },
-  { year: '2026', label: 'Grew to a team of six senior consultants across Dubai’s key communities.' },
+  { year: '2026', label: 'S I A Luxe founded in Dubai by a partnership of senior real estate investment advisors.' },
 ];
 
 export function About() {
@@ -33,13 +30,13 @@ export function About() {
     <div>
       <section className="relative flex min-h-[70vh] items-end overflow-hidden pt-16">
         <img src={exteriors[4]} alt="S I A Luxe Real Estate" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(23,23,23,0.5)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(26,26,26,0.5)_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent" />
         <div className="grain-overlay" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-14 lg:px-10">
           <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: 'About' }]} />
           <p className="mt-6 flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-gold-soft">
-            <span className="h-px w-8 bg-gold-soft" /> Est. 2023 · Dubai
+            <span className="h-px w-8 bg-gold-soft" /> Est. 2026 · Dubai
           </p>
           <h1 className="mt-5 max-w-2xl font-display text-4xl leading-[1.05] text-cream sm:text-5xl md:text-6xl">
             <StaggerText text="A private real estate" delay={0.1} />
@@ -47,10 +44,47 @@ export function About() {
             <StaggerText text="investment & advisory partner" delay={0.35} />
           </h1>
           <p className="mt-6 max-w-md text-[15px] leading-relaxed text-cream/70">
-            For clients who expect more than a property transaction — a senior team measuring
+            For clients who expect more than a property transaction, a senior team measuring
             success not by how many listings we show, but by the quality of opportunities we
             bring into focus.
           </p>
+        </div>
+      </section>
+
+      <section className="border-b border-ink/10 bg-cream-soft py-16 sm:py-20 md:py-24">
+        <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
+          <Reveal>
+            <p className="mb-7 flex items-center justify-center gap-3 text-xs uppercase tracking-[0.3em] text-gold">
+              <span className="h-px w-8 bg-gold" /> The Name <span className="h-px w-8 bg-gold" />
+            </p>
+            <img src="/logo-sia-luxe.png" alt="S I A Luxe" className="mx-auto h-14 w-auto sm:h-16" />
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="mx-auto mt-14 grid max-w-2xl grid-cols-1 divide-y divide-ink/10 sm:grid-cols-2 sm:divide-x sm:divide-y-0">
+              <div className="pb-8 sm:pb-0 sm:pr-10">
+                <p className="font-display text-2xl text-ink">SIA</p>
+                <p className="mt-1.5 text-[11px] uppercase tracking-[0.18em] text-gold">
+                  Strategic Investment Advisory
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-ink/55">
+                  The discipline behind every recommendation: reading location, developer,
+                  entry price and long-term potential before an opportunity ever reaches a
+                  client.
+                </p>
+              </div>
+              <div className="pt-8 sm:pt-0 sm:pl-10">
+                <p className="font-display text-2xl text-ink">LUXE</p>
+                <p className="mt-1.5 text-[11px] uppercase tracking-[0.18em] text-gold">
+                  Luxury Real Estate
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-ink/55">
+                  The standard behind every address: a curated focus on Dubai’s most
+                  distinguished properties, for clients who expect nothing less.
+                </p>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -64,13 +98,13 @@ export function About() {
               <span className="h-px w-8 bg-gold" /> Our Story
             </p>
             <p className="relative font-display text-2xl leading-relaxed text-ink sm:text-3xl">
-              Founded in 2023, S I A Luxe was shaped around a different idea: what if real estate
+              Founded in 2026, S I A Luxe was shaped around a different idea: what if real estate
               felt less like searching, and more like being advised?
             </p>
             <p className="relative mt-8 max-w-xl text-[15px] leading-relaxed text-ink/60">
               We begin with the client’s objective, understand the investment or lifestyle
               context, and bring relevant opportunities forward. Location, developer, entry
-              price, payment structure, rental demand and long-term potential — we bring these
+              price, payment structure, rental demand and long-term potential: we bring these
               together with clarity, discretion and a more personal standard of service.
             </p>
           </Reveal>
@@ -140,8 +174,8 @@ export function About() {
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-ink/60">
               We made a deliberate choice to specialise in one market rather than spread thin
-              across many. Every consultant lives and breathes Dubai real estate — from the
-              Palm to Dubai Hills — so nothing is generic and nothing is guessed.
+              across many. Every consultant lives and breathes Dubai real estate, from the
+              Palm to Dubai Hills, so nothing is generic and nothing is guessed.
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
               {coverage.map((city) => (
