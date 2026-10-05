@@ -34,7 +34,7 @@ function AnimatedStat({
   }, [inView, target]);
 
   return (
-    <p ref={ref} className="font-display text-3xl md:text-4xl">
+    <p ref={ref} className="font-display text-2xl sm:text-3xl md:text-4xl">
       {prefix}
       {display.toLocaleString('en-US', {
         minimumFractionDigits: decimals,
@@ -48,7 +48,7 @@ function AnimatedStat({
 export function StatStrip({ light = true }: { light?: boolean }) {
   return (
     <div
-      className={`grid grid-cols-2 gap-8 border-y py-10 sm:grid-cols-4 ${
+      className={`grid grid-cols-2 gap-x-4 gap-y-6 border-y py-8 sm:grid-cols-4 sm:gap-8 sm:py-10 ${
         light ? 'border-cream/15 text-cream' : 'border-ink/10 text-ink'
       }`}
     >
@@ -56,7 +56,7 @@ export function StatStrip({ light = true }: { light?: boolean }) {
         <div key={s.label} className="text-center sm:text-left">
           <AnimatedStat prefix={s.prefix} target={s.target} decimals={s.decimals} suffix={s.suffix} />
           <p
-            className={`mt-2 text-[11px] uppercase tracking-[0.16em] ${
+            className={`mt-2 text-[10px] uppercase tracking-[0.14em] sm:text-[11px] sm:tracking-[0.16em] ${
               light ? 'text-cream/60' : 'text-ink/50'
             }`}
           >

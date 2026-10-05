@@ -192,7 +192,7 @@ export function ROICalculator({ priceAED = 2_000_000, monthlyRentAED }: ROICalcu
             <span className="text-ink/50">
               Gross Yield: <strong className="font-medium text-ink">{result.grossYield.toFixed(1)}%</strong>
             </span>
-            <div className="flex gap-1.5">
+            <div className="flex flex-wrap gap-1.5">
               <button
                 type="button"
                 onClick={() => handleYieldPreset(5.5)}
@@ -331,7 +331,7 @@ export function ROICalculator({ priceAED = 2_000_000, monthlyRentAED }: ROICalcu
       {/* Dubai Purchase Costs Accordion */}
       {numPrice > 0 && (
         <details className="mt-5 rounded-xl border border-ink/10 bg-cream/40 p-3 text-xs text-ink/70 group">
-          <summary className="cursor-pointer font-medium text-ink transition-colors hover:text-gold flex items-center justify-between">
+          <summary className="cursor-pointer font-medium text-ink transition-colors hover:text-gold flex items-center justify-between gap-2">
             <span>Dubai Upfront Purchase Fees (4% DLD + 2% Broker)</span>
             <span className="text-[11px] text-ink/40 group-open:hidden">+ View</span>
           </summary>

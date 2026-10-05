@@ -103,8 +103,8 @@ export function PropertyDetail() {
               {property.community}, Dubai
             </p>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="text-right sm:text-left">
+          <div className="flex w-full items-center justify-between gap-4 sm:w-auto sm:justify-end">
+            <div className="text-left sm:text-right">
               <p className="font-display text-3xl text-gold sm:text-4xl">
                 {formatPrice(property.priceAED, currency)}
                 {property.status === 'For Rent' && (
@@ -160,10 +160,10 @@ export function PropertyDetail() {
                 ? [{ icon: Clock, label: 'Listed', value: formatRelativeTime(property.createdAt) }]
                 : []),
             ].map((f) => (
-              <div key={f.label} className="rounded-2xl border border-ink/10 p-4">
+              <div key={f.label} className="min-w-0 rounded-2xl border border-ink/10 p-3.5 sm:p-4">
                 <f.icon size={18} className="text-gold" strokeWidth={1.6} />
                 <p className="mt-3 text-[11px] uppercase tracking-[0.1em] text-ink/40">{f.label}</p>
-                <p className="mt-0.5 font-display text-base text-ink">{f.value}</p>
+                <p className="mt-0.5 truncate font-display text-base text-ink" title={f.value}>{f.value}</p>
               </div>
             ))}
           </div>

@@ -26,7 +26,19 @@ function Pill({ active, children, onClick }: { active: boolean; children: React.
   );
 }
 
-function Panel({ open, maxHeight, wide, children }: { open: boolean; maxHeight: number; wide?: boolean; children: React.ReactNode }) {
+function Panel({
+  open,
+  maxHeight,
+  wide,
+  alignRight,
+  children,
+}: {
+  open: boolean;
+  maxHeight: number;
+  wide?: boolean;
+  alignRight?: boolean;
+  children: React.ReactNode;
+}) {
   if (!open) return null;
   return (
     <div
@@ -37,8 +49,9 @@ function Panel({ open, maxHeight, wide, children }: { open: boolean; maxHeight: 
       // is measured from the trigger's position each time it opens.
       style={{ maxHeight }}
       className={clsx(
-        'absolute left-0 top-[calc(100%+10px)] z-30 overflow-y-auto overscroll-contain rounded-2xl border border-ink/10 bg-cream p-5 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.2)]',
-        wide ? 'w-[19rem]' : 'w-64',
+        'absolute top-[calc(100%+10px)] z-30 max-w-[calc(100vw-2.5rem)] overflow-y-auto overscroll-contain rounded-2xl border border-ink/10 bg-cream p-5 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.2)]',
+        alignRight ? 'right-0' : 'left-0',
+        wide ? 'w-[calc(100vw-3rem)] max-w-[19rem]' : 'w-64',
       )}
     >
       {children}
@@ -53,6 +66,7 @@ function QuickFilterCard({
   active,
   open,
   maxHeight,
+  alignRight,
   onToggle,
   children,
 }: {
@@ -62,6 +76,7 @@ function QuickFilterCard({
   active: boolean;
   open: boolean;
   maxHeight: number;
+  alignRight?: boolean;
   onToggle: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
 }) {
@@ -84,7 +99,7 @@ function QuickFilterCard({
           <p className={clsx('mt-0.5 truncate text-[13px]', active ? 'text-ink' : 'text-ink/55')}>{value}</p>
         </div>
       </button>
-      <Panel open={open} maxHeight={maxHeight}>
+      <Panel open={open} maxHeight={maxHeight} alignRight={alignRight}>
         {children}
       </Panel>
     </div>
@@ -219,6 +234,7 @@ export function FilterBar({ value, onChange }: { value: FilterState; onChange: (
           active={value.maxPriceAED !== 0}
           open={open?.menu === 'price'}
           maxHeight={open?.maxHeight ?? 0}
+          alignRight
           onToggle={(e) => toggle('price', e)}
         >
           <p className="mb-3 text-[10px] uppercase tracking-[0.16em] text-ink/40">Budget</p>
@@ -275,6 +291,7 @@ export function FilterBar({ value, onChange }: { value: FilterState; onChange: (
           active={value.minSizeSqft !== 0}
           open={open?.menu === 'size'}
           maxHeight={open?.maxHeight ?? 0}
+          alignRight
           onToggle={(e) => toggle('size', e)}
         >
           <p className="mb-3 text-[10px] uppercase tracking-[0.16em] text-ink/40">Minimum Size</p>

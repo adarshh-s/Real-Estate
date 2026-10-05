@@ -436,7 +436,7 @@ export function PropertyTransactionHistory({ property }: PropertyTransactionHist
             <span className="font-medium text-ink">{totalCount}</span>
           </div>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 flex-wrap justify-center">
             <button
               type="button"
               disabled={currentPage === 1}
@@ -491,7 +491,7 @@ export function PropertyTransactionHistory({ property }: PropertyTransactionHist
               initial={{ opacity: 0, scale: 0.95, y: 16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 16 }}
-              className="relative z-10 w-full max-w-md overflow-hidden rounded-3xl border border-ink/10 bg-cream p-6 shadow-2xl sm:p-7"
+              className="relative z-10 w-full max-w-md max-h-[90vh] overflow-y-auto rounded-3xl border border-ink/10 bg-cream p-6 shadow-2xl sm:p-7"
             >
               {/* Close Button */}
               <button

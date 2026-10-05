@@ -67,15 +67,15 @@ export function ProjectDetail() {
           {project.paymentPlan && (
             <>
               <h2 className="mt-10 font-display text-2xl text-ink">Payment Plan</h2>
-              <div className="mt-4 grid max-w-lg grid-cols-3 gap-4">
+              <div className="mt-4 grid max-w-lg grid-cols-3 gap-2.5 sm:gap-4">
                 {[
                   ['On Booking', project.paymentPlan.onBooking],
                   ['During Construction', project.paymentPlan.duringConstruction],
                   ['On Handover', project.paymentPlan.onHandover],
                 ].map(([label, value]) => (
-                  <div key={label as string} className="rounded-2xl border border-ink/10 p-4 text-center">
-                    <p className="font-display text-2xl text-gold">{value}%</p>
-                    <p className="mt-1 text-[11px] uppercase tracking-[0.1em] text-ink/50">{label}</p>
+                  <div key={label as string} className="rounded-2xl border border-ink/10 p-3 text-center sm:p-4">
+                    <p className="font-display text-xl text-gold sm:text-2xl">{value}%</p>
+                    <p className="mt-1 text-[10px] leading-tight uppercase tracking-[0.06em] text-ink/50 sm:text-[11px] sm:tracking-[0.1em]">{label}</p>
                   </div>
                 ))}
               </div>

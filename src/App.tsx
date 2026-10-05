@@ -63,7 +63,7 @@ function AppRoutes() {
       <ScrollProgress />
       <ScrollToTop />
       <Navbar />
-      <main>
+      <main className="overflow-x-hidden min-h-screen">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={location.pathname}

@@ -78,8 +78,9 @@ export function PropertyGalleryMosaic({ images, alt }: { images: string[]; alt: 
                   className="aspect-square"
                   overlay={
                     showOverlay && (
-                      <span className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-cream px-3.5 py-2 text-xs font-medium text-ink shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-transform group-hover:scale-105 sm:text-[13px]">
-                        <Images size={14} /> Show all {images.length}
+                      <span className="absolute bottom-2 right-2 flex items-center gap-1 rounded-full bg-cream px-2.5 py-1 text-[11px] font-medium text-ink shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-transform group-hover:scale-105 sm:bottom-3 sm:right-3 sm:gap-1.5 sm:px-3.5 sm:py-2 sm:text-[13px]">
+                        <Images size={13} className="shrink-0 sm:size-[14px]" />
+                        <span className="whitespace-nowrap">Show all {images.length}</span>
                       </span>
                     )
                   }

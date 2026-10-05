@@ -28,7 +28,7 @@ export function ProjectCard({ project, dark = false }: { project: Project; dark?
           <Badge tone="gold">{project.status}</Badge>
         </div>
         {project.paymentPlan && (
-          <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-ink/85 px-4 py-2 text-[10px] uppercase tracking-[0.16em] text-cream backdrop-blur-sm">
+          <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-ink/85 px-3 py-2 text-[9px] uppercase tracking-[0.06em] text-cream backdrop-blur-sm sm:px-4 sm:text-[10px] sm:tracking-[0.16em]">
             <span>Booking {project.paymentPlan.onBooking}%</span>
             <span>Construction {project.paymentPlan.duringConstruction}%</span>
             <span>Handover {project.paymentPlan.onHandover}%</span>
@@ -47,7 +47,7 @@ export function ProjectCard({ project, dark = false }: { project: Project; dark?
         </p>
         <div
           className={clsx(
-            'flex items-baseline justify-between border-t pt-3',
+            'flex items-baseline justify-between border-t pt-3 flex-wrap gap-1',
             dark ? 'border-cream/10' : 'border-ink/[0.06]',
           )}
         >

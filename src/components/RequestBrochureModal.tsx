@@ -126,7 +126,7 @@ export function RequestBrochureModal({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="relative z-10 w-full max-w-lg overflow-hidden rounded-3xl border border-ink/10 bg-cream p-6 shadow-2xl sm:p-8"
+            className="relative z-10 w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl border border-ink/10 bg-cream p-6 shadow-2xl sm:p-8"
           >
             {/* Close button */}
             <button

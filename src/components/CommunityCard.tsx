@@ -39,11 +39,11 @@ export function CommunityCard({
         <ArrowUpRight size={16} />
       </div>
 
-      <div className={clsx('relative z-10 p-6', featured && 'sm:max-w-lg sm:p-9')}>
-        <p className="mb-1.5 text-[10px] uppercase tracking-[0.25em] text-cream/90 [text-shadow:0_1px_6px_rgba(0,0,0,0.5)]">
+      <div className={clsx('relative z-10 p-4 sm:p-6', featured && 'sm:max-w-lg sm:p-9')}>
+        <p className="mb-1 text-[9px] uppercase tracking-[0.18em] text-cream/90 [text-shadow:0_1px_6px_rgba(0,0,0,0.5)] truncate sm:mb-1.5 sm:text-[10px] sm:tracking-[0.25em]">
           {community.tagline}
         </p>
-        <h3 className={clsx('font-display leading-tight text-cream', featured ? 'text-3xl sm:text-4xl' : 'text-2xl')}>
+        <h3 className={clsx('font-display leading-tight text-cream', featured ? 'text-2xl sm:text-4xl' : 'text-lg sm:text-2xl')}>
           {community.name}
         </h3>
 
@@ -55,7 +55,7 @@ export function CommunityCard({
 
         <div
           className={clsx(
-            'mt-4 flex items-center gap-4 border-t border-cream/15 pt-3 text-xs text-cream/60',
+            'mt-3 flex flex-wrap items-center gap-2 border-t border-cream/15 pt-2.5 text-[11px] text-cream/60 sm:mt-4 sm:gap-4 sm:pt-3 sm:text-xs',
             !featured &&
               'translate-y-2 opacity-0 transition-all duration-400 ease-out group-hover:translate-y-0 group-hover:opacity-100',
           )}

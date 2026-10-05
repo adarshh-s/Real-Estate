@@ -148,6 +148,16 @@ export function CompareCommunities() {
 
         <div className="relative mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
           <CommunityHero community={a} />
+          <div className="flex justify-center -my-1 sm:hidden">
+            <button
+              type="button"
+              onClick={swap}
+              aria-label="Swap communities"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-white text-ink shadow-sm transition-transform active:scale-95"
+            >
+              <ArrowLeftRight size={14} />
+            </button>
+          </div>
           <CommunityHero community={b} />
           <button
             type="button"

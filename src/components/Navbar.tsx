@@ -149,7 +149,7 @@ export function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-ink/8 bg-white px-6 py-6 lg:hidden">
+        <div className="border-t border-ink/8 bg-white px-6 py-6 lg:hidden max-h-[calc(100dvh-80px)] overflow-y-auto">
           <nav className="flex flex-col gap-4">
             {LINKS.map((link) => (
               <Link key={link.label} to={link.to} className="text-sm uppercase tracking-[0.14em] text-ink/80">

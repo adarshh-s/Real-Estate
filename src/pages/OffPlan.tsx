@@ -62,7 +62,7 @@ export function OffPlan() {
           <select
             value={community}
             onChange={(e) => setCommunity(e.target.value)}
-            className="rounded-xl border border-ink/15 bg-transparent px-4 py-2.5 text-xs uppercase tracking-[0.12em] focus:border-gold focus:outline-none"
+            className="w-full sm:w-auto rounded-xl border border-ink/15 bg-cream sm:bg-transparent px-4 py-2.5 text-xs uppercase tracking-[0.12em] text-ink focus:border-gold focus:outline-none"
           >
             <option value="">All Communities</option>
             {communities.map((c) => (
@@ -74,7 +74,7 @@ export function OffPlan() {
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value as StatusFilter)}
-            className="rounded-xl border border-ink/15 bg-transparent px-4 py-2.5 text-xs uppercase tracking-[0.12em] focus:border-gold focus:outline-none"
+            className="w-full sm:w-auto rounded-xl border border-ink/15 bg-cream sm:bg-transparent px-4 py-2.5 text-xs uppercase tracking-[0.12em] text-ink focus:border-gold focus:outline-none"
           >
             {(['All', 'Launching Soon', 'Presale', 'Under Construction', 'Ready'] as StatusFilter[]).map((s) => (
               <option key={s} value={s}>

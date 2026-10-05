@@ -57,7 +57,7 @@ export function SearchBar({ light = true }: { light?: boolean }) {
               type="button"
               onClick={() => setMode(key)}
               className={clsx(
-                'relative z-10 rounded-full px-5 py-2.5 text-xs uppercase tracking-[0.18em] transition-colors duration-300',
+                'relative z-10 rounded-full px-3.5 py-2 text-xs uppercase tracking-[0.18em] transition-colors duration-300 sm:px-5 sm:py-2.5',
                 active
                   ? light
                     ? 'text-ink'
@@ -90,9 +90,9 @@ export function SearchBar({ light = true }: { light?: boolean }) {
             Community
           </label>
           <select value={community} onChange={(e) => setCommunity(e.target.value)} className={selectClasses}>
-            <option value="">All Communities</option>
+            <option value="" className="bg-white text-ink">All Communities</option>
             {communities.map((c) => (
-              <option key={c.id} value={c.name}>
+              <option key={c.id} value={c.name} className="bg-white text-ink">
                 {c.name}
               </option>
             ))}
@@ -104,9 +104,9 @@ export function SearchBar({ light = true }: { light?: boolean }) {
               Property Type
             </label>
             <select value={type} onChange={(e) => setType(e.target.value)} className={selectClasses}>
-              <option value="">All Types</option>
+              <option value="" className="bg-white text-ink">All Types</option>
               {PROPERTY_TYPES.map((t) => (
-                <option key={t} value={t}>
+                <option key={t} value={t} className="bg-white text-ink">
                   {t}
                 </option>
               ))}

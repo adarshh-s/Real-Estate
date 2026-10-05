@@ -56,6 +56,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* mobile browser chrome (address bar) makes 100vh taller than the visible
@@ -68,6 +69,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-sans);
