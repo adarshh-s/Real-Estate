@@ -1,23 +1,35 @@
-import { useMemo } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck, Handshake, Award, ChevronDown, BedDouble, Bath, Maximize, Star, Building2, Users } from 'lucide-react';
-import { SearchBar } from '../components/SearchBar';
-import { SectionHeading } from '../components/SectionHeading';
-import { PropertyCard } from '../components/PropertyCard';
-import { ProjectCard } from '../components/ProjectCard';
-import { CommunityCard } from '../components/CommunityCard';
-import { AgentCard } from '../components/AgentCard';
-import { StatStrip } from '../components/StatStrip';
-import { CinematicInterstitial } from '../components/CinematicInterstitial';
-import { Button } from '../components/Button';
-import { Reveal } from '../components/Reveal';
-import { ScrollRail } from '../components/ScrollRail';
-import { BleedRail } from '../components/BleedRail';
-import { GradientMesh } from '../components/GradientMesh';
-import { Marquee } from '../components/Marquee';
-import { VerticalTicker } from '../components/VerticalTicker';
-import { StaggerText } from '../components/StaggerText';
+import { useMemo } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  ShieldCheck,
+  Handshake,
+  Award,
+  ChevronDown,
+  BedDouble,
+  Bath,
+  Maximize,
+  Star,
+  Building2,
+  Users,
+} from "lucide-react";
+import { SearchBar } from "../components/SearchBar";
+import { SectionHeading } from "../components/SectionHeading";
+import { PropertyCard } from "../components/PropertyCard";
+import { ProjectCard } from "../components/ProjectCard";
+import { CommunityCard } from "../components/CommunityCard";
+import { AgentCard } from "../components/AgentCard";
+import { StatStrip } from "../components/StatStrip";
+import { CinematicInterstitial } from "../components/CinematicInterstitial";
+import { Button } from "../components/Button";
+import { Reveal } from "../components/Reveal";
+import { ScrollRail } from "../components/ScrollRail";
+import { BleedRail } from "../components/BleedRail";
+import { GradientMesh } from "../components/GradientMesh";
+import { Marquee } from "../components/Marquee";
+import { VerticalTicker } from "../components/VerticalTicker";
+import { StaggerText } from "../components/StaggerText";
 import {
   useProperties,
   useProjects,
@@ -25,38 +37,66 @@ import {
   useAgents,
   useTestimonials,
   useSiteSettings,
-} from '../hooks/useSanityContent';
-import { useMediaQuery } from '../hooks/useMediaQuery';
-import { exteriors, interiors } from '../lib/images';
-import { useCurrency } from '../context/CurrencyContext';
-import { formatPrice, formatNumber } from '../lib/format';
-import type { Tag } from '../types';
+} from "../hooks/useSanityContent";
+import { useMediaQuery } from "../hooks/useMediaQuery";
+import { exteriors, interiors } from "../lib/images";
+import { useCurrency } from "../context/CurrencyContext";
+import { formatPrice, formatNumber } from "../lib/format";
+import type { Tag } from "../types";
 
-const COLLECTION_BASE: { tag: Tag; title: string; description: string; image: string }[] = [
-  { tag: 'Waterfront', title: 'Waterfront Living', description: 'Beachfront villas and marina-facing towers', image: exteriors[1] },
-  { tag: 'Sky Villa', title: 'Sky Villas & Penthouses', description: 'Full-floor residences above the skyline', image: interiors[9] },
-  { tag: 'Branded Residence', title: 'Branded Residences', description: 'Hotel-branded addresses, five-star service', image: interiors[14] },
-  { tag: 'Exclusive', title: 'Exclusive Collection', description: 'Off-market and limited-release listings', image: exteriors[6] },
+const COLLECTION_BASE: {
+  tag: Tag;
+  title: string;
+  description: string;
+  image: string;
+}[] = [
+  {
+    tag: "Waterfront",
+    title: "Waterfront Living",
+    description: "Beachfront villas and marina-facing towers",
+    image: exteriors[1],
+  },
+  {
+    tag: "Sky Villa",
+    title: "Sky Villas & Penthouses",
+    description: "Full-floor residences above the skyline",
+    image: interiors[9],
+  },
+  {
+    tag: "Branded Residence",
+    title: "Branded Residences",
+    description: "Hotel-branded addresses, five-star service",
+    image: interiors[14],
+  },
+  {
+    tag: "Exclusive",
+    title: "Exclusive Collection",
+    description: "Off-market and limited-release listings",
+    image: exteriors[6],
+  },
 ];
 
 const TRUST_ITEMS = [
-  { icon: ShieldCheck, label: 'RERA Licensed Brokerage' },
-  { icon: Star, label: '96% Client Satisfaction' },
-  { icon: Building2, label: '80+ Units Sold' },
-  { icon: Users, label: '6 Senior Consultants' },
+  { icon: ShieldCheck, label: "RERA Licensed Brokerage" },
+  { icon: Star, label: "96% Client Satisfaction" },
+  { icon: Building2, label: "80+ Units Sold" },
+  { icon: Users, label: "6 Senior Consultants" },
 ];
 
 export function Home() {
   const { currency } = useCurrency();
   const settings = useSiteSettings();
-  const isMobileViewport = useMediaQuery('(max-width: 767px)');
+  const isMobileViewport = useMediaQuery("(max-width: 767px)");
   const properties = useProperties();
   const projects = useProjects();
   const communities = useCommunities();
   const agents = useAgents();
   const testimonials = useTestimonials();
 
-  const featured = useMemo(() => properties.filter((p) => p.featured).slice(0, 6), [properties]);
+  const featured = useMemo(
+    () => properties.filter((p) => p.featured).slice(0, 6),
+    [properties],
+  );
   // Curated in Sanity via each listing's "Show in Live Portfolio Activity"
   // toggle, pulling from both properties and off-plan projects. Falls back
   // to the newest properties (with a cycling label) so the section never
@@ -71,7 +111,7 @@ export function Home() {
         subtitle: p.community,
         image: p.images[0],
         priceAED: p.priceAED,
-        label: p.activityLabel || 'Update',
+        label: p.activityLabel || "Update",
       }));
     const fromProjects = projects
       .filter((p) => p.showInActivity)
@@ -82,12 +122,17 @@ export function Home() {
         subtitle: p.community,
         image: p.images[0],
         priceAED: p.priceFromAED,
-        label: p.activityLabel || 'Update',
+        label: p.activityLabel || "Update",
       }));
     const curated = [...fromProperties, ...fromProjects];
     if (curated.length > 0) return curated;
 
-    const fallbackLabels = ['Just Listed', 'Price Updated', 'Under Offer', 'New Match'];
+    const fallbackLabels = [
+      "Just Listed",
+      "Price Updated",
+      "Under Offer",
+      "New Match",
+    ];
     return properties.slice(0, 8).map((p, i) => ({
       id: p.id,
       href: `/property/${p.slug}`,
@@ -99,7 +144,10 @@ export function Home() {
     }));
   }, [properties, projects]);
   const spotlightProjects = useMemo(() => projects.slice(0, 3), [projects]);
-  const spotlightCommunities = useMemo(() => communities.slice(0, 6), [communities]);
+  const spotlightCommunities = useMemo(
+    () => communities.slice(0, 6),
+    [communities],
+  );
   const heroFeaturedProperty = featured[0] ?? properties[0];
   const COLLECTIONS = useMemo(
     () =>
@@ -123,13 +171,20 @@ export function Home() {
           preload="auto"
           // @ts-expect-error fetchPriority isn't in the video element's TS types yet, but Chrome/Edge support it
           fetchPriority="high"
-          poster={(isMobileViewport && settings.heroPosterMobileUrl) || settings.heroPosterUrl}
+          poster={
+            (isMobileViewport && settings.heroPosterMobileUrl) ||
+            settings.heroPosterUrl
+          }
           className="absolute inset-0 h-full w-full scale-[1.02] object-cover object-center"
         >
           {/* portrait-cropped source so phones don't just get a narrow sliver of the
               desktop widescreen video stretched full-height, see heroVideoMobile in Sanity */}
           {settings.heroVideoMobileUrl && (
-            <source src={settings.heroVideoMobileUrl} type="video/mp4" media="(max-width: 767px)" />
+            <source
+              src={settings.heroVideoMobileUrl}
+              type="video/mp4"
+              media="(max-width: 767px)"
+            />
           )}
           <source src={settings.heroVideoUrl} type="video/mp4" />
         </video>
@@ -150,18 +205,30 @@ export function Home() {
               <span className="h-px w-8 bg-gold-soft" /> {settings.heroKicker}
             </p>
             <h1 className="max-w-3xl font-display text-4xl leading-[1.05] text-cream sm:text-5xl md:text-6xl lg:text-7xl">
-              <StaggerText text={settings.heroHeadlineLine1 ?? ''} delay={0.15} />
+              <StaggerText
+                text={settings.heroHeadlineLine1 ?? ""}
+                delay={0.15}
+              />
               <br />
-              <StaggerText text={settings.heroHeadlineLine2 ?? ''} delay={0.4} />
+              <StaggerText
+                text={settings.heroHeadlineLine2 ?? ""}
+                delay={0.4}
+              />
             </h1>
-            <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-cream/70">{settings.heroSubtitle}</p>
+            <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-cream/70">
+              {settings.heroSubtitle}
+            </p>
           </motion.div>
 
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.9,
+                delay: 0.25,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="lg:flex-1"
             >
               <SearchBar />
@@ -170,7 +237,11 @@ export function Home() {
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.9,
+                delay: 0.5,
+                ease: [0.22, 1, 0.36, 1],
+              }}
             >
               <Link
                 to={`/property/${heroFeaturedProperty.slug}`}
@@ -196,7 +267,8 @@ export function Home() {
                       <Bath size={12} /> {heroFeaturedProperty.baths}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Maximize size={12} /> {formatNumber(heroFeaturedProperty.sizeSqft)} sqft
+                      <Maximize size={12} />{" "}
+                      {formatNumber(heroFeaturedProperty.sizeSqft)} sqft
                     </span>
                   </div>
                   <p className="mt-1 font-display text-sm text-gold-soft">
@@ -226,9 +298,18 @@ export function Home() {
       >
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 rounded-full border border-cream/15 bg-ink/70 px-8 py-4 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] backdrop-blur-xl lg:flex-nowrap lg:justify-between">
           {TRUST_ITEMS.map((t) => (
-            <div key={t.label} className="flex items-center gap-2.5 text-cream/85">
-              <t.icon size={15} className="shrink-0 text-gold-soft" strokeWidth={1.6} />
-              <span className="text-[11px] uppercase tracking-[0.14em] whitespace-nowrap">{t.label}</span>
+            <div
+              key={t.label}
+              className="flex items-center gap-2.5 text-cream/85"
+            >
+              <t.icon
+                size={15}
+                className="shrink-0 text-gold-soft"
+                strokeWidth={1.6}
+              />
+              <span className="text-[11px] uppercase tracking-[0.14em] whitespace-nowrap">
+                {t.label}
+              </span>
             </div>
           ))}
         </div>
@@ -284,8 +365,9 @@ export function Home() {
               Live portfolio activity
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-ink/60">
-              New listings, price updates and offers move quickly across our portfolio. This is a
-              live edit of what our consultants are working on right now.
+              New listings, price updates and offers move quickly across our
+              portfolio. This is a live edit of what our consultants are working
+              on right now.
             </p>
             <Button to="/listings" variant="outline" className="mt-8">
               View All Listings
@@ -328,8 +410,12 @@ export function Home() {
                     <p className="mb-1.5 text-[10px] uppercase tracking-[0.25em] text-gold-soft">
                       {c.count} Residences
                     </p>
-                    <h3 className="font-display text-xl leading-tight">{c.title}</h3>
-                    <p className="mt-1 text-xs text-cream/60">{c.description}</p>
+                    <h3 className="font-display text-xl leading-tight">
+                      {c.title}
+                    </h3>
+                    <p className="mt-1 text-xs text-cream/60">
+                      {c.description}
+                    </p>
                   </div>
                 </Link>
               </Reveal>
@@ -436,23 +522,29 @@ export function Home() {
               Inside Dubai’s luxury property landscape
             </h2>
             <p className="relative mt-6 max-w-md text-[15px] leading-relaxed text-ink/60">
-              From the Palm’s new frond extensions to the branded residences reshaping Downtown,
-              our editorial desk tracks the developments, data and design stories defining the
-              city’s ultra-prime market.
+              From the Palm’s new frond extensions to the branded residences
+              reshaping Downtown, our editorial desk tracks the developments,
+              data and design stories defining the city’s ultra-prime market.
             </p>
 
             <div className="relative mt-9 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-ink/10 pt-6">
               <div>
                 <p className="font-display text-xl text-ink">80+</p>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">Units Sold</p>
+                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">
+                  Units Sold
+                </p>
               </div>
               <div>
                 <p className="font-display text-xl text-ink">6</p>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">Senior Consultants</p>
+                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">
+                  Senior Consultants
+                </p>
               </div>
               <div>
                 <p className="font-display text-xl text-ink">12+ Yrs</p>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">Combined Experience</p>
+                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/45">
+                  Combined Experience
+                </p>
               </div>
             </div>
 
@@ -461,7 +553,10 @@ export function Home() {
               className="group/link relative mt-9 inline-flex w-fit items-center gap-2 text-xs uppercase tracking-[0.18em] text-ink"
             >
               Read Our Perspective
-              <ArrowRight size={14} className="transition-transform duration-300 group-hover/link:translate-x-1.5" />
+              <ArrowRight
+                size={14}
+                className="transition-transform duration-300 group-hover/link:translate-x-1.5"
+              />
               <span className="absolute -bottom-1 left-0 h-px w-0 bg-ink transition-all duration-300 group-hover/link:w-full" />
             </Link>
           </Reveal>
@@ -474,27 +569,31 @@ export function Home() {
         <div className="bg-grid absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
-            <SectionHeading kicker="Why S I A Luxe" title="A Private Office, Not a Portal" align="center" />
+            <SectionHeading
+              kicker="Why S I A Luxe"
+              title="A Private Office, Not a Portal"
+              align="center"
+            />
           </Reveal>
           <div className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-3">
             {[
               {
                 icon: Handshake,
-                stat: '1:1',
-                title: 'Boutique By Design',
-                body: 'Every client works directly with a senior advisor, never through a rotating desk of coordinators.',
+                stat: "1:1",
+                title: "Boutique By Design",
+                body: "Every client works directly with a senior advisor, never through a rotating desk of coordinators.",
               },
               {
                 icon: ShieldCheck,
-                stat: '100%',
-                title: 'Discreet By Design',
-                body: 'Off market opportunities and confidential negotiations for clients who value privacy above all.',
+                stat: "100%",
+                title: "Discreet By Design",
+                body: "Off-market opportunities and confidential negotiations for clients who value privacy above all.",
               },
               {
                 icon: Award,
-                stat: '12+ Yrs',
-                title: 'Market Experience',
-                body: 'Built on more than a decade of Dubai real estate experience, with an advisory approach shaped by investment, market intelligence and client representation.',
+                stat: "12+ Yrs",
+                title: "Market Experience",
+                body: "Built on more than a decade of Dubai real estate experience, with an advisory approach shaped by investment, market intelligence and client representation.",
               },
             ].map((f, i) => (
               <Reveal key={f.title} delay={i * 0.08} className="h-full">
@@ -502,9 +601,15 @@ export function Home() {
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-ink text-cream transition-transform duration-500 ease-out group-hover:rotate-6 group-hover:scale-110">
                     <f.icon size={20} strokeWidth={1.5} />
                   </div>
-                  <p className="mt-8 font-display text-4xl text-ink">{f.stat}</p>
-                  <h3 className="mt-2 font-display text-lg text-ink">{f.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-ink/55">{f.body}</p>
+                  <p className="mt-8 font-display text-4xl text-ink">
+                    {f.stat}
+                  </p>
+                  <h3 className="mt-2 font-display text-lg text-ink">
+                    {f.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink/55">
+                    {f.body}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -542,12 +647,22 @@ export function Home() {
       {/* Testimonials */}
       <section className="mx-auto max-w-7xl px-6 py-16 sm:py-20 md:py-28 lg:py-36 lg:px-10">
         <Reveal>
-          <SectionHeading kicker="Client Word" title="Trusted By Discerning Owners" align="center" />
+          <SectionHeading
+            kicker="Client Word"
+            title="Trusted By Discerning Owners"
+            align="center"
+          />
         </Reveal>
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-3">
           {testimonials.map((t, i) => (
-            <Reveal key={t.id} delay={i * 0.08} className="border-t border-gold pt-6">
-              <p className="font-display text-lg italic leading-snug text-ink">“{t.quote}”</p>
+            <Reveal
+              key={t.id}
+              delay={i * 0.08}
+              className="border-t border-gold pt-6"
+            >
+              <p className="font-display text-lg italic leading-snug text-ink">
+                “{t.quote}”
+              </p>
               <p className="mt-5 text-xs uppercase tracking-[0.12em] text-ink/50">
                 {t.name}, {t.role}
               </p>
@@ -558,17 +673,23 @@ export function Home() {
 
       {/* CTA */}
       <section className="relative overflow-hidden">
-        <img src={exteriors[3]} alt="Sell with S I A Luxe" className="absolute inset-0 h-full w-full object-cover" />
+        <img
+          src={exteriors[3]}
+          alt="Sell with S I A Luxe"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div className="absolute inset-0 bg-ink/70" />
         <div className="grain-overlay" />
         <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 py-20 md:py-28 text-center">
-          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold-soft">Thinking Of Selling?</p>
+          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold-soft">
+            Thinking Of Selling?
+          </p>
           <h2 className="font-display text-3xl leading-tight text-cream sm:text-4xl">
             Let’s find the right buyer for your property
           </h2>
           <p className="mt-5 max-w-lg text-[15px] text-cream/70">
-            Request a complimentary valuation and a discreet marketing strategy from a S I A Luxe
-            partner.
+            Request a complimentary valuation and a discreet marketing strategy
+            from a S I A Luxe partner.
           </p>
           <Button to="/sell" variant="outline-light" className="mt-8">
             Request a Valuation
