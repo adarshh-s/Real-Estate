@@ -282,6 +282,10 @@ export function PropertyDetail() {
         developer={property.developer}
         community={property.community}
         priceFromAED={property.priceAED}
+        propertyReference={property.reference}
+        isProperty={true}
+        agentName={agent?.name}
+        agentEmail={agent?.email}
       />
     </motion.div>
   );

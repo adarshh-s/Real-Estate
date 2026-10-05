@@ -17,13 +17,13 @@ export function Sell() {
   const settings = useSiteSettings();
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     setSending(true);
-    setError(false);
+    setError(null);
     try {
       const res = await fetch('/api/enquiry', {
         method: 'POST',
@@ -38,10 +38,13 @@ export function Sell() {
           message: form.get('message') || 'No additional details provided.',
         }),
       });
-      if (!res.ok) throw new Error('Request failed');
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to submit valuation request');
+      }
       setSubmitted(true);
-    } catch {
-      setError(true);
+    } catch (err: any) {
+      setError(err?.message || 'Something went wrong sending your request.');
     } finally {
       setSending(false);
     }
@@ -75,6 +78,13 @@ export function Sell() {
                 A S I A Luxe partner will contact you within one business day to schedule your
                 valuation.
               </p>
+              <button
+                type="button"
+                onClick={() => setSubmitted(false)}
+                className="mt-6 mx-auto inline-flex items-center text-xs uppercase tracking-wider text-ink/70 hover:text-ink underline underline-offset-4"
+              >
+                Submit another property
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -92,7 +102,7 @@ export function Sell() {
                     name="community"
                     required
                     defaultValue=""
-                    className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none"
+                    className="w-full rounded-xl border border-ink/15 bg-cream px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none"
                   >
                     <option value="" disabled>
                       Select community
@@ -113,14 +123,17 @@ export function Sell() {
                 <textarea
                   name="message"
                   rows={4}
+                  placeholder="Bedrooms, view, current condition or timeline..."
                   className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none"
                 />
               </div>
               {error && (
-                <p className="text-sm text-red-600">
-                  Something went wrong sending your request. Please call {settings.contactPhone} or
-                  email {settings.contactEmail} directly.
-                </p>
+                <div className="rounded-xl border border-red-200 bg-red-50/50 p-4 text-xs text-red-600">
+                  <p className="font-semibold">{error}</p>
+                  <p className="mt-1 text-ink/60">
+                    Alternatively, call {settings.contactPhone} or email {settings.contactEmail} directly.
+                  </p>
+                </div>
               )}
               <button
                 type="submit"

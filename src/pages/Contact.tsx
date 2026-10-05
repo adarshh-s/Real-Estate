@@ -7,13 +7,13 @@ export function Contact() {
   const settings = useSiteSettings();
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     setSending(true);
-    setError(false);
+    setError(null);
     try {
       const res = await fetch('/api/enquiry', {
         method: 'POST',
@@ -22,14 +22,18 @@ export function Contact() {
           formType: 'contact',
           name: form.get('name'),
           email: form.get('email'),
+          phone: form.get('phone'),
           subject: form.get('subject'),
           message: form.get('message'),
         }),
       });
-      if (!res.ok) throw new Error('Request failed');
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to send enquiry');
+      }
       setSubmitted(true);
-    } catch {
-      setError(true);
+    } catch (err: any) {
+      setError(err?.message || 'Something went wrong sending your message.');
     } finally {
       setSending(false);
     }
@@ -52,42 +56,57 @@ export function Contact() {
             <div className="flex h-full flex-col justify-center rounded-2xl border border-ink/10 p-8 text-center">
               <p className="font-display text-2xl text-gold">Message sent</p>
               <p className="mt-3 text-sm text-ink/60">A member of our team will respond shortly.</p>
+              <button
+                type="button"
+                onClick={() => setSubmitted(false)}
+                className="mt-6 mx-auto inline-flex items-center text-xs uppercase tracking-wider text-ink/70 hover:text-ink underline underline-offset-4"
+              >
+                Send another message
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">Full Name</label>
-                  <input name="name" required className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none" />
+                  <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">Full Name *</label>
+                  <input name="name" required placeholder="Your full name" className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none" />
                 </div>
                 <div>
-                  <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">Email</label>
-                  <input name="email" type="email" required className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none" />
+                  <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">Email *</label>
+                  <input name="email" type="email" required placeholder="name@example.com" className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none" />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div>
+                  <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">Phone / WhatsApp</label>
+                  <input name="phone" type="tel" placeholder="+971 50 000 0000" className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none" />
+                </div>
+                <div>
+                  <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">Subject</label>
+                  <select
+                    name="subject"
+                    defaultValue="General Enquiry"
+                    className="w-full rounded-xl border border-ink/15 bg-cream px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none"
+                  >
+                    <option>General Enquiry</option>
+                    <option>Buying</option>
+                    <option>Renting</option>
+                    <option>Selling</option>
+                    <option>Off-Plan Investment</option>
+                  </select>
                 </div>
               </div>
               <div>
-                <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">Subject</label>
-                <select
-                  name="subject"
-                  defaultValue="General Enquiry"
-                  className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none"
-                >
-                  <option>General Enquiry</option>
-                  <option>Buying</option>
-                  <option>Renting</option>
-                  <option>Selling</option>
-                  <option>Off-Plan Investment</option>
-                </select>
-              </div>
-              <div>
-                <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">Message</label>
-                <textarea name="message" rows={5} required className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none" />
+                <label className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-ink/40">Message *</label>
+                <textarea name="message" rows={5} required placeholder="How can our advisory desk assist you?" className="w-full rounded-xl border border-ink/15 bg-transparent px-3.5 py-2.5 text-sm focus:border-gold focus:outline-none" />
               </div>
               {error && (
-                <p className="text-sm text-red-600">
-                  Something went wrong sending your message. Please call {settings.contactPhone} or
-                  email {settings.contactEmail} directly.
-                </p>
+                <div className="rounded-xl border border-red-200 bg-red-50/50 p-4 text-xs text-red-600">
+                  <p className="font-semibold">{error}</p>
+                  <p className="mt-1 text-ink/60">
+                    Alternatively, call {settings.contactPhone} or email {settings.contactEmail} directly.
+                  </p>
+                </div>
               )}
               <button
                 type="submit"

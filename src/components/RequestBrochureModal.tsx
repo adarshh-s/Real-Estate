@@ -11,6 +11,10 @@ interface RequestBrochureModalProps {
   community?: string;
   priceFromAED?: number;
   brochureUrl?: string; // If an actual official brochure file/url is uploaded in Sanity
+  propertyReference?: string;
+  isProperty?: boolean;
+  agentName?: string;
+  agentEmail?: string;
 }
 
 export function RequestBrochureModal({
@@ -19,7 +23,12 @@ export function RequestBrochureModal({
   projectName,
   developer,
   community,
+  priceFromAED,
   brochureUrl,
+  propertyReference,
+  isProperty,
+  agentName,
+  agentEmail,
 }: RequestBrochureModalProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -51,7 +60,7 @@ export function RequestBrochureModal({
   }, [isOpen, onClose]);
 
   const whatsappMessage = encodeURIComponent(
-    `Hello, I would like to request the official brochure and floor plans for ${projectName}${developer ? ` by ${developer}` : ''}${community ? ` in ${community}` : ''}. (${userRole})`
+    `Hello, I would like to request details for ${projectName}${propertyReference ? ` (Ref: ${propertyReference})` : ''}${developer ? ` by ${developer}` : ''}${community ? ` in ${community}` : ''}. (${userRole})`
   );
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -81,7 +90,7 @@ export function RequestBrochureModal({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          formType: 'brochure',
+          formType: isProperty ? 'enquiry' : 'brochure',
           name: name.trim(),
           email: email.trim(),
           phone: phone.trim(),
@@ -89,18 +98,25 @@ export function RequestBrochureModal({
           projectName,
           developer,
           community,
+          propertyReference,
+          priceAED: priceFromAED,
+          preferredDelivery: deliveryLabel,
+          agentName,
+          agentEmail,
           message: composedMessage,
         }),
       });
 
+      const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        throw new Error('Failed to send request');
+        throw new Error(data.error || 'Failed to send request');
       }
 
       setStatus('success');
-    } catch {
+    } catch (err: any) {
       setStatus('error');
       setErrorMessage(
+        err?.message ||
         'Unable to complete request right now. You can also connect with our advisory desk directly via WhatsApp below.'
       );
     }
@@ -200,15 +216,20 @@ export function RequestBrochureModal({
                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gold/15 text-gold">
                       <FileText size={16} />
                     </div>
-                    <Badge tone="gold">Project Brochure & Floor Plans</Badge>
+                    <Badge tone="gold">
+                      {isProperty ? 'Property Dossier & Details' : 'Project Brochure & Floor Plans'}
+                    </Badge>
                   </div>
-                  <h2 className="mt-3 font-display text-2xl text-ink sm:text-3xl">Request Brochure</h2>
+                  <h2 className="mt-3 font-display text-2xl text-ink sm:text-3xl">
+                    {isProperty ? 'Request Property Details' : 'Request Brochure'}
+                  </h2>
                   <p className="mt-1 text-xs uppercase tracking-[0.14em] text-ink/50">
-                    {projectName} {developer ? `· ${developer}` : ''} {community ? `· ${community}` : ''}
+                    {projectName} {propertyReference ? `· Ref: ${propertyReference}` : ''} {developer ? `· ${developer}` : ''} {community ? `· ${community}` : ''}
                   </p>
                   <p className="mt-2 text-xs leading-relaxed text-ink/65">
-                    Receive the complete developer package including floor layouts, specification sheet,
-                    payment schedule and current unit inventory.
+                    {isProperty
+                      ? 'Receive the complete property dossier including floor layouts, specification sheet, and private viewing arrangements.'
+                      : 'Receive the complete developer package including floor layouts, specification sheet, payment schedule and current unit inventory.'}
                   </p>
                 </div>
 
@@ -339,7 +360,7 @@ export function RequestBrochureModal({
                         </>
                       ) : (
                         <>
-                          Request Official Brochure <ArrowRight size={14} />
+                          {isProperty ? 'Request Property Dossier' : 'Request Official Brochure'} <ArrowRight size={14} />
                         </>
                       )}
                     </button>
